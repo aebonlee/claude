@@ -1,0 +1,118 @@
+import { useState, useMemo } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
+import SEOHead from '../../components/SEOHead';
+
+const glossaryTerms = [
+  { term: 'LLM', termEn: 'Large Language Model', def: '대규모 텍스트 데이터로 학습된 인공지능 모델. 자연어를 이해하고 생성할 수 있습니다.', defEn: 'An AI model trained on massive text data. Capable of understanding and generating natural language.' },
+  { term: 'Transformer', termEn: 'Transformer', def: 'Self-Attention 메커니즘을 사용하는 딥러닝 아키텍처. 대부분의 현대 LLM의 기반입니다.', defEn: 'A deep learning architecture using self-attention mechanisms. The foundation of most modern LLMs.' },
+  { term: '토큰 (Token)', termEn: 'Token', def: 'LLM이 텍스트를 처리하는 기본 단위. 단어, 부분 단어, 또는 문자일 수 있습니다.', defEn: 'The basic unit LLMs use to process text. Can be a word, subword, or character.' },
+  { term: '컨텍스트 윈도우 (Context Window)', termEn: 'Context Window', def: '모델이 한 번에 처리할 수 있는 최대 토큰 수. Claude는 최대 200K 토큰을 지원합니다.', defEn: 'The maximum number of tokens a model can process at once. Claude supports up to 200K tokens.' },
+  { term: '온도 (Temperature)', termEn: 'Temperature', def: '출력의 무작위성을 제어하는 매개변수. 0에 가까울수록 결정적, 1에 가까울수록 창의적입니다.', defEn: 'A parameter controlling output randomness. Closer to 0 is deterministic, closer to 1 is creative.' },
+  { term: 'Top-P', termEn: 'Top-P (Nucleus Sampling)', def: '누적 확률 기반 샘플링 방법. Temperature와 함께 출력 다양성을 조절합니다.', defEn: 'A cumulative probability-based sampling method. Controls output diversity alongside temperature.' },
+  { term: '시스템 프롬프트 (System Prompt)', termEn: 'System Prompt', def: 'AI의 역할, 성격, 제약 조건을 설정하는 초기 지시문. 대화 전체의 맥락을 결정합니다.', defEn: 'An initial instruction that sets the AI\'s role, personality, and constraints. Determines the context for the entire conversation.' },
+  { term: 'Few-shot Learning', termEn: 'Few-shot Learning', def: '프롬프트에 몇 가지 예시를 포함하여 모델이 패턴을 학습하도록 하는 기법입니다.', defEn: 'A technique where a few examples are included in the prompt to help the model learn the pattern.' },
+  { term: 'Chain of Thought (CoT)', termEn: 'Chain of Thought', def: '모델이 단계별로 추론 과정을 보여주도록 유도하는 프롬프팅 기법입니다.', defEn: 'A prompting technique that guides the model to show its reasoning process step by step.' },
+  { term: 'RAG', termEn: 'Retrieval-Augmented Generation', def: '외부 데이터베이스에서 관련 정보를 검색하여 응답 생성에 활용하는 기법입니다.', defEn: 'A technique that retrieves relevant information from external databases to enhance response generation.' },
+  { term: '파인튜닝 (Fine-tuning)', termEn: 'Fine-tuning', def: '사전 학습된 모델을 특정 도메인이나 작업에 맞게 추가 학습시키는 과정입니다.', defEn: 'The process of further training a pre-trained model for a specific domain or task.' },
+  { term: '임베딩 (Embedding)', termEn: 'Embedding', def: '텍스트를 고차원 벡터 공간의 숫자 배열로 변환하는 것. 의미적 유사도 비교에 사용됩니다.', defEn: 'Converting text into numerical arrays in high-dimensional vector space. Used for semantic similarity comparison.' },
+  { term: '벡터 데이터베이스 (Vector Database)', termEn: 'Vector Database', def: '임베딩 벡터를 저장하고 유사도 검색을 수행하는 특화된 데이터베이스입니다.', defEn: 'A specialized database for storing embedding vectors and performing similarity searches.' },
+  { term: '프롬프트 엔지니어링 (Prompt Engineering)', termEn: 'Prompt Engineering', def: 'AI 모델에서 원하는 결과를 얻기 위해 입력 프롬프트를 설계하고 최적화하는 기술입니다.', defEn: 'The art and science of designing and optimizing input prompts to get desired results from AI models.' },
+  { term: '환각 (Hallucination)', termEn: 'Hallucination', def: 'AI 모델이 사실이 아닌 정보를 자신 있게 생성하는 현상입니다.', defEn: 'A phenomenon where AI models confidently generate information that is not factual.' },
+  { term: 'RLHF', termEn: 'Reinforcement Learning from Human Feedback', def: '인간의 피드백을 사용하여 모델의 행동을 개선하는 강화학습 기법입니다.', defEn: 'A reinforcement learning technique that uses human feedback to improve model behavior.' },
+  { term: 'Constitutional AI', termEn: 'Constitutional AI', def: 'Anthropic이 개발한 AI 안전 기법. 헌법적 원칙에 따라 AI가 스스로 출력을 평가하고 수정합니다.', defEn: 'An AI safety technique developed by Anthropic. The AI evaluates and revises its own outputs based on constitutional principles.' },
+  { term: 'MCP', termEn: 'Model Context Protocol', def: 'AI 모델이 외부 도구 및 데이터 소스와 통신하기 위한 개방형 프로토콜입니다.', defEn: 'An open protocol for AI models to communicate with external tools and data sources.' },
+  { term: 'Tool Use', termEn: 'Tool Use (Function Calling)', def: 'AI 모델이 외부 함수나 API를 호출하여 작업을 수행하는 기능입니다.', defEn: 'A capability where AI models call external functions or APIs to perform tasks.' },
+  { term: '에이전트 (Agent)', termEn: 'Agent', def: '목표를 달성하기 위해 자율적으로 계획하고, 도구를 사용하며, 행동하는 AI 시스템입니다.', defEn: 'An AI system that autonomously plans, uses tools, and takes actions to achieve goals.' },
+  { term: 'Agentic AI', termEn: 'Agentic AI', def: '자율적으로 복잡한 작업을 수행하는 에이전트 기반 AI 시스템을 총칭합니다.', defEn: 'A general term for agent-based AI systems that autonomously perform complex tasks.' },
+  { term: '확장 사고 (Extended Thinking)', termEn: 'Extended Thinking', def: 'Claude가 복잡한 문제에 대해 더 깊이 사고할 수 있도록 하는 기능입니다.', defEn: 'A feature that allows Claude to think more deeply about complex problems.' },
+  { term: '스트리밍 (Streaming)', termEn: 'Streaming', def: 'API 응답을 한꺼번에 받지 않고, 생성되는 대로 실시간으로 토큰을 받는 방식입니다.', defEn: 'A method of receiving tokens in real-time as they are generated, rather than waiting for the complete response.' },
+  { term: 'Artifacts', termEn: 'Artifacts', def: 'Claude.ai에서 코드, 문서, 다이어그램 등의 결과물을 별도 패널에 표시하는 기능입니다.', defEn: 'A feature in Claude.ai that displays outputs like code, documents, and diagrams in a separate panel.' },
+  { term: 'CLAUDE.md', termEn: 'CLAUDE.md', def: '프로젝트의 규칙과 컨텍스트를 Claude Code에 전달하기 위한 설정 파일입니다.', defEn: 'A configuration file for conveying project rules and context to Claude Code.' },
+  { term: 'Hooks', termEn: 'Hooks', def: 'Claude Code에서 특정 이벤트(파일 변경, 명령 실행 등) 전후에 자동으로 실행되는 사용자 정의 스크립트입니다.', defEn: 'Custom scripts that automatically run before or after specific events (file changes, command execution, etc.) in Claude Code.' },
+  { term: '슬래시 커맨드 (Slash Commands)', termEn: 'Slash Commands', def: 'Claude Code에서 /로 시작하는 빠른 명령어. 자주 쓰는 작업을 단축키처럼 사용합니다.', defEn: 'Quick commands starting with / in Claude Code. Used like shortcuts for frequently performed tasks.' },
+  { term: 'Claude Code', termEn: 'Claude Code', def: 'Anthropic이 만든 에이전틱 코딩 도구. 터미널에서 코드 작성, 분석, 디버깅을 수행합니다.', defEn: 'An agentic coding tool built by Anthropic. Performs code writing, analysis, and debugging in the terminal.' },
+  { term: 'Claude Work', termEn: 'Claude Work', def: 'Claude의 업무 활용 가이드. 문서 작성, 데이터 분석, 이메일 등 비즈니스 업무에 활용하는 방법입니다.', defEn: 'A guide for using Claude at work. Covers document writing, data analysis, email, and other business tasks.' },
+  { term: 'API Key', termEn: 'API Key', def: 'Anthropic API에 접근하기 위한 인증 키. Anthropic Console에서 발급받을 수 있습니다.', defEn: 'An authentication key for accessing the Anthropic API. Can be obtained from the Anthropic Console.' },
+];
+
+export default function Glossary() {
+  const { language } = useLanguage();
+  const isKo = language === 'ko';
+  const [search, setSearch] = useState('');
+
+  const filtered = useMemo(() => {
+    if (!search.trim()) return glossaryTerms;
+    const q = search.toLowerCase();
+    return glossaryTerms.filter(
+      (item) =>
+        item.term.toLowerCase().includes(q) ||
+        item.termEn.toLowerCase().includes(q) ||
+        item.def.toLowerCase().includes(q) ||
+        item.defEn.toLowerCase().includes(q)
+    );
+  }, [search]);
+
+  return (
+    <div className="content-page">
+      <SEOHead
+        title={isKo ? 'AI 용어 사전' : 'AI Glossary'}
+        description={isKo ? 'AI 및 Claude 관련 핵심 용어를 정리한 용어 사전입니다.' : 'A glossary of key AI and Claude-related terms.'}
+        path="/glossary"
+      />
+      <div className="container">
+        <div className="page-header" style={{ paddingTop: 0, borderBottom: 'none' }}>
+          <h1>{isKo ? 'AI 용어 사전' : 'AI Glossary'}</h1>
+          <p className="page-desc">
+            {isKo
+              ? 'AI와 Claude 관련 핵심 용어를 검색하고 학습하세요.'
+              : 'Search and learn key terms related to AI and Claude.'}
+          </p>
+        </div>
+
+        <div className="glossary-search">
+          <i className="fa-solid fa-magnifying-glass search-icon" />
+          <input
+            type="text"
+            placeholder={isKo ? '용어 검색...' : 'Search terms...'}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+
+        <div className="glossary-list">
+          {filtered.length === 0 && (
+            <p style={{ textAlign: 'center', color: 'var(--text-light)', padding: '40px 0' }}>
+              {isKo ? '검색 결과가 없습니다.' : 'No results found.'}
+            </p>
+          )}
+          {filtered.map((item, idx) => (
+            <div key={idx} className="glossary-item">
+              <div className="glossary-term">
+                {isKo ? item.term : item.termEn}
+                {isKo && item.termEn !== item.term && (
+                  <span style={{ fontWeight: 400, fontSize: '14px', color: 'var(--text-light)', marginLeft: '8px' }}>
+                    {item.termEn}
+                  </span>
+                )}
+                {!isKo && item.term !== item.termEn && (
+                  <span style={{ fontWeight: 400, fontSize: '14px', color: 'var(--text-light)', marginLeft: '8px' }}>
+                    {item.term}
+                  </span>
+                )}
+              </div>
+              <div className="glossary-definition">
+                {isKo ? item.def : item.defEn}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p style={{ textAlign: 'center', marginTop: '32px', fontSize: '14px', color: 'var(--text-light)' }}>
+          {isKo
+            ? `총 ${filtered.length}개의 용어`
+            : `${filtered.length} terms total`}
+        </p>
+      </div>
+    </div>
+  );
+}

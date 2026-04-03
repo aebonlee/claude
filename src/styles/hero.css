@@ -1,0 +1,155 @@
+/* ============================================
+   Claude Master - Hero Section
+   ============================================ */
+
+.hero {
+    position: relative;
+    padding: calc(var(--nav-height) + 80px) 0 100px;
+    background: var(--hero-bg);
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(217, 119, 6, 0.15) 0%, transparent 70%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+}
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 60%;
+    height: 150%;
+    background: radial-gradient(ellipse, rgba(61, 109, 181, 0.15) 0%, transparent 70%);
+    animation: heroGlow 10s ease-in-out infinite alternate-reverse;
+}
+@keyframes heroGlow {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    backdrop-filter: blur(8px);
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--text-white);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+}
+.hero-title-highlight {
+    background: linear-gradient(135deg, #FDE68A, #F59E0B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hero-actions .btn {
+    min-width: 180px;
+}
+
+/* Hero Carousel */
+.hero-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 60px auto 0;
+    padding: 0 40px;
+}
+.carousel-track {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+.carousel-slide {
+    display: none;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(8px);
+    text-align: left;
+}
+.carousel-slide.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+.carousel-slide-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 12px;
+}
+.carousel-slide-desc {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+}
+.carousel-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 24px;
+}
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+.carousel-dot.active {
+    background: var(--accent-amber-light);
+    transform: scale(1.2);
+}

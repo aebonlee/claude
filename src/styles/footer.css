@@ -1,0 +1,97 @@
+/* ============================================
+   Claude Master - Footer
+   ============================================ */
+
+.footer {
+    background: #0F172A;
+    color: #94A3B8;
+    padding: 60px 0 0;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+}
+.footer-logo {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+.brand-claude { color: #FFFFFF; }
+.brand-master { color: var(--accent-amber-light); }
+.footer-description {
+    font-size: 14px;
+    color: #94A3B8;
+    line-height: 1.7;
+}
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+.footer-link-list {
+    list-style: none;
+}
+.footer-link-list li {
+    margin-bottom: 10px;
+}
+.footer-link-list a {
+    font-size: 14px;
+    color: #94A3B8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-link-list a:hover {
+    color: var(--accent-amber-light);
+}
+.footer-contact p {
+    font-size: 14px;
+    color: #94A3B8;
+    margin-bottom: 8px;
+}
+.footer-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.footer-email a {
+    color: var(--accent-amber-light);
+}
+.footer-email-icon {
+    color: var(--accent-amber-light);
+}
+.business-hours {
+    font-size: 13px;
+    color: #64748B;
+    margin-top: 4px;
+}
+.footer-family {
+    margin-top: 16px;
+}
+.footer-family select {
+    padding: 8px 12px;
+    font-size: 13px;
+    background: #1E293B;
+    color: #94A3B8;
+    border: 1px solid #334155;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    width: 100%;
+}
+.footer-bottom {
+    border-top: 1px solid #1E293B;
+    padding: 24px 0;
+    text-align: center;
+}
+.footer-bottom p {
+    font-size: 13px;
+    color: #64748B;
+}
+.footer-bottom-info {
+    font-size: 11px;
+    color: #475569;
+    margin-top: 8px;
+}

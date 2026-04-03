@@ -1,0 +1,122 @@
+/* ============================================
+   Claude Master - Responsive Design
+   ============================================ */
+
+/* ── 1280px ── */
+@media (max-width: 1280px) {
+    .container { padding: 0 32px; }
+    .navbar-inner { padding: 0 32px; }
+    .nav-link { padding: 10px 12px; font-size: 14px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .paths-grid { grid-template-columns: repeat(2, 1fr); }
+    .model-cards { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── 1024px ── */
+@media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .mobile-menu-toggle { display: flex; }
+    .guide-layout { grid-template-columns: 240px 1fr; }
+    .guide-content { padding: 32px; }
+    .workflow-grid { grid-template-columns: repeat(2, 1fr); }
+    .admin-stats { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+    .practice-layout { grid-template-columns: 1fr; }
+    .resources-grid { grid-template-columns: 1fr; }
+    .about-features { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── 768px ── */
+@media (max-width: 768px) {
+    :root {
+        --nav-height: 64px;
+        --section-padding: 60px;
+    }
+    .container { padding: 0 20px; }
+    .navbar-inner { padding: 0 20px; }
+
+    /* Hero */
+    .hero { padding: calc(var(--nav-height) + 48px) 0 60px; min-height: auto; }
+    .hero-title { font-size: 36px; }
+    .hero-description { font-size: 16px; }
+    .hero-content { padding: 0 20px; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-actions .btn { width: 100%; max-width: 320px; }
+
+    /* Grids */
+    .features-grid { grid-template-columns: 1fr; }
+    .paths-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+    .stat-number { font-size: 36px; }
+    .workflow-grid { grid-template-columns: 1fr; gap: 24px; }
+    .model-cards { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+
+    /* Guide Layout */
+    .guide-layout { grid-template-columns: 1fr; }
+    .guide-sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding: 16px;
+    }
+    .guide-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .guide-nav-link {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+    .guide-content { padding: 24px 20px; }
+    .guide-content-header h1 { font-size: 24px; }
+
+    /* Sections */
+    .section-title { font-size: 28px; }
+    .section-header { margin-bottom: 40px; }
+
+    /* Footer */
+    .footer-content { grid-template-columns: 1fr; gap: 32px; }
+
+    /* Auth */
+    .auth-card { padding: 32px 24px; }
+    .auth-title { font-size: 24px; }
+
+    /* About */
+    .about-hero h1 { font-size: 32px; }
+    .about-features { grid-template-columns: 1fr; }
+
+    /* Community */
+    .post-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .post-meta { width: 100%; }
+
+    /* CTA */
+    .cta-title { font-size: 28px; }
+}
+
+/* ── 480px ── */
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .navbar-inner { padding: 0 16px; }
+    .hero-title { font-size: 28px; }
+    .hero-badge { font-size: 12px; padding: 6px 14px; }
+    .section-title { font-size: 24px; }
+    .guide-content-header h1 { font-size: 22px; }
+    .auth-card { padding: 24px 16px; }
+    .practice-template-grid { grid-template-columns: 1fr; }
+    .comparison-table-wrapper { margin: 16px -16px; }
+    .news-card { flex-direction: column; }
+    .cta-title { font-size: 24px; }
+}
+
+/* ── 360px ── */
+@media (max-width: 360px) {
+    .hero-title { font-size: 24px; }
+    .hero-description { font-size: 14px; }
+    .btn { padding: 12px 24px; font-size: 14px; }
+    .feature-card { padding: 24px 16px; }
+    .path-card { padding: 20px; }
+}

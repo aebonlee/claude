@@ -1,0 +1,43 @@
+const models = [
+  {
+    name: 'Claude Opus 4',
+    tier: 'Opus',
+    description: '가장 강력한 모델. 복잡한 분석, 장문 생성, 고급 코딩에 최적화되어 있습니다.',
+    descriptionEn: 'The most powerful model. Optimized for complex analysis, long-form generation, and advanced coding.',
+    contextWindow: '200K',
+    maxOutput: '32,768 tokens',
+    inputPrice: '$15 / 1M tokens',
+    outputPrice: '$75 / 1M tokens',
+    bestFor: '복잡한 연구, 고급 코딩, 장문 분석, 수학/과학 추론',
+    bestForEn: 'Complex research, advanced coding, long-form analysis, math/science reasoning',
+    badge: 'opus',
+  },
+  {
+    name: 'Claude Sonnet 4',
+    tier: 'Sonnet',
+    description: '성능과 비용의 최적 균형. 대부분의 업무에 권장되는 범용 모델입니다.',
+    descriptionEn: 'Optimal balance of performance and cost. The recommended general-purpose model for most tasks.',
+    contextWindow: '200K',
+    maxOutput: '16,384 tokens',
+    inputPrice: '$3 / 1M tokens',
+    outputPrice: '$15 / 1M tokens',
+    bestFor: 'RAG, 코드 생성, 데이터 분석, 일반 업무 자동화',
+    bestForEn: 'RAG, code generation, data analysis, general task automation',
+    badge: 'sonnet',
+  },
+  {
+    name: 'Claude Haiku 3.5',
+    tier: 'Haiku',
+    description: '가장 빠르고 경제적인 모델. 간단한 작업과 대량 처리에 최적화되어 있습니다.',
+    descriptionEn: 'The fastest and most cost-effective model. Optimized for simple tasks and high-volume processing.',
+    contextWindow: '200K',
+    maxOutput: '8,192 tokens',
+    inputPrice: '$0.80 / 1M tokens',
+    outputPrice: '$4 / 1M tokens',
+    bestFor: '분류, 요약, 챗봇, 실시간 응답, 대량 처리',
+    bestForEn: 'Classification, summarization, chatbots, real-time responses, batch processing',
+    badge: 'haiku',
+  },
+];
+
+export default models;

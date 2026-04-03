@@ -1,0 +1,127 @@
+/* ============================================
+   Claude Master - Code Blocks
+   ============================================ */
+
+.code-block-wrapper {
+    position: relative;
+    margin: 16px 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #1E293B;
+}
+.code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: #0F172A;
+    border-bottom: 1px solid #334155;
+}
+.code-block-lang {
+    font-size: 12px;
+    font-weight: 600;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.code-copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #94A3B8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #334155;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: inherit;
+}
+.code-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #E2E8F0;
+}
+.code-copy-btn.copied {
+    color: #4ADE80;
+    border-color: #4ADE80;
+}
+.code-block-content {
+    padding: 16px;
+    overflow-x: auto;
+}
+.code-block-content pre {
+    margin: 0;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #E2E8F0;
+    white-space: pre;
+    tab-size: 2;
+}
+.code-block-content code {
+    font-family: inherit;
+}
+
+/* Inline Code */
+.inline-code {
+    padding: 2px 8px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    background: var(--bg-light-gray);
+    color: var(--primary-blue);
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
+}
+
+/* ── TipBox ── */
+.tip-box {
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+.tip-box-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.tip-box-content {
+    font-size: 14px;
+    line-height: 1.7;
+}
+.tip-box-content strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tip-box.tip {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    color: #166534;
+}
+.tip-box.tip .tip-box-icon { color: #22C55E; }
+
+.tip-box.warning {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    color: #92400E;
+}
+.tip-box.warning .tip-box-icon { color: #F59E0B; }
+
+.tip-box.important {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1E40AF;
+}
+.tip-box.important .tip-box-icon { color: #3B82F6; }
+
+.tip-box.danger {
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    color: #991B1B;
+}
+.tip-box.danger .tip-box-icon { color: #EF4444; }

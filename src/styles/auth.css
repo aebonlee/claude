@@ -1,0 +1,162 @@
+/* ============================================
+   Claude Master - Auth Pages
+   ============================================ */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--nav-height) + 40px) 20px 40px;
+    background: var(--bg-light-gray);
+}
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 48px 40px;
+    box-shadow: var(--shadow-lg);
+}
+.auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.auth-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.auth-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+/* Social Login Buttons */
+.social-login-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: inherit;
+}
+.social-btn-google {
+    background: var(--bg-white);
+    color: var(--text-primary);
+}
+.social-btn-google:hover {
+    background: var(--bg-light-gray);
+    border-color: var(--border-medium);
+}
+.social-btn-kakao {
+    background: #FEE500;
+    color: #191919;
+    border-color: #FEE500;
+}
+.social-btn-kakao:hover {
+    background: #F5DC00;
+    border-color: #F5DC00;
+}
+
+/* Divider */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+    color: var(--text-light);
+    font-size: 13px;
+}
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+}
+
+/* Auth Form */
+.auth-form .form-group { margin-bottom: 16px; }
+
+.auth-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    background: var(--primary-blue);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: inherit;
+    margin-top: 8px;
+}
+.auth-submit:hover {
+    background: var(--primary-blue-dark);
+}
+.auth-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Auth Footer Links */
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+.auth-footer a {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+.auth-forgot {
+    text-align: right;
+    margin-top: -8px;
+    margin-bottom: 16px;
+}
+.auth-forgot a {
+    font-size: 13px;
+    color: var(--text-light);
+}
+.auth-forgot a:hover {
+    color: var(--primary-blue);
+}
+
+.auth-message {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+.auth-message.success {
+    background: #F0FDF4;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+}
+.auth-message.error {
+    background: #FEF2F2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+}

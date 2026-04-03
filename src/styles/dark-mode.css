@@ -1,0 +1,166 @@
+/* ============================================
+   Claude Master - Dark Mode
+   ============================================ */
+
+html[data-theme="dark"] {
+    --bg-white: #0F172A;
+    --bg-light-gray: #1E293B;
+    --bg-medium-gray: #334155;
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-light: #64748B;
+    --border-light: #334155;
+    --border-medium: #475569;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --glass-bg: rgba(15, 23, 42, 0.85);
+    --glass-border: rgba(51, 65, 85, 0.3);
+}
+
+/* Navbar */
+html[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.85);
+}
+html[data-theme="dark"] .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+/* Dropdowns */
+html[data-theme="dark"] .dropdown-menu,
+html[data-theme="dark"] .color-picker-dropdown,
+html[data-theme="dark"] .user-menu-dropdown {
+    background: rgba(30, 41, 59, 0.95);
+}
+
+/* Buttons */
+html[data-theme="dark"] .btn-primary-large {
+    background: var(--primary-blue);
+    color: var(--text-white);
+    border-color: var(--primary-blue);
+}
+html[data-theme="dark"] .btn-primary-large:hover {
+    background: var(--primary-blue-light);
+    border-color: var(--primary-blue-light);
+}
+
+/* Cards */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .feature-card,
+html[data-theme="dark"] .path-card,
+html[data-theme="dark"] .model-card,
+html[data-theme="dark"] .resource-card,
+html[data-theme="dark"] .gallery-card,
+html[data-theme="dark"] .news-card,
+html[data-theme="dark"] .post-item,
+html[data-theme="dark"] .glossary-item,
+html[data-theme="dark"] .roadmap-item {
+    background: #1E293B;
+    border-color: #334155;
+}
+
+/* Auth */
+html[data-theme="dark"] .auth-card {
+    background: #1E293B;
+    border-color: #334155;
+}
+html[data-theme="dark"] .social-btn-google {
+    background: #334155;
+    border-color: #475569;
+    color: #F1F5F9;
+}
+
+/* Forms */
+html[data-theme="dark"] .form-input,
+html[data-theme="dark"] .form-select,
+html[data-theme="dark"] .form-textarea,
+html[data-theme="dark"] .practice-textarea,
+html[data-theme="dark"] .community-search input,
+html[data-theme="dark"] .glossary-search input,
+html[data-theme="dark"] .comment-form textarea {
+    background: #0F172A;
+    border-color: #334155;
+    color: #F1F5F9;
+}
+
+/* Guide Sidebar */
+html[data-theme="dark"] .guide-sidebar {
+    background: #0F172A;
+    border-color: #334155;
+}
+html[data-theme="dark"] .guide-nav-link:hover {
+    background: #334155;
+}
+html[data-theme="dark"] .guide-nav-link.active {
+    background: var(--primary-blue);
+}
+
+/* Code Blocks in Dark */
+html[data-theme="dark"] .inline-code {
+    background: #334155;
+    border-color: #475569;
+    color: #F59E0B;
+}
+
+/* Tip Boxes Dark */
+html[data-theme="dark"] .tip-box.tip {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #86EFAC;
+}
+html[data-theme="dark"] .tip-box.warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: #FDE68A;
+}
+html[data-theme="dark"] .tip-box.important {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #93C5FD;
+}
+html[data-theme="dark"] .tip-box.danger {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #FCA5A5;
+}
+
+/* Tables */
+html[data-theme="dark"] .comparison-table th,
+html[data-theme="dark"] .admin-table th {
+    background: #334155;
+}
+html[data-theme="dark"] .comparison-table tr:hover td {
+    background: #1E293B;
+}
+
+/* Mobile Menu */
+html[data-theme="dark"] .mobile-menu {
+    background: #0F172A;
+}
+
+/* Practice */
+html[data-theme="dark"] .practice-output {
+    background: #0F172A;
+}
+
+/* Auth Messages */
+html[data-theme="dark"] .auth-message.success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #86EFAC;
+    border-color: rgba(34, 197, 94, 0.3);
+}
+html[data-theme="dark"] .auth-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #FCA5A5;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Footer stays dark regardless */
+html[data-theme="dark"] .footer {
+    background: #020617;
+}
+html[data-theme="dark"] .footer-family select {
+    background: #0F172A;
+    border-color: #1E293B;
+}

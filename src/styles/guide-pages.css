@@ -1,0 +1,173 @@
+/* ============================================
+   Claude Master - Guide Pages (Sidebar + Content)
+   ============================================ */
+
+.guide-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+}
+.guide-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    gap: 0;
+}
+
+/* ── Sidebar ── */
+.guide-sidebar {
+    position: sticky;
+    top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    padding: 32px 24px;
+    border-right: 1px solid var(--border-light);
+    background: var(--bg-light-gray);
+}
+.guide-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+.guide-sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-medium);
+    border-radius: 4px;
+}
+.guide-sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    padding-left: 12px;
+}
+.guide-nav {
+    list-style: none;
+}
+.guide-nav-item {
+    margin-bottom: 2px;
+}
+.guide-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-base);
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+}
+.guide-nav-link:hover {
+    background: var(--bg-medium-gray);
+    color: var(--text-primary);
+}
+.guide-nav-link.active {
+    background: var(--primary-blue);
+    color: var(--text-white);
+    font-weight: 600;
+}
+.guide-nav-link .nav-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* ── Content Area ── */
+.guide-content {
+    padding: 40px 48px;
+    max-width: 900px;
+}
+.guide-content-header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+.guide-content-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+.guide-content-header p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ── Content Sections ── */
+.guide-section {
+    margin-bottom: 48px;
+}
+.guide-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-blue);
+}
+.guide-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+.guide-section p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+.guide-section ul,
+.guide-section ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+.guide-section li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+/* ── Section Navigation ── */
+.guide-section-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+}
+.guide-section-nav button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    background: var(--bg-light-gray);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: inherit;
+}
+.guide-section-nav button:hover {
+    background: var(--primary-blue);
+    color: var(--text-white);
+    border-color: var(--primary-blue);
+}
+.guide-section-nav button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}

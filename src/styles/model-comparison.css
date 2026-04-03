@@ -1,0 +1,57 @@
+/* ============================================
+   Claude Master - Model Comparison
+   ============================================ */
+
+.model-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+.model-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: var(--transition-base);
+    text-align: center;
+}
+.model-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+.model-card.featured {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-md);
+}
+.model-card-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.model-card-tagline {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+.model-specs {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 24px;
+}
+.model-specs li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-light);
+}
+.model-specs li:last-child { border-bottom: none; }
+.model-spec-label {
+    color: var(--text-secondary);
+}
+.model-spec-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}

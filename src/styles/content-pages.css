@@ -1,0 +1,275 @@
+/* ============================================
+   Claude Master - Content Pages
+   ============================================ */
+
+/* ── Generic Content Page ── */
+.content-page {
+    padding: calc(var(--nav-height) + 40px) 0 80px;
+}
+.content-page .container {
+    max-width: 960px;
+}
+
+/* ── About Page ── */
+.about-page {
+    padding: calc(var(--nav-height) + 60px) 0 80px;
+}
+.about-hero {
+    text-align: center;
+    margin-bottom: 64px;
+}
+.about-hero h1 {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+.about-hero p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+}
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+}
+.about-feature-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: center;
+}
+.about-feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--bg-light-gray);
+    color: var(--primary-blue);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+.about-feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.about-feature-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ── Glossary ── */
+.glossary-search {
+    position: relative;
+    margin-bottom: 32px;
+}
+.glossary-search input {
+    width: 100%;
+    padding: 14px 20px 14px 48px;
+    font-size: 16px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    background: var(--bg-white);
+    transition: border-color 0.2s ease;
+}
+.glossary-search input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+.glossary-search .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 18px;
+}
+.glossary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.glossary-item {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    transition: var(--transition-base);
+}
+.glossary-item:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+}
+.glossary-term {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+}
+.glossary-definition {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ── Roadmap ── */
+.roadmap-timeline {
+    position: relative;
+    padding-left: 40px;
+}
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-light);
+}
+.roadmap-item {
+    position: relative;
+    margin-bottom: 32px;
+    padding: 24px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+}
+.roadmap-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 28px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    border: 3px solid var(--bg-white);
+    box-shadow: 0 0 0 2px var(--primary-blue);
+}
+.roadmap-phase {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+.roadmap-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.roadmap-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ── Resources ── */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.resource-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    transition: var(--transition-base);
+    text-decoration: none;
+    display: block;
+}
+.resource-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+.resource-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.resource-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-light-gray);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+.resource-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.resource-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+.resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+/* ── Model Comparison ── */
+.model-comparison-page {}
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 32px 0;
+}
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.comparison-table th,
+.comparison-table td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+.comparison-table th {
+    background: var(--bg-light-gray);
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+.comparison-table td {
+    color: var(--text-secondary);
+}
+.comparison-table tr:hover td {
+    background: var(--bg-light-gray);
+}
+.model-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+}
+.model-badge.opus { background: #EDE9FE; color: #7C3AED; }
+.model-badge.sonnet { background: #DBEAFE; color: #2563EB; }
+.model-badge.haiku { background: #D1FAE5; color: #059669; }

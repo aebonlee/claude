@@ -1,0 +1,188 @@
+/* ============================================
+   Claude Master - Community
+   ============================================ */
+
+.community-page {
+    padding: calc(var(--nav-height) + 40px) 0 80px;
+}
+.community-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.community-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.community-search {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.community-search input {
+    flex: 1;
+    padding: 10px 16px;
+    font-size: 14px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    background: var(--bg-white);
+}
+.community-search input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+/* Post List */
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.post-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+.post-item:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+}
+.post-category {
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+.post-category.notice { background: #DBEAFE; color: #1D4ED8; }
+.post-category.resource { background: #D1FAE5; color: #059669; }
+.post-category.question { background: #FEF3C7; color: #D97706; }
+.post-category.free { background: #F3F4F6; color: #6B7280; }
+
+.post-title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+.post-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-light);
+    flex-shrink: 0;
+}
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Post Detail */
+.post-detail {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.post-detail-header {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+.post-detail-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+.post-detail-info {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+.post-detail-body {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 48px;
+}
+.post-detail-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+/* Comments */
+.comments-section {
+    border-top: 1px solid var(--border-light);
+    padding-top: 32px;
+}
+.comments-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+.comment-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.comment-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.comment-date {
+    font-size: 13px;
+    color: var(--text-light);
+}
+.comment-body {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+.comment-form {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+}
+.comment-form textarea {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    resize: none;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+/* Write Page */
+.write-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.write-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.write-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}

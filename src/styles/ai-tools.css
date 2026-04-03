@@ -1,0 +1,200 @@
+/* ============================================
+   Claude Master - AI Tools & Practice
+   ============================================ */
+
+.practice-page {
+    padding: calc(var(--nav-height) + 40px) 0 80px;
+}
+.practice-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+.practice-input-panel,
+.practice-output-panel {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    min-height: 400px;
+}
+.practice-input-panel h3,
+.practice-output-panel h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+.practice-textarea {
+    width: 100%;
+    min-height: 250px;
+    padding: 16px;
+    font-size: 14px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    resize: vertical;
+    line-height: 1.6;
+}
+.practice-textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+.practice-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+.practice-output {
+    padding: 16px;
+    background: var(--bg-light-gray);
+    border-radius: var(--radius-sm);
+    min-height: 200px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+.practice-templates {
+    margin-top: 24px;
+}
+.practice-template-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.practice-template-card {
+    padding: 16px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+.practice-template-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+}
+.practice-template-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+.practice-template-desc {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+/* ── Gallery ── */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.gallery-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+.gallery-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+.gallery-card-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+.gallery-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.gallery-card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+.gallery-card-prompt {
+    padding: 12px;
+    background: var(--bg-light-gray);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-family: monospace;
+    color: var(--text-secondary);
+    max-height: 80px;
+    overflow: hidden;
+}
+
+/* ── AI News ── */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.news-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    transition: var(--transition-base);
+}
+.news-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+}
+.news-date {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 8px 16px;
+    background: var(--bg-light-gray);
+    border-radius: var(--radius-sm);
+}
+.news-date-day {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-blue);
+    line-height: 1;
+}
+.news-date-month {
+    font-size: 12px;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+.news-content {
+    flex: 1;
+}
+.news-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.news-excerpt {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+.news-tag {
+    display: inline-flex;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    background: var(--bg-light-gray);
+    color: var(--primary-blue);
+    margin-top: 8px;
+}
