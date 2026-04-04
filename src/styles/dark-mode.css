@@ -157,19 +157,25 @@ html[data-theme="dark"] .auth-message.error {
 }
 
 /* About Page */
-html[data-theme="dark"] .about-feature-card,
-html[data-theme="dark"] .about-path-card,
-html[data-theme="dark"] .about-tech-card {
+html[data-theme="dark"] .about-vision-card,
+html[data-theme="dark"] .about-team-card,
+html[data-theme="dark"] .about-timeline-content,
+html[data-theme="dark"] .about-faq-item {
     background: #1E293B;
     border-color: #334155;
 }
-html[data-theme="dark"] .about-stats-bar {
+html[data-theme="dark"] .about-tech-detail-card {
     background: #1E293B;
     border-color: #334155;
 }
-html[data-theme="dark"] .about-path-topic {
+html[data-theme="dark"] .about-faq-item[open] {
+    border-color: var(--primary-blue);
+}
+html[data-theme="dark"] .about-faq-question:hover {
     background: #334155;
-    color: #94A3B8;
+}
+html[data-theme="dark"] .about-team-role {
+    background: #334155;
 }
 
 /* Footer stays dark regardless */

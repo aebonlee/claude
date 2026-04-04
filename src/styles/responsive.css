@@ -24,8 +24,8 @@
     .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
     .practice-layout { grid-template-columns: 1fr; }
     .resources-grid { grid-template-columns: 1fr; }
-    .about-features-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-values-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-vision-grid { grid-template-columns: 1fr; }
+    .about-tech-detail-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── 768px ── */
@@ -89,18 +89,14 @@
     /* About */
     .about-hero-title { font-size: 36px; }
     .about-hero-desc { font-size: 16px; }
-    .about-hero-actions { flex-direction: column; }
-    .about-hero-actions .btn { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
-    .about-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .about-features-grid { grid-template-columns: 1fr; }
-    .about-values-grid { grid-template-columns: 1fr; }
-    .about-path-card { flex-direction: column; align-items: flex-start; }
-    .about-path-arrow { display: none; }
-    .about-tech-grid { gap: 12px; }
-    .about-tech-card { padding: 12px 20px; font-size: 14px; }
+    .about-vision-grid { grid-template-columns: 1fr; }
+    .about-team-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .about-tech-detail-grid { grid-template-columns: 1fr; }
+    .about-faq-question { font-size: 15px; padding: 16px 20px; }
+    .about-faq-answer { padding: 0 20px 16px 46px; }
     .about-cta-title { font-size: 28px; }
     .about-cta-actions { flex-direction: column; align-items: center; }
-    .about-cta-actions .btn { width: 100%; max-width: 320px; text-align: center; }
+    .about-cta-actions .btn { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
 
     /* Community */
     .post-item { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -125,8 +121,6 @@
     .cta-title { font-size: 24px; }
     .about-hero-title { font-size: 28px; }
     .about-hero-badge { font-size: 12px; }
-    .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-stat-number { font-size: 28px; }
     .about-cta-title { font-size: 24px; }
 }
 

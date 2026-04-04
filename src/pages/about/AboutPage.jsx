@@ -1,105 +1,92 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { LEARNING_PATHS } from '../../config/site';
 import SEOHead from '../../components/SEOHead';
 
 export default function AboutPage() {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const isKo = language === 'ko';
 
-  const features = [
+  const team = [
     {
-      icon: 'fa-terminal',
+      name: 'DreamIT Biz',
+      role: isKo ? '기획 & 운영' : 'Planning & Operations',
+      avatar: 'D',
+      color: '#1B3A6B',
+      desc: isKo
+        ? 'Claude AI 생태계의 한국어 학습 자료 부족을 해결하고자 프로젝트를 기획했습니다.'
+        : 'Planned this project to address the lack of Korean learning materials for the Claude AI ecosystem.',
+    },
+    {
+      name: 'Claude Opus 4',
+      role: isKo ? 'AI 개발 파트너' : 'AI Dev Partner',
+      avatar: 'C',
       color: '#D97706',
-      title: isKo ? 'Claude Code CLI' : 'Claude Code CLI',
-      description: isKo
-        ? 'Hooks, MCP Servers, Slash Commands, IDE 연동까지 Claude Code의 모든 기능을 체계적으로 학습합니다.'
-        : 'Systematically learn every Claude Code feature from Hooks, MCP Servers, Slash Commands to IDE integration.',
-    },
-    {
-      icon: 'fa-code',
-      color: '#E34F26',
-      title: isKo ? 'Anthropic API' : 'Anthropic API',
-      description: isKo
-        ? 'Messages API, Streaming, Tool Use, Vision 등을 활용한 실전 애플리케이션 개발을 배웁니다.'
-        : 'Learn real-world application development with Messages API, Streaming, Tool Use, Vision, and more.',
-    },
-    {
-      icon: 'fa-wand-magic-sparkles',
-      color: '#10A37F',
-      title: isKo ? '프롬프트 엔지니어링' : 'Prompt Engineering',
-      description: isKo
-        ? 'System Prompts, XML Tags, Chain of Thought, Extended Thinking 등 고급 프롬프트 기법을 마스터합니다.'
-        : 'Master advanced prompting: System Prompts, XML Tags, Chain of Thought, and Extended Thinking.',
-    },
-    {
-      icon: 'fa-robot',
-      color: '#4285F4',
-      title: isKo ? 'Agent SDK' : 'Agent SDK',
-      description: isKo
-        ? '멀티 에이전트 오케스트레이션, 도구 통합, 워크플로우 설계를 통해 자율 에이전트를 구축합니다.'
-        : 'Build autonomous agents with multi-agent orchestration, tool integration, and workflow design.',
-    },
-    {
-      icon: 'fa-briefcase',
-      color: '#8B5CF6',
-      title: isKo ? 'Claude Work' : 'Claude Work',
-      description: isKo
-        ? 'Claude.ai의 Projects, Artifacts, Memory, Team 기능과 다양한 업무 활용법을 배웁니다.'
-        : 'Learn Projects, Artifacts, Memory, Team features and practical business use cases on Claude.ai.',
-    },
-    {
-      icon: 'fa-chart-bar',
-      color: '#FF6F00',
-      title: isKo ? '모델 비교 & 분석' : 'Model Comparison',
-      description: isKo
-        ? 'Opus, Sonnet, Haiku 모델의 특성과 용도를 비교 분석하여 최적의 모델을 선택합니다.'
-        : 'Compare Opus, Sonnet, and Haiku to choose the optimal model for your needs.',
+      desc: isKo
+        ? 'Anthropic의 최고 성능 모델. 코드 생성, 콘텐츠 작성, 아키텍처 설계를 담당했습니다.'
+        : "Anthropic's most capable model. Handled code generation, content writing, and architecture design.",
     },
   ];
 
-  const stats = [
-    { number: '7+', label: isKo ? '학습 가이드' : 'Learning Guides', icon: 'fa-book-open' },
-    { number: '50+', label: isKo ? '학습 토픽' : 'Topics Covered', icon: 'fa-list-check' },
-    { number: '100+', label: isKo ? '코드 예제' : 'Code Examples', icon: 'fa-code' },
-    { number: '2', label: isKo ? '지원 언어' : 'Languages', icon: 'fa-globe' },
+  const timeline = [
+    {
+      date: '2025.04',
+      title: isKo ? '프로젝트 시작' : 'Project Started',
+      desc: isKo
+        ? 'Claude AI 학습 플랫폼 기획 및 기술 스택 결정'
+        : 'Claude AI learning platform planning and tech stack decisions',
+      icon: 'fa-lightbulb',
+    },
+    {
+      date: '2025.04',
+      title: isKo ? 'v1.0 출시' : 'v1.0 Launch',
+      desc: isKo
+        ? '7개 가이드, 50+ 토픽, 다국어 지원, 다크모드 포함 첫 릴리스'
+        : 'First release with 7 guides, 50+ topics, i18n, and dark mode',
+      icon: 'fa-rocket',
+    },
+    {
+      date: isKo ? '진행 중' : 'Ongoing',
+      title: isKo ? '지속 업데이트' : 'Continuous Updates',
+      desc: isKo
+        ? 'Claude의 새 기능, API 변경사항, 커뮤니티 피드백을 반영한 지속적 개선'
+        : 'Continuous improvement reflecting new Claude features, API changes, and community feedback',
+      icon: 'fa-arrows-rotate',
+    },
   ];
 
   const techStack = [
-    { name: 'React 19', icon: 'fa-react', color: '#61DAFB', type: 'fab' },
-    { name: 'Vite 6', icon: 'fa-bolt', color: '#646CFF', type: 'fas' },
-    { name: 'Supabase', icon: 'fa-database', color: '#3ECF8E', type: 'fas' },
-    { name: 'GitHub Pages', icon: 'fa-github', color: '#fff', type: 'fab' },
+    { name: 'React 19', desc: 'UI Framework', icon: 'fa-react', color: '#61DAFB', type: 'fab' },
+    { name: 'Vite 6', desc: 'Build Tool', icon: 'fa-bolt', color: '#646CFF', type: 'fas' },
+    { name: 'Supabase', desc: 'Auth & DB', icon: 'fa-database', color: '#3ECF8E', type: 'fas' },
+    { name: 'GitHub Pages', desc: 'Hosting', icon: 'fa-github', color: '#fff', type: 'fab' },
+    { name: 'GitHub Actions', desc: 'CI/CD', icon: 'fa-gear', color: '#2088FF', type: 'fas' },
+    { name: 'Pure CSS', desc: 'Styling', icon: 'fa-palette', color: '#FF6F00', type: 'fas' },
   ];
 
-  const values = [
+  const faqs = [
     {
-      icon: 'fa-graduation-cap',
-      title: isKo ? '체계적 학습' : 'Structured Learning',
-      desc: isKo
-        ? '초보부터 고급까지, 단계별로 구성된 커리큘럼으로 효율적으로 학습할 수 있습니다.'
-        : 'Learn efficiently with a step-by-step curriculum designed from beginner to advanced.',
+      q: isKo ? '이 플랫폼은 무료인가요?' : 'Is this platform free?',
+      a: isKo
+        ? '네, 모든 학습 콘텐츠는 무료로 제공됩니다. 회원가입 없이도 대부분의 가이드를 열람할 수 있습니다.'
+        : 'Yes, all learning content is provided for free. You can access most guides without signing up.',
     },
     {
-      icon: 'fa-hands-helping',
-      title: isKo ? '실전 중심' : 'Practice-Oriented',
-      desc: isKo
-        ? '이론뿐만 아니라 실제 코드 예제와 프로젝트를 통해 바로 적용할 수 있는 지식을 제공합니다.'
-        : 'We provide actionable knowledge through real code examples and projects, not just theory.',
+      q: isKo ? 'Anthropic 공식 사이트인가요?' : 'Is this an official Anthropic site?',
+      a: isKo
+        ? '아닙니다. Claude Master는 커뮤니티 기반 학습 플랫폼으로, Anthropic과 직접적인 관련이 없습니다. 공식 문서는 docs.anthropic.com을 참고하세요.'
+        : 'No. Claude Master is a community-driven learning platform, not affiliated with Anthropic. For official docs, visit docs.anthropic.com.',
     },
     {
-      icon: 'fa-sync-alt',
-      title: isKo ? '최신 업데이트' : 'Always Up-to-Date',
-      desc: isKo
-        ? 'Claude의 최신 기능과 API 변경사항을 빠르게 반영하여 항상 최신 정보를 제공합니다.'
-        : 'We quickly reflect the latest Claude features and API changes to keep content current.',
+      q: isKo ? '콘텐츠는 얼마나 자주 업데이트되나요?' : 'How often is content updated?',
+      a: isKo
+        ? 'Claude의 새 기능 출시나 API 변경 시 가능한 빠르게 업데이트합니다. 커뮤니티 피드백도 반영합니다.'
+        : 'We update as quickly as possible when Claude releases new features or API changes. Community feedback is also incorporated.',
     },
     {
-      icon: 'fa-language',
-      title: isKo ? '다국어 지원' : 'Multilingual',
-      desc: isKo
-        ? '한국어와 영어를 모두 지원하여 언어 장벽 없이 학습할 수 있습니다.'
-        : 'Support for both Korean and English so you can learn without language barriers.',
+      q: isKo ? '기여하거나 피드백을 보내려면?' : 'How can I contribute or give feedback?',
+      a: isKo
+        ? 'GitHub 저장소에서 이슈를 등록하거나, 커뮤니티 게시판에 글을 남겨주세요.'
+        : 'Open an issue on our GitHub repository or leave a post on the community board.',
     },
   ];
 
@@ -107,138 +94,121 @@ export default function AboutPage() {
     <div className="about-page">
       <SEOHead
         title={isKo ? '소개' : 'About'}
-        description={isKo ? 'Claude AI의 모든 기능을 학습하는 종합 플랫폼' : 'A comprehensive platform for learning all Claude AI features'}
+        description={isKo ? 'Claude Master 플랫폼 소개 - 비전, 팀, 기술 스택' : 'About Claude Master - vision, team, tech stack'}
         path="/about"
       />
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="about-hero-section">
         <div className="about-hero-bg" />
         <div className="container">
           <div className="about-hero-content">
             <div className="about-hero-badge">
-              <i className="fa-solid fa-sparkles" />
-              {isKo ? 'Claude AI 학습 플랫폼' : 'Claude AI Learning Platform'}
+              <i className="fa-solid fa-circle-info" />
+              {isKo ? '플랫폼 소개' : 'About Us'}
             </div>
             <h1 className="about-hero-title">
-              {isKo ? 'Claude의 모든 것을' : 'Everything about'}
+              {isKo ? 'Claude AI를 더 쉽게,' : 'Making Claude AI'}
               <br />
               <span className="about-hero-highlight">
-                {isKo ? '한 곳에서 마스터하세요' : 'Claude in one place'}
+                {isKo ? '더 깊게 배울 수 있도록' : 'easier and deeper to learn'}
               </span>
             </h1>
             <p className="about-hero-desc">
               {isKo
-                ? 'Claude Master는 Claude Code, API, Agent SDK, 프롬프트 엔지니어링 등 Claude AI의 모든 기능을 체계적으로 학습할 수 있는 종합 플랫폼입니다.'
-                : 'Claude Master is a comprehensive platform for systematically learning all Claude AI features including Claude Code, API, Agent SDK, and Prompt Engineering.'}
+                ? 'Claude Master는 한국어 사용자를 위한 Claude AI 종합 학습 플랫폼입니다. 공식 문서의 방대한 정보를 체계적으로 정리하고, 실전 예제와 함께 제공하여 누구나 Claude를 효과적으로 활용할 수 있도록 돕습니다.'
+                : 'Claude Master is a comprehensive Claude AI learning platform for Korean-speaking users. We organize the vast official documentation systematically and provide practical examples so anyone can use Claude effectively.'}
             </p>
-            <div className="about-hero-actions">
-              <Link to="/claude-code" className="btn btn-primary-large">
-                <i className="fa-solid fa-rocket" />
-                {isKo ? '학습 시작하기' : 'Start Learning'}
-              </Link>
-              <Link to="/roadmap" className="btn btn-ghost">
-                <i className="fa-solid fa-map" />
-                {isKo ? '학습 로드맵' : 'Learning Roadmap'}
-              </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision / Mission */}
+      <section className="about-vision-section">
+        <div className="container">
+          <div className="about-vision-grid">
+            <div className="about-vision-card">
+              <div className="about-vision-icon">
+                <i className="fa-solid fa-bullseye" />
+              </div>
+              <h3>{isKo ? '미션' : 'Mission'}</h3>
+              <p>
+                {isKo
+                  ? 'Claude AI의 모든 기능을 한국어로 체계적으로 학습할 수 있는 최고의 플랫폼을 만듭니다.'
+                  : 'Build the best platform for systematically learning all Claude AI features in Korean.'}
+              </p>
+            </div>
+            <div className="about-vision-card">
+              <div className="about-vision-icon">
+                <i className="fa-solid fa-eye" />
+              </div>
+              <h3>{isKo ? '비전' : 'Vision'}</h3>
+              <p>
+                {isKo
+                  ? 'AI 시대에 누구나 Claude를 자유롭게 활용하여 생산성과 창의성을 극대화하는 세상을 꿈꿉니다.'
+                  : 'We envision a world where anyone can freely leverage Claude to maximize productivity and creativity in the AI era.'}
+              </p>
+            </div>
+            <div className="about-vision-card">
+              <div className="about-vision-icon">
+                <i className="fa-solid fa-heart" />
+              </div>
+              <h3>{isKo ? '가치' : 'Values'}</h3>
+              <p>
+                {isKo
+                  ? '정확한 정보, 실전 중심의 학습, 커뮤니티와의 소통, 그리고 최신성을 핵심 가치로 삼습니다.'
+                  : 'Accurate information, practice-oriented learning, community engagement, and staying current are our core values.'}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="about-stats-bar">
+      {/* Team */}
+      <section className="about-team-section">
         <div className="container">
-          <div className="about-stats-grid">
-            {stats.map((stat, i) => (
-              <div key={i} className="about-stat-item">
-                <i className={`fa-solid ${stat.icon} about-stat-icon`} />
-                <div className="about-stat-number">{stat.number}</div>
-                <div className="about-stat-label">{stat.label}</div>
+          <div className="section-header">
+            <h2 className="section-title">{isKo ? '만든 사람들' : 'The Team'}</h2>
+            <p className="section-subtitle">
+              {isKo ? '사람과 AI의 협업으로 만들어진 플랫폼' : 'A platform built through human-AI collaboration'}
+            </p>
+          </div>
+          <div className="about-team-grid">
+            {team.map((member, i) => (
+              <div key={i} className="about-team-card">
+                <div className="about-team-avatar" style={{ background: member.color }}>
+                  {member.avatar}
+                </div>
+                <h3 className="about-team-name">{member.name}</h3>
+                <span className="about-team-role">{member.role}</span>
+                <p className="about-team-desc">{member.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="about-features-section">
+      {/* Timeline */}
+      <section className="about-timeline-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">{isKo ? '무엇을 배울 수 있나요?' : 'What Can You Learn?'}</h2>
+            <h2 className="section-title">{isKo ? '개발 스토리' : 'Our Story'}</h2>
             <p className="section-subtitle">
-              {isKo
-                ? 'Claude AI 생태계의 핵심 영역을 모두 다루는 6가지 학습 트랙'
-                : 'Six learning tracks covering all key areas of the Claude AI ecosystem'}
+              {isKo ? 'Claude Master의 여정' : 'The journey of Claude Master'}
             </p>
           </div>
-          <div className="about-features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className="about-feature-card" style={{ '--card-accent': feature.color }}>
-                <div className="about-feature-icon" style={{ background: feature.color }}>
-                  <i className={`fa-solid ${feature.icon}`} />
+          <div className="about-timeline">
+            {timeline.map((item, i) => (
+              <div key={i} className="about-timeline-item">
+                <div className="about-timeline-dot">
+                  <i className={`fa-solid ${item.icon}`} />
                 </div>
-                <h3 className="about-feature-title">{feature.title}</h3>
-                <p className="about-feature-desc">{feature.description}</p>
+                <div className="about-timeline-content">
+                  <span className="about-timeline-date">{item.date}</span>
+                  <h3 className="about-timeline-title">{item.title}</h3>
+                  <p className="about-timeline-desc">{item.desc}</p>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values / Why Claude Master */}
-      <section className="about-values-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">{isKo ? '왜 Claude Master인가요?' : 'Why Claude Master?'}</h2>
-            <p className="section-subtitle">
-              {isKo
-                ? '더 나은 학습 경험을 위해 설계된 플랫폼'
-                : 'A platform designed for a better learning experience'}
-            </p>
-          </div>
-          <div className="about-values-grid">
-            {values.map((value, i) => (
-              <div key={i} className="about-value-card">
-                <div className="about-value-icon">
-                  <i className={`fa-solid ${value.icon}`} />
-                </div>
-                <h3 className="about-value-title">{value.title}</h3>
-                <p className="about-value-desc">{value.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Learning Paths Preview */}
-      <section className="about-paths-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">{isKo ? '학습 경로' : 'Learning Paths'}</h2>
-            <p className="section-subtitle">
-              {isKo
-                ? '목표에 맞는 학습 경로를 선택하세요'
-                : 'Choose a learning path that fits your goals'}
-            </p>
-          </div>
-          <div className="about-paths-grid">
-            {LEARNING_PATHS.map((path) => (
-              <Link key={path.id} to={path.path} className="about-path-card">
-                <div className="about-path-icon" style={{ background: path.color }}>
-                  <i className={`fa-solid ${path.icon}`} />
-                </div>
-                <div className="about-path-info">
-                  <h3 className="about-path-name">{isKo ? path.nameKo : path.nameEn}</h3>
-                  <p className="about-path-desc">{isKo ? path.descKo : path.descEn}</p>
-                  <div className="about-path-topics">
-                    {path.topics.slice(0, 4).map((topic, i) => (
-                      <span key={i} className="about-path-topic">{topic}</span>
-                    ))}
-                  </div>
-                </div>
-                <i className="fa-solid fa-chevron-right about-path-arrow" />
-              </Link>
             ))}
           </div>
         </div>
@@ -253,35 +223,66 @@ export default function AboutPage() {
               {isKo ? '최신 기술로 구축된 플랫폼' : 'Built with modern technologies'}
             </p>
           </div>
-          <div className="about-tech-grid">
+          <div className="about-tech-detail-grid">
             {techStack.map((tech, i) => (
-              <div key={i} className="about-tech-card">
+              <div key={i} className="about-tech-detail-card">
                 <i className={`${tech.type === 'fab' ? 'fa-brands' : 'fa-solid'} ${tech.icon}`} style={{ color: tech.color }} />
-                <span>{tech.name}</span>
+                <div>
+                  <div className="about-tech-name">{tech.name}</div>
+                  <div className="about-tech-desc">{tech.desc}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* FAQ */}
+      <section className="about-faq-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">{isKo ? '자주 묻는 질문' : 'FAQ'}</h2>
+          </div>
+          <div className="about-faq-list">
+            {faqs.map((faq, i) => (
+              <details key={i} className="about-faq-item">
+                <summary className="about-faq-question">
+                  <i className="fa-solid fa-circle-question" />
+                  {faq.q}
+                  <i className="fa-solid fa-chevron-down about-faq-chevron" />
+                </summary>
+                <p className="about-faq-answer">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
       <section className="about-cta-section">
         <div className="container">
           <div className="about-cta-content">
             <h2 className="about-cta-title">
-              {isKo ? '지금 바로 시작하세요' : 'Get Started Now'}
+              {isKo ? '함께 만들어가요' : "Let's Build Together"}
             </h2>
             <p className="about-cta-desc">
               {isKo
-                ? 'Claude Master와 함께 Claude AI의 모든 기능을 마스터하세요.'
-                : 'Master all Claude AI features with Claude Master.'}
+                ? '피드백, 오류 제보, 콘텐츠 제안 등 어떤 의견이든 환영합니다.'
+                : 'We welcome any feedback, bug reports, or content suggestions.'}
             </p>
             <div className="about-cta-actions">
-              <Link to="/claude-code" className="btn btn-primary-large">
-                {isKo ? '무료로 시작하기' : 'Start for Free'}
-              </Link>
+              <a
+                href="https://github.com/aebonlee/claude"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary-large"
+              >
+                <i className="fa-brands fa-github" />
+                GitHub
+              </a>
               <Link to="/community/board" className="btn btn-ghost-light">
-                {isKo ? '커뮤니티 참여' : 'Join Community'}
+                <i className="fa-solid fa-comments" />
+                {isKo ? '커뮤니티' : 'Community'}
               </Link>
             </div>
           </div>
