@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
+import { useToast } from '../contexts/ToastContext';
 import SEOHead from '../components/SEOHead';
 import { signInWithGoogle, signInWithKakao, signUpWithEmail } from '../utils/auth';
 
@@ -9,6 +10,7 @@ export default function Register() {
   const { t } = useLanguage();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const toast = useToast();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -28,20 +30,20 @@ export default function Register() {
     setError('');
 
     if (password !== confirmPassword) {
-      setError(
-        t('auth.passwordMismatch') !== 'auth.passwordMismatch'
-          ? t('auth.passwordMismatch')
-          : 'Passwords do not match.'
-      );
+      const msg = t('auth.passwordMismatch') !== 'auth.passwordMismatch'
+        ? t('auth.passwordMismatch')
+        : 'Passwords do not match.';
+      setError(msg);
+      toast.error(msg);
       return;
     }
 
     if (password.length < 6) {
-      setError(
-        t('auth.passwordTooShort') !== 'auth.passwordTooShort'
-          ? t('auth.passwordTooShort')
-          : 'Password must be at least 6 characters.'
-      );
+      const msg = t('auth.passwordTooShort') !== 'auth.passwordTooShort'
+        ? t('auth.passwordTooShort')
+        : 'Password must be at least 6 characters.';
+      setError(msg);
+      toast.error(msg);
       return;
     }
 
@@ -54,11 +56,18 @@ export default function Register() {
       });
       if (authError) {
         setError(authError.message);
+        toast.error(authError.message);
       } else {
-        navigate('/');
+        toast.success(
+          t('auth.registerSuccess') !== 'auth.registerSuccess'
+            ? t('auth.registerSuccess')
+            : '가입 완료! 이메일을 확인해주세요.'
+        );
+        navigate('/login');
       }
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
     } finally {
       setLoading(false);
     }
@@ -68,9 +77,13 @@ export default function Register() {
     setError('');
     try {
       const { error: authError } = await signInWithGoogle();
-      if (authError) setError(authError.message);
+      if (authError) {
+        setError(authError.message);
+        toast.error(authError.message);
+      }
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
     }
   };
 
@@ -78,9 +91,13 @@ export default function Register() {
     setError('');
     try {
       const { error: authError } = await signInWithKakao();
-      if (authError) setError(authError.message);
+      if (authError) {
+        setError(authError.message);
+        toast.error(authError.message);
+      }
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
     }
   };
 

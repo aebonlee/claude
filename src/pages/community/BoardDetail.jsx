@@ -1,111 +1,160 @@
-import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { useToast } from '../../contexts/ToastContext';
 import SEOHead from '../../components/SEOHead';
-
-const dummyPostData = {
-  1: {
-    id: 1,
-    category: 'notice',
-    title: 'Claude Master 사이트 오픈!',
-    titleEn: 'Claude Master Site Launch!',
-    author: 'Admin',
-    date: '2025-05-15',
-    views: 1520,
-    body: `안녕하세요, Claude Master 사이트가 정식 오픈되었습니다!
-
-이 사이트는 Claude를 체계적으로 학습할 수 있는 종합 플랫폼입니다.
-
-## 주요 기능
-
-- **Claude Code 가이드**: 설치부터 고급 활용까지
-- **프롬프트 엔지니어링**: 효과적인 프롬프트 작성법
-- **API 활용 가이드**: Anthropic API 개발 가이드
-- **Agent SDK**: 자율 에이전트 구축 가이드
-- **프롬프트 갤러리**: 바로 사용 가능한 템플릿
-- **커뮤니티**: 사용자 간 정보 공유
-
-많은 이용 부탁드립니다!`,
-    bodyEn: `Hello, the Claude Master site is now officially open!
-
-This site is a comprehensive platform for systematically learning Claude.
-
-## Key Features
-
-- **Claude Code Guide**: From installation to advanced usage
-- **Prompt Engineering**: Effective prompt writing techniques
-- **API Usage Guide**: Anthropic API development guide
-- **Agent SDK**: Autonomous agent building guide
-- **Prompt Gallery**: Ready-to-use templates
-- **Community**: Information sharing among users
-
-We look forward to your active participation!`,
-    comments: [
-      { id: 1, author: 'devkim', date: '2025-05-15', body: '드디어 오픈했군요! 기대됩니다.', bodyEn: 'Finally launched! Looking forward to it.' },
-      { id: 2, author: 'promptmaster', date: '2025-05-15', body: '프롬프트 갤러리가 정말 유용하네요.', bodyEn: 'The prompt gallery is really useful.' },
-      { id: 3, author: 'newbie123', date: '2025-05-16', body: '초보자도 쉽게 따라할 수 있는 가이드가 있어서 좋습니다!', bodyEn: 'Great to have guides that beginners can easily follow!' },
-    ],
-  },
-};
-
-const fallbackPost = {
-  id: 0,
-  category: 'free',
-  title: '게시글 제목',
-  titleEn: 'Post Title',
-  author: 'user',
-  date: '2025-05-10',
-  views: 100,
-  body: '이 게시글은 샘플 데이터입니다. 실제 데이터베이스와 연결되면 실제 게시글이 표시됩니다.',
-  bodyEn: 'This is sample data. Real posts will be displayed once connected to a database.',
-  comments: [
-    { id: 1, author: 'commenter', date: '2025-05-10', body: '좋은 글이네요!', bodyEn: 'Great post!' },
-  ],
-};
+import { getPostById, createComment, deleteComment, deletePost } from '../../utils/posts';
 
 export default function BoardDetail() {
   const { id } = useParams();
   const { language } = useLanguage();
   const isKo = language === 'ko';
+  const { user, isAdmin } = useAuth();
+  const toast = useToast();
+  const navigate = useNavigate();
+
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [commentText, setCommentText] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
-  const post = dummyPostData[id] || fallbackPost;
+  useEffect(() => {
+    async function fetchPost() {
+      setLoading(true);
+      setError('');
+      try {
+        const data = await getPostById(id);
+        setPost(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPost();
+  }, [id]);
 
-  const handleCommentSubmit = (e) => {
+  const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    if (!commentText.trim()) return;
-    setCommentText('');
+    if (!commentText.trim() || !user) return;
+
+    setSubmitting(true);
+    try {
+      const authorName = user?.user_metadata?.display_name
+        || user?.user_metadata?.full_name
+        || user?.email?.split('@')[0]
+        || 'Anonymous';
+
+      const newComment = await createComment({
+        postId: Number(id),
+        body: commentText.trim(),
+        authorId: user.id,
+        authorName,
+      });
+
+      setPost(prev => ({
+        ...prev,
+        comments: [...(prev.comments || []), newComment],
+      }));
+      setCommentText('');
+      toast.success(isKo ? '댓글이 등록되었습니다.' : 'Comment posted.');
+    } catch (err) {
+      toast.error(err.message || (isKo ? '댓글 등록에 실패했습니다.' : 'Failed to post comment.'));
+    } finally {
+      setSubmitting(false);
+    }
   };
+
+  const handleDeleteComment = async (commentId) => {
+    if (!confirm(isKo ? '댓글을 삭제하시겠습니까?' : 'Delete this comment?')) return;
+    try {
+      await deleteComment(commentId);
+      setPost(prev => ({
+        ...prev,
+        comments: prev.comments.filter(c => c.id !== commentId),
+      }));
+      toast.success(isKo ? '댓글이 삭제되었습니다.' : 'Comment deleted.');
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
+  const handleDeletePost = async () => {
+    if (!confirm(isKo ? '게시글을 삭제하시겠습니까?' : 'Delete this post?')) return;
+    try {
+      await deletePost(Number(id));
+      toast.success(isKo ? '게시글이 삭제되었습니다.' : 'Post deleted.');
+      navigate('/community/board');
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    return new Date(dateStr).toLocaleDateString('ko-KR', {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+    });
+  };
+
+  const canDelete = post && user && (user.id === post.author_id || isAdmin);
+
+  if (loading) {
+    return (
+      <div className="community-page">
+        <div className="container">
+          <p style={{ textAlign: 'center', padding: '60px 0', color: 'var(--text-light)' }}>
+            {isKo ? '로딩 중...' : 'Loading...'}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !post) {
+    return (
+      <div className="community-page">
+        <div className="container">
+          <p style={{ textAlign: 'center', padding: '60px 0', color: 'var(--danger)' }}>
+            {error || (isKo ? '게시글을 찾을 수 없습니다.' : 'Post not found.')}
+          </p>
+          <div style={{ textAlign: 'center' }}>
+            <Link to="/community/board" className="btn btn-secondary btn-sm">
+              {isKo ? '목록으로' : 'Back to List'}
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="community-page">
       <SEOHead
-        title={isKo ? post.title : post.titleEn}
-        description={isKo ? post.title : post.titleEn}
+        title={post.title}
+        description={post.title}
         path={`/community/board/${id}`}
       />
       <div className="container">
         <div className="post-detail">
           {/* Header */}
           <div className="post-detail-header">
-            <h1 className="post-detail-title">{isKo ? post.title : post.titleEn}</h1>
+            <h1 className="post-detail-title">{post.title}</h1>
             <div className="post-detail-info">
-              <span>{post.author}</span>
-              <span>{post.date}</span>
+              <span>{post.author_name || (isKo ? '익명' : 'Anonymous')}</span>
+              <span>{formatDate(post.created_at)}</span>
               <span>
-                <i className="fa-solid fa-eye" /> {post.views}
+                <i className="fa-solid fa-eye" /> {post.view_count || 0}
               </span>
             </div>
           </div>
 
-          {/* Body */}
-          <div className="post-detail-body">
-            {(isKo ? post.body : post.bodyEn).split('\n').map((line, i) => (
-              <span key={i}>
-                {line}
-                <br />
-              </span>
-            ))}
+          {/* Body — 마크다운 렌더링 */}
+          <div className="post-detail-body markdown-body">
+            <ReactMarkdown>{post.content || ''}</ReactMarkdown>
           </div>
 
           {/* Actions */}
@@ -114,36 +163,72 @@ export default function BoardDetail() {
               <i className="fa-solid fa-arrow-left" />
               {isKo ? '목록으로' : 'Back to List'}
             </Link>
+            {canDelete && (
+              <button
+                className="btn btn-sm"
+                style={{ background: 'var(--danger)', color: '#fff' }}
+                onClick={handleDeletePost}
+              >
+                <i className="fa-solid fa-trash" />
+                {isKo ? '삭제' : 'Delete'}
+              </button>
+            )}
           </div>
 
           {/* Comments */}
           <div className="comments-section">
             <h3 className="comments-title">
-              {isKo ? `댓글 ${post.comments.length}개` : `${post.comments.length} Comments`}
+              {isKo
+                ? `댓글 ${post.comments?.length || 0}개`
+                : `${post.comments?.length || 0} Comments`}
             </h3>
 
-            {post.comments.map((comment) => (
+            {(post.comments || []).map((comment) => (
               <div key={comment.id} className="comment-item">
                 <div className="comment-header">
-                  <span className="comment-author">{comment.author}</span>
-                  <span className="comment-date">{comment.date}</span>
+                  <span className="comment-author">{comment.author_name || 'Anonymous'}</span>
+                  <span className="comment-date">{formatDate(comment.created_at)}</span>
+                  {user && (user.id === comment.author_id || isAdmin) && (
+                    <button
+                      className="comment-delete"
+                      style={{
+                        marginLeft: '8px', background: 'none', border: 'none',
+                        color: 'var(--danger)', cursor: 'pointer', fontSize: '12px',
+                      }}
+                      onClick={() => handleDeleteComment(comment.id)}
+                    >
+                      <i className="fa-solid fa-trash" />
+                    </button>
+                  )}
                 </div>
-                <div className="comment-body">
-                  {isKo ? comment.body : comment.bodyEn}
-                </div>
+                <div className="comment-body">{comment.body}</div>
               </div>
             ))}
 
-            <form className="comment-form" onSubmit={handleCommentSubmit}>
-              <textarea
-                placeholder={isKo ? '댓글을 입력하세요...' : 'Write a comment...'}
-                value={commentText}
-                onChange={(e) => setCommentText(e.target.value)}
-              />
-              <button type="submit" className="btn btn-primary btn-sm" style={{ alignSelf: 'flex-end' }}>
-                {isKo ? '등록' : 'Post'}
-              </button>
-            </form>
+            {user ? (
+              <form className="comment-form" onSubmit={handleCommentSubmit}>
+                <textarea
+                  placeholder={isKo ? '댓글을 입력하세요...' : 'Write a comment...'}
+                  value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-sm"
+                  style={{ alignSelf: 'flex-end' }}
+                  disabled={!commentText.trim() || submitting}
+                >
+                  {submitting
+                    ? (isKo ? '등록 중...' : 'Posting...')
+                    : (isKo ? '등록' : 'Post')}
+                </button>
+              </form>
+            ) : (
+              <p style={{ textAlign: 'center', color: 'var(--text-light)', padding: '16px 0' }}>
+                <Link to="/login">{isKo ? '로그인' : 'Login'}</Link>
+                {isKo ? ' 후 댓글을 작성할 수 있습니다.' : ' to write a comment.'}
+              </p>
+            )}
           </div>
         </div>
       </div>

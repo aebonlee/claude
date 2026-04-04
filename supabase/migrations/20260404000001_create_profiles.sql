@@ -14,8 +14,22 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   updated_at TIMESTAMPTZ DEFAULT now()
 );
 
+-- 기존 테이블에 누락된 컬럼 추가 (이미 있으면 무시)
+DO $$ BEGIN
+  ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS role TEXT DEFAULT 'user';
+  ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS provider TEXT;
+  ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS avatar_url TEXT;
+EXCEPTION WHEN OTHERS THEN NULL;
+END $$;
+
 -- RLS 활성화
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+
+-- 기존 정책 제거 (재생성을 위해)
+DROP POLICY IF EXISTS "Users can view own profile" ON public.profiles;
+DROP POLICY IF EXISTS "Users can update own profile" ON public.profiles;
+DROP POLICY IF EXISTS "Users can insert own profile" ON public.profiles;
+DROP POLICY IF EXISTS "Admins can view all profiles" ON public.profiles;
 
 -- 정책: 본인 프로필 조회
 CREATE POLICY "Users can view own profile"
@@ -51,6 +65,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS on_profiles_updated ON public.profiles;
 CREATE TRIGGER on_profiles_updated
   BEFORE UPDATE ON public.profiles
   FOR EACH ROW

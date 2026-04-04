@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { useToast } from '../../contexts/ToastContext';
 import SEOHead from '../../components/SEOHead';
+import { createPost } from '../../utils/posts';
 
 const categoryOptions = [
   { key: 'resource', label: '자료', labelEn: 'Resource' },
@@ -13,15 +16,39 @@ export default function BoardWrite() {
   const { language } = useLanguage();
   const isKo = language === 'ko';
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const toast = useToast();
   const [category, setCategory] = useState('free');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim() || !content.trim()) return;
-    // In a real app, this would save to a database
-    navigate('/community/board');
+
+    setLoading(true);
+    try {
+      const authorName = user?.user_metadata?.display_name
+        || user?.user_metadata?.full_name
+        || user?.email?.split('@')[0]
+        || 'Anonymous';
+
+      await createPost({
+        category,
+        title: title.trim(),
+        content: content.trim(),
+        authorId: user.id,
+        authorName,
+      });
+
+      toast.success(isKo ? '게시글이 등록되었습니다.' : 'Post has been created.');
+      navigate('/community/board');
+    } catch (err) {
+      toast.error(err.message || (isKo ? '게시글 등록에 실패했습니다.' : 'Failed to create post.'));
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleCancel = () => {
@@ -93,10 +120,16 @@ export default function BoardWrite() {
               <button
                 type="submit"
                 className="btn btn-primary btn-sm"
-                disabled={!title.trim() || !content.trim()}
+                disabled={!title.trim() || !content.trim() || loading}
               >
-                <i className="fa-solid fa-paper-plane" />
-                {isKo ? '등록' : 'Submit'}
+                {loading ? (
+                  <>{isKo ? '등록 중...' : 'Submitting...'}</>
+                ) : (
+                  <>
+                    <i className="fa-solid fa-paper-plane" />
+                    {isKo ? '등록' : 'Submit'}
+                  </>
+                )}
               </button>
             </div>
           </form>

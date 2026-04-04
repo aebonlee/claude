@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
+import { useToast } from '../contexts/ToastContext';
 import SEOHead from '../components/SEOHead';
 import { signInWithGoogle, signInWithKakao, signInWithEmail } from '../utils/auth';
 
@@ -9,11 +10,21 @@ export default function Login() {
   const { t } = useLanguage();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const toast = useToast();
+  const [searchParams] = useSearchParams();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // OAuth 콜백 에러 체크
+  useEffect(() => {
+    const errorDesc = searchParams.get('error_description');
+    if (errorDesc) {
+      toast.error(errorDesc);
+    }
+  }, [searchParams, toast]);
 
   // Redirect if already authenticated
   if (isAuthenticated) {
@@ -30,11 +41,14 @@ export default function Login() {
       const { error: authError } = await signInWithEmail(email, password);
       if (authError) {
         setError(authError.message);
+        toast.error(authError.message);
       } else {
+        toast.success(t('auth.loginSuccess') !== 'auth.loginSuccess' ? t('auth.loginSuccess') : '로그인 성공!');
         navigate('/');
       }
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
     } finally {
       setLoading(false);
     }
@@ -44,9 +58,13 @@ export default function Login() {
     setError('');
     try {
       const { error: authError } = await signInWithGoogle();
-      if (authError) setError(authError.message);
+      if (authError) {
+        setError(authError.message);
+        toast.error(authError.message);
+      }
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
     }
   };
 
@@ -54,9 +72,13 @@ export default function Login() {
     setError('');
     try {
       const { error: authError } = await signInWithKakao();
-      if (authError) setError(authError.message);
+      if (authError) {
+        setError(authError.message);
+        toast.error(authError.message);
+      }
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
     }
   };
 

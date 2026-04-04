@@ -20,6 +20,7 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- auth.users에 INSERT 될 때 자동으로 profiles 생성
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW
