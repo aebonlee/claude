@@ -156,6 +156,22 @@ html[data-theme="dark"] .auth-message.error {
     border-color: rgba(239, 68, 68, 0.3);
 }
 
+/* About Page */
+html[data-theme="dark"] .about-feature-card,
+html[data-theme="dark"] .about-path-card,
+html[data-theme="dark"] .about-tech-card {
+    background: #1E293B;
+    border-color: #334155;
+}
+html[data-theme="dark"] .about-stats-bar {
+    background: #1E293B;
+    border-color: #334155;
+}
+html[data-theme="dark"] .about-path-topic {
+    background: #334155;
+    color: #94A3B8;
+}
+
 /* Footer stays dark regardless */
 html[data-theme="dark"] .footer {
     background: #020617;

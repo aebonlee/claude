@@ -24,7 +24,8 @@
     .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
     .practice-layout { grid-template-columns: 1fr; }
     .resources-grid { grid-template-columns: 1fr; }
-    .about-features { grid-template-columns: repeat(2, 1fr); }
+    .about-features-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-values-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── 768px ── */
@@ -86,8 +87,20 @@
     .auth-title { font-size: 24px; }
 
     /* About */
-    .about-hero h1 { font-size: 32px; }
-    .about-features { grid-template-columns: 1fr; }
+    .about-hero-title { font-size: 36px; }
+    .about-hero-desc { font-size: 16px; }
+    .about-hero-actions { flex-direction: column; }
+    .about-hero-actions .btn { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
+    .about-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .about-features-grid { grid-template-columns: 1fr; }
+    .about-values-grid { grid-template-columns: 1fr; }
+    .about-path-card { flex-direction: column; align-items: flex-start; }
+    .about-path-arrow { display: none; }
+    .about-tech-grid { gap: 12px; }
+    .about-tech-card { padding: 12px 20px; font-size: 14px; }
+    .about-cta-title { font-size: 28px; }
+    .about-cta-actions { flex-direction: column; align-items: center; }
+    .about-cta-actions .btn { width: 100%; max-width: 320px; text-align: center; }
 
     /* Community */
     .post-item { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -110,6 +123,11 @@
     .comparison-table-wrapper { margin: 16px -16px; }
     .news-card { flex-direction: column; }
     .cta-title { font-size: 24px; }
+    .about-hero-title { font-size: 28px; }
+    .about-hero-badge { font-size: 12px; }
+    .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-stat-number { font-size: 28px; }
+    .about-cta-title { font-size: 24px; }
 }
 
 /* ── 360px ── */
