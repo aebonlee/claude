@@ -1,5 +1,134 @@
 import { useState } from 'react';
 
+/* ── Regex-based syntax highlighter ── */
+
+const HIGHLIGHT_COMMENT = /←|highlight|주목|중요|important/i;
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/* — Token rules per language — */
+
+const RULES_PYTHON = [
+  { type: 'comment', re: /#.*$/gm },
+  { type: 'string',  re: /("""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')/g },
+  { type: 'decorator', re: /@[\w.]+/g },
+  { type: 'keyword', re: /\b(import|from|as|def|class|return|if|elif|else|for|while|try|except|finally|with|raise|yield|async|await|pass|break|continue|and|or|not|in|is|lambda|global|nonlocal|del|assert)\b/g },
+  { type: 'builtin', re: /\b(True|False|None|self|cls|print|len|range|int|str|float|list|dict|set|tuple|type|isinstance|enumerate|zip|map|filter|super|open|input|sorted|reversed|any|all|min|max|sum|abs|round|format|hasattr|getattr|setattr)\b/g },
+  { type: 'function', re: /\b([a-zA-Z_]\w*)\s*(?=\()/g },
+  { type: 'number', re: /\b\d+(\.\d+)?\b/g },
+  { type: 'operator', re: /([+\-*/%=<>!&|^~:]+|->|\.\.\.)/g },
+];
+
+const RULES_JS = [
+  { type: 'comment', re: /(\/\/.*$|\/\*[\s\S]*?\*\/)/gm },
+  { type: 'string',  re: /(`(?:\\.|[^`\\])*`|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')/g },
+  { type: 'keyword', re: /\b(import|from|export|default|const|let|var|function|return|if|else|for|while|do|switch|case|break|continue|class|extends|new|this|super|try|catch|finally|throw|async|await|yield|typeof|instanceof|void|delete|in|of)\b/g },
+  { type: 'builtin', re: /\b(true|false|null|undefined|NaN|Infinity|console|window|document|Promise|Array|Object|String|Number|Boolean|Map|Set|JSON|Math|Date|RegExp|Error|Symbol|BigInt)\b/g },
+  { type: 'function', re: /\b([a-zA-Z_$]\w*)\s*(?=\()/g },
+  { type: 'number', re: /\b\d+(\.\d+)?\b/g },
+  { type: 'operator', re: /([+\-*/%=<>!&|^~?:]+|=>|\.\.\.)/g },
+];
+
+const RULES_BASH = [
+  { type: 'comment', re: /#.*$/gm },
+  { type: 'string',  re: /("(?:\\.|[^"\\])*"|'[^']*')/g },
+  { type: 'keyword', re: /\b(if|then|else|elif|fi|for|while|do|done|case|esac|in|function|return|exit|export|source|local|readonly|declare|unset|shift|break|continue)\b/g },
+  { type: 'builtin', re: /\b(echo|cd|ls|cat|grep|sed|awk|find|mkdir|rm|cp|mv|chmod|chown|curl|wget|pip|npm|npx|node|python|python3|git|docker|sudo|apt|brew|yarn|pnpm|bun)\b/g },
+  { type: 'function', re: /\$\{?\w+\}?/g },
+  { type: 'number', re: /\b\d+\b/g },
+  { type: 'operator', re: /([|&;<>]+|>>|&&|\|\|)/g },
+];
+
+const RULES_JSON = [
+  { type: 'string',  re: /("(?:\\.|[^"\\])*")\s*(?=:)/g },  // keys
+  { type: 'string',  re: /:\s*("(?:\\.|[^"\\])*")/g },       // string values
+  { type: 'builtin', re: /\b(true|false|null)\b/g },
+  { type: 'number', re: /\b-?\d+(\.\d+)?([eE][+-]?\d+)?\b/g },
+];
+
+function getRules(lang) {
+  const l = (lang || '').toLowerCase();
+  if (['python', 'py'].includes(l)) return RULES_PYTHON;
+  if (['javascript', 'js', 'jsx', 'typescript', 'ts', 'tsx'].includes(l)) return RULES_JS;
+  if (['bash', 'sh', 'shell', 'zsh', 'terminal', 'console'].includes(l)) return RULES_BASH;
+  if (['json', 'jsonc'].includes(l)) return RULES_JSON;
+  // fallback: generic highlighting
+  return [
+    { type: 'comment', re: /(\/\/.*$|#.*$|\/\*[\s\S]*?\*\/)/gm },
+    { type: 'string',  re: /("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`)/g },
+    { type: 'keyword', re: /\b(import|from|export|const|let|var|function|def|class|return|if|else|for|while|try|catch|except|with|async|await|new|this|self)\b/g },
+    { type: 'builtin', re: /\b(true|false|null|undefined|None|True|False)\b/g },
+    { type: 'number', re: /\b\d+(\.\d+)?\b/g },
+  ];
+}
+
+/**
+ * Tokenize a single line of code using regex rules.
+ * Returns HTML string with <span class="token xxx"> wrappers.
+ */
+function tokenizeLine(line, rules) {
+  // Collect all matches with their positions
+  const tokens = [];
+
+  for (const rule of rules) {
+    const re = new RegExp(rule.re.source, rule.re.flags);
+    let m;
+    while ((m = re.exec(line)) !== null) {
+      // Use the last capturing group if present, otherwise full match
+      const text = m[1] !== undefined && rule.type !== 'comment' && rule.type !== 'keyword' && rule.type !== 'builtin' && rule.type !== 'decorator' ? m[1] : m[0];
+      const start = m.index + (m[0].length - text.length);
+      tokens.push({ start, end: start + text.length, type: rule.type, text });
+    }
+  }
+
+  // Sort by position, longer matches first for ties
+  tokens.sort((a, b) => a.start - b.start || b.end - a.end);
+
+  // Remove overlapping tokens (first match wins)
+  const filtered = [];
+  let lastEnd = 0;
+  for (const t of tokens) {
+    if (t.start >= lastEnd) {
+      filtered.push(t);
+      lastEnd = t.end;
+    }
+  }
+
+  // Build HTML
+  let result = '';
+  let pos = 0;
+  for (const t of filtered) {
+    if (t.start > pos) {
+      result += escapeHtml(line.slice(pos, t.start));
+    }
+    result += `<span class="token ${t.type}">${escapeHtml(t.text)}</span>`;
+    pos = t.end;
+  }
+  if (pos < line.length) {
+    result += escapeHtml(line.slice(pos));
+  }
+
+  return result;
+}
+
+function highlightCode(code, language) {
+  const rules = getRules(language);
+  const lines = code.split('\n');
+
+  return lines.map((line) => {
+    const isHighlight = HIGHLIGHT_COMMENT.test(line);
+    const highlighted = tokenizeLine(line, rules);
+    if (isHighlight) {
+      return `<span class="code-line-highlight">${highlighted}</span>`;
+    }
+    return highlighted;
+  }).join('\n');
+}
+
+/* ── Component ── */
+
 export default function CodeBlock({ code, language = '' }) {
   const [copied, setCopied] = useState(false);
 
@@ -9,7 +138,6 @@ export default function CodeBlock({ code, language = '' }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // fallback
       const ta = document.createElement('textarea');
       ta.value = code;
       document.body.appendChild(ta);
@@ -21,6 +149,8 @@ export default function CodeBlock({ code, language = '' }) {
     }
   };
 
+  const html = highlightCode(code, language);
+
   return (
     <div className="code-block-wrapper">
       <div className="code-block-header">
@@ -31,7 +161,7 @@ export default function CodeBlock({ code, language = '' }) {
         </button>
       </div>
       <div className="code-block-content">
-        <pre><code>{code}</code></pre>
+        <pre><code dangerouslySetInnerHTML={{ __html: html }} /></pre>
       </div>
     </div>
   );

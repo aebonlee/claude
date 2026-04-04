@@ -3,6 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useLanguage } from '../../contexts/LanguageContext';
 import SEOHead from '../../components/SEOHead';
+import CodeBlock from '../../components/CodeBlock';
+import TipBox from '../../components/TipBox';
 import basics from './data/basics';
 import systemPrompts from './data/system-prompts';
 import xmlTags from './data/xml-tags';
@@ -18,6 +20,25 @@ export default function PromptEngineering() {
   const isKo = language === 'ko';
   const [activeIndex, setActiveIndex] = useState(0);
   const activeSection = SECTIONS[activeIndex];
+
+  const markdownComponents = {
+    code({ inline, className, children, ...props }) {
+      const match = /language-(\w+)/.exec(className || '');
+      if (!inline && match) {
+        return <CodeBlock code={String(children).replace(/\n$/, '')} language={match[1]} />;
+      }
+      if (!inline && !match && String(children).includes('\n')) {
+        return <CodeBlock code={String(children).replace(/\n$/, '')} language="" />;
+      }
+      return <code className="inline-code" {...props}>{children}</code>;
+    },
+    table({ children }) {
+      return <div className="table-responsive"><table>{children}</table></div>;
+    },
+    blockquote({ children }) {
+      return <TipBox type="tip">{children}</TipBox>;
+    },
+  };
 
   return (
     <div className="guide-page">
@@ -46,9 +67,11 @@ export default function PromptEngineering() {
           {activeSection.sections.map((sec, i) => (
             <div key={i} className="guide-section">
               <h2>{isKo ? sec.title : sec.titleEn}</h2>
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {isKo ? sec.content : sec.contentEn}
-              </ReactMarkdown>
+              <div className="markdown-body">
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                  {isKo ? sec.content : sec.contentEn}
+                </ReactMarkdown>
+              </div>
             </div>
           ))}
           <div className="guide-section-nav">
