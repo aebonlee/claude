@@ -64,10 +64,21 @@ html[data-theme="dark"] .auth-card {
     background: #1E293B;
     border-color: #334155;
 }
-html[data-theme="dark"] .social-btn-google {
+html[data-theme="dark"] .social-btn-google,
+html[data-theme="dark"] .btn-google {
     background: #334155;
     border-color: #475569;
     color: #F1F5F9;
+}
+html[data-theme="dark"] .auth-field input {
+    background: #0F172A;
+    border-color: #334155;
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .auth-error {
+    background: #451A1A;
+    color: #FCA5A5;
+    border-color: #7F1D1D;
 }
 
 /* Forms */
