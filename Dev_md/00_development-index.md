@@ -11,6 +11,7 @@
 |---|------|------|------|
 | 01 | [community-board-separation.md](./01_community-board-separation.md) | 커뮤니티 주제별 게시판 5개 분리 (2단계 구조) | 2026-04-04 |
 | 02 | [hero-highlight-effect.md](./02_hero-highlight-effect.md) | 히어로 섹션 형광펜 효과 개선 | 2026-04-04 |
+| 03 | [site-evaluation-report.md](./03_site-evaluation-report.md) | 사이트 종합 평가 보고서 (83/100, B+) | 2026-04-04 |
 
 ## DB 구조
 - `profiles` — 사용자 프로필 (기존)
