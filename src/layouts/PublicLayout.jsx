@@ -23,6 +23,7 @@ const Resources = lazy(() => import('../pages/resources/Resources'));
 const PromptPractice = lazy(() => import('../pages/prompt-practice/PromptPractice'));
 const PromptGallery = lazy(() => import('../pages/prompt-gallery/PromptGallery'));
 const AINews = lazy(() => import('../pages/ai-news/AINews'));
+const CommunityHub = lazy(() => import('../pages/community/CommunityHub'));
 const Board = lazy(() => import('../pages/community/Board'));
 const BoardDetail = lazy(() => import('../pages/community/BoardDetail'));
 const BoardWrite = lazy(() => import('../pages/community/BoardWrite'));
@@ -62,9 +63,10 @@ export default function PublicLayout() {
             <Route path="/prompt-practice" element={<PromptPractice />} />
             <Route path="/prompt-gallery" element={<PromptGallery />} />
             <Route path="/ai-news" element={<AINews />} />
-            <Route path="/community/board" element={<Board />} />
-            <Route path="/community/board/:id" element={<BoardDetail />} />
-            <Route path="/community/board/write" element={<AuthGuard><BoardWrite /></AuthGuard>} />
+            <Route path="/community" element={<CommunityHub />} />
+            <Route path="/community/:board" element={<Board />} />
+            <Route path="/community/:board/write" element={<AuthGuard><BoardWrite /></AuthGuard>} />
+            <Route path="/community/:board/:id" element={<BoardDetail />} />
             <Route path="/admin/*" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
             <Route path="*" element={<NotFound />} />
           </Routes>

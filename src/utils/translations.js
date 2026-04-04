@@ -99,6 +99,10 @@ const translations = {
     community: {
       title: '커뮤니티',
       board: '게시판',
+      hub: '게시판 목록',
+      selectBoard: '주제별 게시판에서 함께 배우고 나누세요.',
+      allBoards: '전체 게시판',
+      boardList: '게시판 목록',
       writePost: '글쓰기',
       search: '검색',
       all: '전체',
@@ -263,6 +267,10 @@ const translations = {
     community: {
       title: 'Community',
       board: 'Board',
+      hub: 'Board List',
+      selectBoard: 'Learn and share in topic-based boards.',
+      allBoards: 'All Boards',
+      boardList: 'Board List',
       writePost: 'Write',
       search: 'Search',
       all: 'All',

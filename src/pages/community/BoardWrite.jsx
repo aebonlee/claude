@@ -1,27 +1,33 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
 import SEOHead from '../../components/SEOHead';
 import { createPost } from '../../utils/posts';
-
-const categoryOptions = [
-  { key: 'resource', label: '자료', labelEn: 'Resource' },
-  { key: 'question', label: '질문', labelEn: 'Question' },
-  { key: 'free', label: '자유', labelEn: 'Free' },
-];
+import { getBoardById, getCategoriesForBoard } from '../../config/boards';
 
 export default function BoardWrite() {
+  const { board: boardId } = useParams();
   const { language } = useLanguage();
   const isKo = language === 'ko';
   const navigate = useNavigate();
   const { user } = useAuth();
   const toast = useToast();
+
+  const boardInfo = getBoardById(boardId);
+  const categories = getCategoriesForBoard(boardId).filter((c) => c.key !== 'all' && c.key !== 'notice');
+
   const [category, setCategory] = useState('free');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!boardInfo) navigate('/community', { replace: true });
+  }, [boardInfo, navigate]);
+
+  if (!boardInfo) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +41,7 @@ export default function BoardWrite() {
         || 'Anonymous';
 
       await createPost({
+        board: boardId,
         category,
         title: title.trim(),
         content: content.trim(),
@@ -43,7 +50,7 @@ export default function BoardWrite() {
       });
 
       toast.success(isKo ? '게시글이 등록되었습니다.' : 'Post has been created.');
-      navigate('/community/board');
+      navigate(`/community/${boardId}`);
     } catch (err) {
       toast.error(err.message || (isKo ? '게시글 등록에 실패했습니다.' : 'Failed to create post.'));
     } finally {
@@ -52,7 +59,7 @@ export default function BoardWrite() {
   };
 
   const handleCancel = () => {
-    navigate('/community/board');
+    navigate(`/community/${boardId}`);
   };
 
   return (
@@ -60,16 +67,16 @@ export default function BoardWrite() {
       <SEOHead
         title={isKo ? '글쓰기' : 'Write Post'}
         description={isKo ? '커뮤니티에 새 글을 작성합니다.' : 'Write a new post in the community.'}
-        path="/community/board/write"
+        path={`/community/${boardId}/write`}
       />
       <div className="container">
         <div className="write-page">
           <h1 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '32px' }}>
-            {isKo ? '글쓰기' : 'Write Post'}
+            <i className={`fa-solid ${boardInfo.icon}`} style={{ color: boardInfo.color, marginRight: '12px' }} />
+            {isKo ? boardInfo.nameKo : boardInfo.nameEn} — {isKo ? '글쓰기' : 'Write Post'}
           </h1>
 
           <form className="write-form" onSubmit={handleSubmit}>
-            {/* Category Select */}
             <div className="form-group">
               <label className="form-label">{isKo ? '카테고리' : 'Category'}</label>
               <select
@@ -77,15 +84,14 @@ export default function BoardWrite() {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
-                {categoryOptions.map((opt) => (
+                {categories.map((opt) => (
                   <option key={opt.key} value={opt.key}>
-                    {isKo ? opt.label : opt.labelEn}
+                    {isKo ? opt.labelKo : opt.labelEn}
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* Title Input */}
             <div className="form-group">
               <label className="form-label">{isKo ? '제목' : 'Title'}</label>
               <input
@@ -97,7 +103,6 @@ export default function BoardWrite() {
               />
             </div>
 
-            {/* Content Textarea */}
             <div className="form-group">
               <label className="form-label">{isKo ? '내용' : 'Content'}</label>
               <textarea
@@ -112,7 +117,6 @@ export default function BoardWrite() {
               </p>
             </div>
 
-            {/* Actions */}
             <div className="write-actions">
               <button type="button" className="btn btn-secondary btn-sm" onClick={handleCancel}>
                 {isKo ? '취소' : 'Cancel'}

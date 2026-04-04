@@ -4,6 +4,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { signOut } from '../../utils/auth';
+import { BOARDS } from '../../config/boards';
 
 export default function Navbar() {
   const { mode, toggleTheme, colorTheme, setColorTheme, COLOR_OPTIONS } = useTheme();
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showTooltips, setShowTooltips] = useState(false);
+  const [mobileCommExpanded, setMobileCommExpanded] = useState(false);
   const colorPickerRef = useRef(null);
   const userMenuRef = useRef(null);
 
@@ -30,6 +32,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setMobileCommExpanded(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -72,7 +75,7 @@ export default function Navbar() {
     { path: '/prompt-engineering', ko: '프롬프트 가이드', en: 'Prompt Guide' },
     { path: '/api-usage', ko: 'API 가이드', en: 'API Guide' },
     { path: '/ai-news', ko: 'AI 뉴스', en: 'AI News' },
-    { path: '/community/board', ko: '커뮤니티', en: 'Community' },
+    { path: '/community', ko: '커뮤니티', en: 'Community', hasDropdown: true },
   ];
 
   return (
@@ -86,13 +89,28 @@ export default function Navbar() {
 
           <ul className="nav-links">
             {NAV_ITEMS.map((item) => (
-              <li key={item.path} className="nav-item">
+              <li key={item.path} className={`nav-item${item.hasDropdown ? ' has-dropdown' : ''}`}>
                 <Link
                   to={item.path}
                   className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
                 >
                   {isKo ? item.ko : item.en}
+                  {item.hasDropdown && <i className="fa-solid fa-chevron-down nav-dropdown-icon" />}
                 </Link>
+                {item.hasDropdown && (
+                  <div className="nav-dropdown">
+                    {BOARDS.map((board) => (
+                      <Link
+                        key={board.id}
+                        to={`/community/${board.id}`}
+                        className="nav-dropdown-item"
+                      >
+                        <i className={`fa-solid ${board.icon}`} style={{ color: board.color, width: '18px' }} />
+                        {isKo ? board.nameKo : board.nameEn}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -173,13 +191,43 @@ export default function Navbar() {
 
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <ul className="mobile-nav-links">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.path}>
-              <Link to={item.path} className="mobile-nav-link">
-                {isKo ? item.ko : item.en}
-              </Link>
-            </li>
-          ))}
+          {NAV_ITEMS.map((item) =>
+            item.hasDropdown ? (
+              <li key={item.path} className="mobile-nav-group">
+                <button
+                  className="mobile-nav-link mobile-nav-group-toggle"
+                  onClick={() => setMobileCommExpanded(!mobileCommExpanded)}
+                >
+                  {isKo ? item.ko : item.en}
+                  <i className={`fa-solid fa-chevron-down mobile-chevron${mobileCommExpanded ? ' expanded' : ''}`} />
+                </button>
+                {mobileCommExpanded && (
+                  <ul className="mobile-nav-sub">
+                    <li>
+                      <Link to="/community" className="mobile-nav-sub-link">
+                        <i className="fa-solid fa-grid-2" style={{ width: '18px' }} />
+                        {isKo ? '전체 게시판' : 'All Boards'}
+                      </Link>
+                    </li>
+                    {BOARDS.map((board) => (
+                      <li key={board.id}>
+                        <Link to={`/community/${board.id}`} className="mobile-nav-sub-link">
+                          <i className={`fa-solid ${board.icon}`} style={{ color: board.color, width: '18px' }} />
+                          {isKo ? board.nameKo : board.nameEn}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ) : (
+              <li key={item.path}>
+                <Link to={item.path} className="mobile-nav-link">
+                  {isKo ? item.ko : item.en}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
         <div className="mobile-menu-actions">
           {isAuthenticated ? (

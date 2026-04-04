@@ -75,10 +75,15 @@
     letter-spacing: -0.03em;
 }
 .hero-title-highlight {
-    background: linear-gradient(135deg, #FDE68A, #F59E0B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    position: relative;
+    display: inline;
+    background: linear-gradient(to top, rgba(245, 158, 11, 0.35) 40%, transparent 40%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 0 4px;
+    margin: 0 -4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 .hero-description {

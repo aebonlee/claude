@@ -1,13 +1,22 @@
 import { supabase } from './supabase';
 
 /**
+ * Claude Master 전용 게시글/댓글 유틸리티
+ * 테이블: claude_posts, claude_comments
+ */
+
+/**
  * 게시글 목록 조회 (댓글 수 포함)
  */
-export async function getPosts({ category, search, limit } = {}) {
+export async function getPosts({ board, category, search, limit } = {}) {
   let query = supabase
-    .from('posts')
-    .select('*, comment_count:comments(count)')
+    .from('claude_posts')
+    .select('*, comment_count:claude_comments(count)')
     .order('created_at', { ascending: false });
+
+  if (board) {
+    query = query.eq('board', board);
+  }
 
   if (category && category !== 'all') {
     query = query.eq('category', category);
@@ -26,7 +35,6 @@ export async function getPosts({ category, search, limit } = {}) {
 
   if (error) throw error;
 
-  // comment_count 배열에서 숫자 추출
   return data.map(post => ({
     ...post,
     comment_count: post.comment_count?.[0]?.count ?? 0,
@@ -37,13 +45,10 @@ export async function getPosts({ category, search, limit } = {}) {
  * 게시글 단건 조회 + 댓글 + 조회수 증가
  */
 export async function getPostById(id) {
-  // 조회수 증가 (RPC 없이 직접 update — RLS가 SELECT만 허용하므로 rpc 사용)
-  await supabase.rpc('increment_view_count', { post_id: Number(id) }).catch(() => {
-    // rpc 없으면 무시 — 아래에서 fallback
-  });
+  await supabase.rpc('increment_claude_view_count', { post_id: Number(id) }).catch(() => {});
 
   const { data: post, error } = await supabase
-    .from('posts')
+    .from('claude_posts')
     .select('*')
     .eq('id', id)
     .single();
@@ -51,7 +56,7 @@ export async function getPostById(id) {
   if (error) throw error;
 
   const { data: comments } = await supabase
-    .from('comments')
+    .from('claude_comments')
     .select('*')
     .eq('post_id', id)
     .order('created_at', { ascending: true });
@@ -62,12 +67,13 @@ export async function getPostById(id) {
 /**
  * 게시글 작성
  */
-export async function createPost({ category, title, content, authorId, authorName }) {
+export async function createPost({ board, category, title, content, authorId, authorName }) {
   const { data, error } = await supabase
-    .from('posts')
+    .from('claude_posts')
     .insert({
       author_id: authorId,
       author_name: authorName,
+      board: board || 'claude-general',
       category,
       title,
       content,
@@ -84,7 +90,7 @@ export async function createPost({ category, title, content, authorId, authorNam
  */
 export async function deletePost(id) {
   const { error } = await supabase
-    .from('posts')
+    .from('claude_posts')
     .delete()
     .eq('id', id);
 
@@ -96,7 +102,7 @@ export async function deletePost(id) {
  */
 export async function createComment({ postId, body, authorId, authorName }) {
   const { data, error } = await supabase
-    .from('comments')
+    .from('claude_comments')
     .insert({
       post_id: postId,
       author_id: authorId,
@@ -115,7 +121,7 @@ export async function createComment({ postId, body, authorId, authorName }) {
  */
 export async function deleteComment(id) {
   const { error } = await supabase
-    .from('comments')
+    .from('claude_comments')
     .delete()
     .eq('id', id);
 
@@ -127,9 +133,9 @@ export async function deleteComment(id) {
  */
 export async function getPostStats() {
   const [postsRes, commentsRes, viewsRes] = await Promise.all([
-    supabase.from('posts').select('id', { count: 'exact', head: true }),
-    supabase.from('comments').select('id', { count: 'exact', head: true }),
-    supabase.from('posts').select('view_count'),
+    supabase.from('claude_posts').select('id', { count: 'exact', head: true }),
+    supabase.from('claude_comments').select('id', { count: 'exact', head: true }),
+    supabase.from('claude_posts').select('view_count'),
   ]);
 
   const totalViews = (viewsRes.data || []).reduce((sum, p) => sum + (p.view_count || 0), 0);

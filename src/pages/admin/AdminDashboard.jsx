@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import SEOHead from '../../components/SEOHead';
 import { getPostStats, getPosts } from '../../utils/posts';
+import { getBoardById } from '../../config/boards';
 
 export default function AdminDashboard() {
   const { language } = useLanguage();
@@ -83,6 +84,7 @@ export default function AdminDashboard() {
               <thead>
                 <tr>
                   <th>ID</th>
+                  <th>{isKo ? '게시판' : 'Board'}</th>
                   <th>{isKo ? '제목' : 'Title'}</th>
                   <th>{isKo ? '작성자' : 'Author'}</th>
                   <th>{isKo ? '카테고리' : 'Category'}</th>
@@ -91,37 +93,45 @@ export default function AdminDashboard() {
                 </tr>
               </thead>
               <tbody>
-                {recentPosts.map((post) => (
-                  <tr key={post.id}>
-                    <td>{post.id}</td>
-                    <td style={{ fontWeight: 500, color: 'var(--text-primary)' }}>
-                      {post.title}
-                    </td>
-                    <td>{post.author_name || '-'}</td>
-                    <td>
-                      <span
-                        style={{
-                          padding: '2px 8px',
-                          fontSize: '11px',
-                          fontWeight: 600,
-                          borderRadius: 'var(--radius-full)',
-                          background: post.category === 'notice' ? '#DBEAFE'
-                            : post.category === 'resource' ? '#D1FAE5'
-                            : post.category === 'question' ? '#FEF3C7'
-                            : '#F3F4F6',
-                          color: post.category === 'notice' ? '#1D4ED8'
-                            : post.category === 'resource' ? '#059669'
-                            : post.category === 'question' ? '#D97706'
-                            : '#6B7280',
-                        }}
-                      >
-                        {post.category}
-                      </span>
-                    </td>
-                    <td>{formatDate(post.created_at)}</td>
-                    <td>{(post.view_count || 0).toLocaleString()}</td>
-                  </tr>
-                ))}
+                {recentPosts.map((post) => {
+                  const board = getBoardById(post.board);
+                  return (
+                    <tr key={post.id}>
+                      <td>{post.id}</td>
+                      <td>
+                        <span style={{ fontSize: '12px', color: board?.color || 'var(--text-light)' }}>
+                          {board ? (isKo ? board.nameKo : board.nameEn) : (post.board || 'general')}
+                        </span>
+                      </td>
+                      <td style={{ fontWeight: 500, color: 'var(--text-primary)' }}>
+                        {post.title}
+                      </td>
+                      <td>{post.author_name || '-'}</td>
+                      <td>
+                        <span
+                          style={{
+                            padding: '2px 8px',
+                            fontSize: '11px',
+                            fontWeight: 600,
+                            borderRadius: 'var(--radius-full)',
+                            background: post.category === 'notice' ? '#DBEAFE'
+                              : post.category === 'resource' ? '#D1FAE5'
+                              : post.category === 'question' ? '#FEF3C7'
+                              : '#F3F4F6',
+                            color: post.category === 'notice' ? '#1D4ED8'
+                              : post.category === 'resource' ? '#059669'
+                              : post.category === 'question' ? '#D97706'
+                              : '#6B7280',
+                          }}
+                        >
+                          {post.category}
+                        </span>
+                      </td>
+                      <td>{formatDate(post.created_at)}</td>
+                      <td>{(post.view_count || 0).toLocaleString()}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           )}

@@ -8,7 +8,7 @@ import SEOHead from '../../components/SEOHead';
 import { getPostById, createComment, deleteComment, deletePost } from '../../utils/posts';
 
 export default function BoardDetail() {
-  const { id } = useParams();
+  const { board: boardId, id } = useParams();
   const { language } = useLanguage();
   const isKo = language === 'ko';
   const { user, isAdmin } = useAuth();
@@ -27,6 +27,10 @@ export default function BoardDetail() {
       setError('');
       try {
         const data = await getPostById(id);
+        if (data.board && data.board !== boardId) {
+          navigate(`/community/${data.board}/${id}`, { replace: true });
+          return;
+        }
         setPost(data);
       } catch (err) {
         setError(err.message);
@@ -35,7 +39,7 @@ export default function BoardDetail() {
       }
     }
     fetchPost();
-  }, [id]);
+  }, [id, boardId, navigate]);
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
@@ -87,7 +91,7 @@ export default function BoardDetail() {
     try {
       await deletePost(Number(id));
       toast.success(isKo ? '게시글이 삭제되었습니다.' : 'Post deleted.');
-      navigate('/community/board');
+      navigate(`/community/${boardId}`);
     } catch (err) {
       toast.error(err.message);
     }
@@ -122,7 +126,7 @@ export default function BoardDetail() {
             {error || (isKo ? '게시글을 찾을 수 없습니다.' : 'Post not found.')}
           </p>
           <div style={{ textAlign: 'center' }}>
-            <Link to="/community/board" className="btn btn-secondary btn-sm">
+            <Link to={`/community/${boardId}`} className="btn btn-secondary btn-sm">
               {isKo ? '목록으로' : 'Back to List'}
             </Link>
           </div>
@@ -136,11 +140,10 @@ export default function BoardDetail() {
       <SEOHead
         title={post.title}
         description={post.title}
-        path={`/community/board/${id}`}
+        path={`/community/${boardId}/${id}`}
       />
       <div className="container">
         <div className="post-detail">
-          {/* Header */}
           <div className="post-detail-header">
             <h1 className="post-detail-title">{post.title}</h1>
             <div className="post-detail-info">
@@ -152,14 +155,12 @@ export default function BoardDetail() {
             </div>
           </div>
 
-          {/* Body — 마크다운 렌더링 */}
           <div className="post-detail-body markdown-body">
             <ReactMarkdown>{post.content || ''}</ReactMarkdown>
           </div>
 
-          {/* Actions */}
           <div className="post-detail-actions">
-            <Link to="/community/board" className="btn btn-secondary btn-sm">
+            <Link to={`/community/${boardId}`} className="btn btn-secondary btn-sm">
               <i className="fa-solid fa-arrow-left" />
               {isKo ? '목록으로' : 'Back to List'}
             </Link>
@@ -175,7 +176,6 @@ export default function BoardDetail() {
             )}
           </div>
 
-          {/* Comments */}
           <div className="comments-section">
             <h3 className="comments-title">
               {isKo
