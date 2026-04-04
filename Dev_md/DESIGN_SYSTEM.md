@@ -41,11 +41,18 @@
 | 360px | 소형 모바일 |
 
 ## 컴포넌트
-- **Glassmorphism Navbar**: backdrop-filter blur(20px)
+- **Glassmorphism Navbar**: backdrop-filter blur(12px), 드롭다운 없이 플랫 직접 링크
 - **CodeBlock**: 다크 배경(#1E293B), 복사 버튼 포함
 - **TipBox**: tip(파랑), warning(노랑), important(보라), danger(빨강)
 - **FeatureCard**: 아이콘 + 제목 + 설명
 - **HeroCarousel**: 5초 자동 회전
+
+## About 페이지 전용 컴포넌트
+- **Vision Card**: 미션/비전/가치 3열 카드 (gradient 아이콘)
+- **Team Card**: 아바타 + 이름 + 역할 배지 + 설명
+- **Timeline**: 세로 타임라인 (dot + 카드)
+- **FAQ Accordion**: `<details>` 기반 접기/펼치기
+- **Tech Stack Card**: 아이콘 + 이름 + 설명
 
 ## 애니메이션
 - fadeIn, fadeInUp, slideIn, scaleIn (CSS @keyframes)

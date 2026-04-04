@@ -34,26 +34,24 @@
 - AuthGuard: 미인증 시 /login으로 리다이렉트
 - AdminGuard: 관리자가 아닌 경우 /로 리다이렉트
 
-## 네비게이션 구조
+## 네비게이션 구조 (플랫 직접 링크)
+드롭다운 없이 모든 메뉴가 바로 해당 페이지로 연결됩니다.
 
-### Guides 드롭다운
-- Claude Code (/claude-code)
+| 메뉴명 (ko) | 메뉴명 (en) | 경로 |
+|-------------|-------------|------|
+| 소개 | About | /about |
+| Claude Code | Claude Code | /claude-code |
+| 프롬프트 가이드 | Prompt Guide | /prompt-engineering |
+| API 가이드 | API Guide | /api-usage |
+| 모델 비교 | Models | /model-comparison |
+| AI 뉴스 | AI News | /ai-news |
+| 커뮤니티 | Community | /community/board |
+
+### 네비게이션에서 직접 접근 불가한 페이지 (홈/가이드 내부에서 접근)
 - Claude Work (/claude-work)
-- Prompt Engineering (/prompt-engineering)
-- API Usage (/api-usage)
 - Agent SDK (/agent-sdk)
-
-### Learn 드롭다운
-- Model Comparison (/model-comparison)
-- Glossary (/glossary)
-- Roadmap (/roadmap)
-- Resources (/resources)
-
-### Tools 드롭다운
-- Prompt Practice (/prompt-practice)
-- Prompt Gallery (/prompt-gallery)
-
-### 직접 링크
-- About (/about)
-- AI News (/ai-news)
-- Community (/community/board)
+- AI 용어사전 (/glossary)
+- 학습 로드맵 (/roadmap)
+- 학습자료 (/resources)
+- 프롬프트 실습 (/prompt-practice)
+- 프롬프트 갤러리 (/prompt-gallery)

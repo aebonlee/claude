@@ -47,8 +47,28 @@ GitHub Pages는 SPA를 직접 지원하지 않으므로:
 npm run generate-og
 ```
 - `scripts/generate-og-image.mjs` 실행
-- sharp 라이브러리로 1200x630 PNG 생성
+- sharp 라이브러리로 1200x630 PNG 생성 (82KB)
+- SVG → PNG 변환 (다크블루 그라데이션 배경, 앰버 악센트, 피처 태그 뱃지)
 - `public/og/default.png`에 저장
+
+### OG 메타 태그 (index.html)
+| 태그 | 값 |
+|------|-----|
+| `og:url` | https://claude.dreamitbiz.com |
+| `og:title` | Claude Master - Claude AI 학습 플랫폼 |
+| `og:description` | Claude AI의 모든 기능을 학습하는 종합 플랫폼 |
+| `og:type` | website |
+| `og:image` | https://claude.dreamitbiz.com/og/default.png |
+| `og:image:width` | 1200 |
+| `og:image:height` | 630 |
+| `og:site_name` | Claude Master |
+| `og:locale` | ko_KR |
+| `twitter:card` | summary_large_image |
+
+### OG 디버거
+- 카카오: https://developers.kakao.com/tool/debugger/sharing
+- 페이스북: https://developers.facebook.com/tools/debug/
+- 트위터: https://cards-dev.twitter.com/validator
 
 ## 도메인 설정
 1. CNAME 파일에 `claude.dreamitbiz.com` 설정

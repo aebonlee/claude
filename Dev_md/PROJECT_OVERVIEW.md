@@ -20,6 +20,25 @@ Claude Code, Claude Work, Prompt Engineering, API Usage, Agent SDK 등을 체계
 - **커뮤니티 게시판**: 공지, 자료, 질문, 자유 게시판
 - **관리자 대시보드**: 사용자/게시글/통계 관리
 
+## 네비게이션
+- 드롭다운 없이 플랫 직접 링크 방식
+- 메뉴: 소개 | Claude Code | 프롬프트 가이드 | API 가이드 | 모델 비교 | AI 뉴스 | 커뮤니티
+- 나머지 페이지(Claude Work, Agent SDK, 용어사전, 로드맵, 리소스 등)는 홈/가이드 내부에서 접근
+
+## About 페이지 (플랫폼 소개 특화)
+- 미션 / 비전 / 가치 카드
+- 팀 소개 (DreamIT Biz + Claude Opus 4)
+- 개발 스토리 타임라인
+- 기술 스택 상세
+- FAQ (접기/펼치기)
+- GitHub + 커뮤니티 CTA
+
+## Open Graph (OG) 메타 태그
+- og:url, og:title, og:description, og:type, og:image, og:site_name, og:locale
+- og:image: 1200x630 PNG (sharp로 생성, `public/og/default.png`)
+- Twitter Card: summary_large_image
+- SEOHead 컴포넌트로 페이지별 동적 관리
+
 ## 다국어 지원
 - 한국어 (ko) / 영어 (en)
 - 쿠키 기반 언어 설정 저장
@@ -37,3 +56,11 @@ Claude Code, Claude Work, Prompt Engineering, API Usage, Agent SDK 등을 체계
 
 ## 도메인
 - claude.dreamitbiz.com
+
+## 변경 이력
+| 날짜 | 변경 내용 |
+|------|----------|
+| 2025.04 | 최초 릴리스 - 전체 플랫폼 구축 (93+ 파일) |
+| 2025.04 | OG 이미지 생성 및 메타 태그 완성 |
+| 2025.04 | About 페이지 풀 리뉴얼 (플랫폼 소개 특화) |
+| 2025.04 | 네비게이션 드롭다운 제거, 플랫 직접 링크 전환 |

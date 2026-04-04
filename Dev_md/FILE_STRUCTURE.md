@@ -14,7 +14,9 @@ D:\dreamit-web\claude\
 ├── public/
 │   ├── favicon.svg
 │   ├── 404.html
-│   └── CNAME
+│   ├── CNAME
+│   └── og/
+│       └── default.png          # OG 이미지 (1200x630, sharp 생성)
 │
 ├── scripts/
 │   └── generate-og-image.mjs
