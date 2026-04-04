@@ -33,6 +33,17 @@ export const LEARNING_PATHS = [
     topics: ['Projects', 'Artifacts', 'Memory', 'Team 기능', 'Integrations'],
   },
   {
+    id: 'claude-cowork',
+    icon: 'fa-handshake',
+    nameKo: 'Claude 코워크',
+    nameEn: 'Claude Co-work',
+    descKo: 'Claude AI와 팀이 함께 협업하는 코워크 방법론을 학습합니다.',
+    descEn: 'Learn co-work methodologies for collaborating with Claude AI as a team.',
+    color: '#059669',
+    path: '/claude-cowork',
+    topics: ['프로젝트 협업', 'MCP 연동', 'Slack/Notion', '워크플로우', '엔터프라이즈'],
+  },
+  {
     id: 'prompt-engineering',
     icon: 'fa-wand-magic-sparkles',
     nameKo: '프롬프트 엔지니어링',

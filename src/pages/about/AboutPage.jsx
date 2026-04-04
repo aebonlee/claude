@@ -258,6 +258,37 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Model Comparison Link */}
+      <section className="about-vision-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">{isKo ? 'Claude 모델 비교' : 'Claude Model Comparison'}</h2>
+            <p className="section-subtitle">
+              {isKo
+                ? 'Claude 모델 패밀리의 특징과 용도를 한눈에 비교해보세요'
+                : 'Compare features and use cases of the Claude model family at a glance'}
+            </p>
+          </div>
+          <div className="about-model-cta">
+            <div className="about-vision-card" style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto' }}>
+              <div className="about-vision-icon">
+                <i className="fa-solid fa-chart-bar" />
+              </div>
+              <h3>{isKo ? 'Opus · Sonnet · Haiku' : 'Opus · Sonnet · Haiku'}</h3>
+              <p>
+                {isKo
+                  ? '각 모델의 성능, 속도, 가격, 적합한 사용 사례를 비교하여 최적의 모델을 선택하세요.'
+                  : 'Compare performance, speed, pricing, and use cases to choose the best model for your needs.'}
+              </p>
+              <Link to="/model-comparison" className="btn btn-primary-large" style={{ marginTop: 16 }}>
+                <i className="fa-solid fa-arrow-right" />
+                {isKo ? '모델 비교 보기' : 'View Model Comparison'}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact CTA */}
       <section className="about-cta-section">
         <div className="container">

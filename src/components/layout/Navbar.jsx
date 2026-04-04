@@ -16,6 +16,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showTooltips, setShowTooltips] = useState(false);
   const colorPickerRef = useRef(null);
   const userMenuRef = useRef(null);
 
@@ -40,6 +41,21 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // 로그인 후 풍선 도움말 표시
+  useEffect(() => {
+    if (isAuthenticated) {
+      const tooltipShown = sessionStorage.getItem('navbar-tooltips-shown');
+      if (!tooltipShown) {
+        setShowTooltips(true);
+        const timer = setTimeout(() => {
+          setShowTooltips(false);
+          sessionStorage.setItem('navbar-tooltips-shown', 'true');
+        }, 5000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [isAuthenticated]);
+
   const themeIconClass = mode === 'auto' ? 'fa-circle-half-stroke' : mode === 'light' ? 'fa-sun' : 'fa-moon';
   const displayName = user?.user_metadata?.full_name || user?.email?.split('@')[0] || '';
   const avatarLetter = displayName.charAt(0).toUpperCase();
@@ -50,11 +66,11 @@ export default function Navbar() {
   }
 
   const NAV_ITEMS = [
-    { path: '/about', ko: '소개', en: 'About' },
+    { path: '/about', ko: 'About', en: 'About' },
     { path: '/claude-code', ko: 'Claude Code', en: 'Claude Code' },
+    { path: '/claude-cowork', ko: '코워크', en: 'Co-work' },
     { path: '/prompt-engineering', ko: '프롬프트 가이드', en: 'Prompt Guide' },
     { path: '/api-usage', ko: 'API 가이드', en: 'API Guide' },
-    { path: '/model-comparison', ko: '모델 비교', en: 'Models' },
     { path: '/ai-news', ko: 'AI 뉴스', en: 'AI News' },
     { path: '/community/board', ko: '커뮤니티', en: 'Community' },
   ];
@@ -86,6 +102,11 @@ export default function Navbar() {
               <button className="color-picker-btn" onClick={() => setShowColorPicker(!showColorPicker)} title="Color Theme">
                 <div className="color-dot-preview" style={{ background: COLOR_OPTIONS.find(c => c.name === colorTheme)?.color }} />
               </button>
+              {showTooltips && (
+                <div className="navbar-tooltip navbar-tooltip-color">
+                  {isKo ? '테마 컬러를 변경할 수 있어요' : 'Change theme color'}
+                </div>
+              )}
               <div className={`color-picker-dropdown ${showColorPicker ? 'show' : ''}`}>
                 {COLOR_OPTIONS.map(opt => (
                   <button
@@ -99,9 +120,16 @@ export default function Navbar() {
               </div>
             </div>
 
-            <button className="theme-toggle" onClick={toggleTheme} title={mode}>
-              <i className={`fa-solid ${themeIconClass}`} />
-            </button>
+            <div className="theme-toggle-wrapper">
+              <button className="theme-toggle" onClick={toggleTheme} title={mode}>
+                <i className={`fa-solid ${themeIconClass}`} />
+              </button>
+              {showTooltips && (
+                <div className="navbar-tooltip navbar-tooltip-theme">
+                  {isKo ? '라이트/다크 모드 전환' : 'Toggle light/dark mode'}
+                </div>
+              )}
+            </div>
 
             <button className="lang-toggle" onClick={toggleLanguage}>
               {language === 'ko' ? 'EN' : 'KO'}
@@ -128,14 +156,9 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <div className="nav-auth-group">
-                <Link to="/login" className="nav-auth-btn nav-login-btn">
-                  {t('nav.login')}
-                </Link>
-                <Link to="/register" className="nav-auth-btn nav-register-btn">
-                  {t('nav.register')}
-                </Link>
-              </div>
+              <Link to="/login" className="nav-auth-btn nav-login-btn">
+                {t('nav.login')}
+              </Link>
             )}
 
             <button
@@ -162,10 +185,7 @@ export default function Navbar() {
           {isAuthenticated ? (
             <button className="btn btn-primary btn-sm" onClick={handleSignOut}>{t('nav.logout')}</button>
           ) : (
-            <>
-              <Link to="/login" className="btn btn-primary btn-sm">{t('nav.login')}</Link>
-              <Link to="/register" className="btn btn-secondary btn-sm">{t('nav.register')}</Link>
-            </>
+            <Link to="/login" className="btn btn-primary btn-sm">{t('nav.login')}</Link>
           )}
         </div>
       </div>

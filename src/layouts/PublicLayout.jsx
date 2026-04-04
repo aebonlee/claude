@@ -12,6 +12,7 @@ const ForgotPassword = lazy(() => import('../pages/ForgotPassword'));
 const AboutPage = lazy(() => import('../pages/about/AboutPage'));
 const ClaudeCodeGuide = lazy(() => import('../pages/claude-code/ClaudeCodeGuide'));
 const ClaudeWorkGuide = lazy(() => import('../pages/claude-work/ClaudeWorkGuide'));
+const ClaudeCoworkGuide = lazy(() => import('../pages/claude-cowork/ClaudeCoworkGuide'));
 const PromptEngineering = lazy(() => import('../pages/prompt-engineering/PromptEngineering'));
 const APIUsage = lazy(() => import('../pages/api-usage/APIUsage'));
 const AgentSDK = lazy(() => import('../pages/agent-sdk/AgentSDK'));
@@ -50,6 +51,7 @@ export default function PublicLayout() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/claude-code" element={<ClaudeCodeGuide />} />
             <Route path="/claude-work" element={<ClaudeWorkGuide />} />
+            <Route path="/claude-cowork" element={<ClaudeCoworkGuide />} />
             <Route path="/prompt-engineering" element={<PromptEngineering />} />
             <Route path="/api-usage" element={<APIUsage />} />
             <Route path="/agent-sdk" element={<AgentSDK />} />

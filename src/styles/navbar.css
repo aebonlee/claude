@@ -308,6 +308,47 @@
     border-color: var(--primary-blue-dark);
 }
 
+/* Theme Toggle Wrapper */
+.theme-toggle-wrapper {
+    position: relative;
+}
+
+/* Navbar Tooltips (풍선 도움말) */
+.navbar-tooltip {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-blue);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    z-index: 300;
+    pointer-events: none;
+    animation: tooltipFadeIn 0.3s ease, tooltipFadeOut 0.3s ease 4.5s forwards;
+    box-shadow: var(--shadow-md);
+}
+.navbar-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-bottom-color: var(--primary-blue);
+}
+@keyframes tooltipFadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes tooltipFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 /* Mobile */
 .mobile-menu-toggle {
     display: none;

@@ -23,6 +23,7 @@ export default function Footer() {
               <li><Link to="/about">{language === 'ko' ? '소개' : 'About'}</Link></li>
               <li><Link to="/claude-code">Claude Code</Link></li>
               <li><Link to="/claude-work">Claude Work</Link></li>
+              <li><Link to="/claude-cowork">Claude Co-work</Link></li>
               <li><Link to="/prompt-engineering">{language === 'ko' ? '프롬프트 엔지니어링' : 'Prompt Engineering'}</Link></li>
               <li><Link to="/api-usage">API {language === 'ko' ? '활용' : 'Usage'}</Link></li>
               <li><Link to="/glossary">{language === 'ko' ? 'AI 용어사전' : 'AI Glossary'}</Link></li>
