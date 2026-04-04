@@ -16,7 +16,6 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
   const colorPickerRef = useRef(null);
   const userMenuRef = useRef(null);
 
@@ -52,32 +51,10 @@ export default function Navbar() {
 
   const NAV_ITEMS = [
     { path: '/about', ko: '소개', en: 'About' },
-    {
-      label: true, ko: '가이드', en: 'Guides',
-      children: [
-        { path: '/claude-code', ko: 'Claude Code', en: 'Claude Code', icon: 'fa-terminal' },
-        { path: '/claude-work', ko: 'Claude Work', en: 'Claude Work', icon: 'fa-briefcase' },
-        { path: '/prompt-engineering', ko: '프롬프트 엔지니어링', en: 'Prompt Engineering', icon: 'fa-wand-magic-sparkles' },
-        { path: '/api-usage', ko: 'API 활용', en: 'API Usage', icon: 'fa-code' },
-        { path: '/agent-sdk', ko: 'Agent SDK', en: 'Agent SDK', icon: 'fa-robot' },
-      ],
-    },
-    {
-      label: true, ko: '학습', en: 'Learn',
-      children: [
-        { path: '/model-comparison', ko: '모델 비교', en: 'Model Comparison', icon: 'fa-chart-bar' },
-        { path: '/glossary', ko: 'AI 용어사전', en: 'AI Glossary', icon: 'fa-book' },
-        { path: '/roadmap', ko: '학습 로드맵', en: 'Roadmap', icon: 'fa-route' },
-        { path: '/resources', ko: '학습자료', en: 'Resources', icon: 'fa-folder-open' },
-      ],
-    },
-    {
-      label: true, ko: '도구', en: 'Tools',
-      children: [
-        { path: '/prompt-practice', ko: '프롬프트 실습', en: 'Prompt Practice', icon: 'fa-flask' },
-        { path: '/prompt-gallery', ko: '프롬프트 갤러리', en: 'Prompt Gallery', icon: 'fa-images' },
-      ],
-    },
+    { path: '/claude-code', ko: 'Claude Code', en: 'Claude Code' },
+    { path: '/prompt-engineering', ko: '프롬프트 가이드', en: 'Prompt Guide' },
+    { path: '/api-usage', ko: 'API 가이드', en: 'API Guide' },
+    { path: '/model-comparison', ko: '모델 비교', en: 'Models' },
     { path: '/ai-news', ko: 'AI 뉴스', en: 'AI News' },
     { path: '/community/board', ko: '커뮤니티', en: 'Community' },
   ];
@@ -92,39 +69,16 @@ export default function Navbar() {
           </Link>
 
           <ul className="nav-links">
-            {NAV_ITEMS.map((item, idx) => {
-              const hasDropdown = !!item.children;
-              const key = item.path || `nav-${idx}`;
-              return (
-                <li key={key} className="nav-item">
-                  {hasDropdown ? (
-                    <button className="nav-link">
-                      {isKo ? item.ko : item.en}
-                      <i className="fa-solid fa-chevron-down arrow" />
-                    </button>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
-                    >
-                      {isKo ? item.ko : item.en}
-                    </Link>
-                  )}
-                  {hasDropdown && (
-                    <ul className="dropdown-menu">
-                      {item.children.map(child => (
-                        <li key={child.path}>
-                          <Link to={child.path} className="dropdown-item">
-                            <i className={`fa-solid ${child.icon} icon`} />
-                            {isKo ? child.ko : child.en}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
+            {NAV_ITEMS.map((item) => (
+              <li key={item.path} className="nav-item">
+                <Link
+                  to={item.path}
+                  className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
+                >
+                  {isKo ? item.ko : item.en}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <div className="navbar-actions">
@@ -196,40 +150,13 @@ export default function Navbar() {
 
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <ul className="mobile-nav-links">
-          {NAV_ITEMS.map((item, idx) => {
-            const key = item.path || `mobile-${idx}`;
-            return (
-              <li key={key}>
-                {item.children ? (
-                  <>
-                    <button
-                      className="mobile-nav-link mobile-dropdown-toggle"
-                      onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
-                    >
-                      {isKo ? item.ko : item.en}
-                      <i className={`fa-solid fa-chevron-down mobile-arrow ${openDropdown === key ? 'rotated' : ''}`} />
-                    </button>
-                    {openDropdown === key && (
-                      <ul className="mobile-dropdown-items">
-                        {item.children.map(child => (
-                          <li key={child.path}>
-                            <Link to={child.path} className="mobile-dropdown-item">
-                              <i className={`fa-solid ${child.icon}`} style={{ width: 18, fontSize: 12, opacity: 0.6 }} />
-                              {isKo ? child.ko : child.en}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <Link to={item.path} className="mobile-nav-link">
-                    {isKo ? item.ko : item.en}
-                  </Link>
-                )}
-              </li>
-            );
-          })}
+          {NAV_ITEMS.map((item) => (
+            <li key={item.path}>
+              <Link to={item.path} className="mobile-nav-link">
+                {isKo ? item.ko : item.en}
+              </Link>
+            </li>
+          ))}
         </ul>
         <div className="mobile-menu-actions">
           {isAuthenticated ? (

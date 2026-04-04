@@ -76,58 +76,6 @@
     color: var(--primary-blue);
     background: rgba(27, 58, 107, 0.06);
 }
-.nav-link .arrow {
-    font-size: 10px;
-    transition: transform 0.2s ease;
-}
-
-/* Dropdown */
-.dropdown-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    min-width: 220px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    padding: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.2s ease;
-    list-style: none;
-    z-index: 100;
-}
-.nav-item:hover .dropdown-menu,
-.nav-item.open .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: var(--transition-base);
-}
-.dropdown-item:hover {
-    background: var(--bg-light-gray);
-    color: var(--primary-blue);
-}
-.dropdown-item .icon {
-    font-size: 18px;
-    width: 24px;
-    text-align: center;
-}
-
 /* Right Actions */
 .navbar-actions {
     display: flex;
@@ -421,43 +369,6 @@
 }
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
-    background: var(--bg-light-gray);
-    color: var(--primary-blue);
-}
-.mobile-dropdown-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-}
-.mobile-arrow {
-    font-size: 11px;
-    transition: transform 0.2s ease;
-    color: var(--text-light);
-}
-.mobile-arrow.rotated {
-    transform: rotate(180deg);
-}
-.mobile-dropdown-items {
-    padding-left: 16px;
-    list-style: none;
-}
-.mobile-dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    font-size: 14px;
-    color: var(--text-light);
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: var(--transition-base);
-}
-.mobile-dropdown-item:hover {
     background: var(--bg-light-gray);
     color: var(--primary-blue);
 }

@@ -28,7 +28,6 @@ html[data-theme="dark"] .navbar.scrolled {
 }
 
 /* Dropdowns */
-html[data-theme="dark"] .dropdown-menu,
 html[data-theme="dark"] .color-picker-dropdown,
 html[data-theme="dark"] .user-menu-dropdown {
     background: rgba(30, 41, 59, 0.95);
