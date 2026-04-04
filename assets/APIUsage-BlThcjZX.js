@@ -1,4 +1,4 @@
-import{j as e,M as l,r as p}from"./markdown-nDXzyGI7.js";import{b as m}from"./vendor-C9mfkM5v.js";import{u}from"./index-D4s8e9sK.js";import{S as d}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const g={id:"getting-started",title:"API 시작하기",titleEn:"Getting Started",icon:"fa-rocket",sections:[{title:"Anthropic API 소개",titleEn:"Introduction to the Anthropic API",content:`Anthropic API를 사용하면 Claude 모델을 자신의 애플리케이션에 직접 통합할 수 있습니다. 대화형 AI, 콘텐츠 생성, 코드 작성, 데이터 분석 등 다양한 기능을 프로그래밍 방식으로 활용할 수 있습니다.
+import{j as e,M as l,r as p}from"./markdown-nDXzyGI7.js";import{b as m}from"./vendor-C9mfkM5v.js";import{u}from"./index-Dx1rXTIA.js";import{S as d}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const g={id:"getting-started",title:"API 시작하기",titleEn:"Getting Started",icon:"fa-rocket",sections:[{title:"Anthropic API 소개",titleEn:"Introduction to the Anthropic API",content:`Anthropic API를 사용하면 Claude 모델을 자신의 애플리케이션에 직접 통합할 수 있습니다. 대화형 AI, 콘텐츠 생성, 코드 작성, 데이터 분석 등 다양한 기능을 프로그래밍 방식으로 활용할 수 있습니다.
 
 ### API 키 발급
 

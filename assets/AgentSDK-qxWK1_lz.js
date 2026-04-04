@@ -1,4 +1,4 @@
-import{j as t,M as l,r as c}from"./markdown-nDXzyGI7.js";import{b as p}from"./vendor-C9mfkM5v.js";import{u as d}from"./index-D4s8e9sK.js";import{S as g}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const m={id:"overview",title:"Agent SDK 개요",titleEn:"Agent SDK Overview",icon:"fa-robot",sections:[{title:"Claude Agent SDK란?",titleEn:"What is the Claude Agent SDK?",content:`Claude Agent SDK는 Anthropic이 제공하는 오픈소스 프레임워크로, Claude를 기반으로 자율적으로 동작하는 AI 에이전트를 구축할 수 있게 해줍니다. 에이전트는 목표를 이해하고, 도구를 사용하며, 스스로 판단하여 복잡한 작업을 수행합니다.
+import{j as t,M as l,r as c}from"./markdown-nDXzyGI7.js";import{b as p}from"./vendor-C9mfkM5v.js";import{u as d}from"./index-Dx1rXTIA.js";import{S as g}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const m={id:"overview",title:"Agent SDK 개요",titleEn:"Agent SDK Overview",icon:"fa-robot",sections:[{title:"Claude Agent SDK란?",titleEn:"What is the Claude Agent SDK?",content:`Claude Agent SDK는 Anthropic이 제공하는 오픈소스 프레임워크로, Claude를 기반으로 자율적으로 동작하는 AI 에이전트를 구축할 수 있게 해줍니다. 에이전트는 목표를 이해하고, 도구를 사용하며, 스스로 판단하여 복잡한 작업을 수행합니다.
 
 ### 에이전트 vs 단순 API 호출
 
