@@ -3,12 +3,12 @@
    ============================================ */
 
 .auth-page {
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: calc(var(--nav-height) + 40px) 20px 40px;
+    padding: calc(var(--nav-height) + 40px) 20px 60px;
     background: var(--bg-light-gray);
+    flex: 1;
 }
 .auth-card {
     width: 100%;

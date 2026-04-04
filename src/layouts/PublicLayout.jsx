@@ -38,9 +38,9 @@ function LoadingFallback() {
 
 export default function PublicLayout() {
   return (
-    <>
+    <div className="site-wrapper">
       <Navbar />
-      <main>
+      <main className="site-main">
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -69,6 +69,6 @@ export default function PublicLayout() {
         </Suspense>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
