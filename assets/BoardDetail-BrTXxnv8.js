@@ -1,4 +1,4 @@
-import{j as e}from"./markdown-nDXzyGI7.js";import{f as m,b as c,L as u}from"./vendor-C9mfkM5v.js";import{u as h}from"./index-Bp5wa2Qe.js";import{S as p}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const y={1:{id:1,category:"notice",title:"Claude Master 사이트 오픈!",titleEn:"Claude Master Site Launch!",author:"Admin",date:"2025-05-15",views:1520,body:`안녕하세요, Claude Master 사이트가 정식 오픈되었습니다!
+import{j as e}from"./markdown-nDXzyGI7.js";import{f as m,b as c,L as u}from"./vendor-C9mfkM5v.js";import{u as h}from"./index-D4s8e9sK.js";import{S as p}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const y={1:{id:1,category:"notice",title:"Claude Master 사이트 오픈!",titleEn:"Claude Master Site Launch!",author:"Admin",date:"2025-05-15",views:1520,body:`안녕하세요, Claude Master 사이트가 정식 오픈되었습니다!
 
 이 사이트는 Claude를 체계적으로 학습할 수 있는 종합 플랫폼입니다.
 
