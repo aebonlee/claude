@@ -67,7 +67,7 @@
 /* ── Syntax Highlighting Tokens (Dracula/One Dark) ── */
 .token.keyword   { color: #ff79c6; }
 .token.string    { color: #f1fa8c; }
-.token.comment   { color: #6272a4; font-style: italic; }
+.token.comment   { color: #9baec8; font-style: italic; }
 .token.function  { color: #50fa7b; }
 .token.number    { color: #bd93f9; }
 .token.operator  { color: #ff79c6; }

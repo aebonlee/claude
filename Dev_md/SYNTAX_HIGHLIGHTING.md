@@ -27,7 +27,7 @@
 |------|-----------|------|------|
 | keyword | `.token.keyword` | #ff79c6 (핑크) | `import`, `def`, `class`, `const` |
 | string | `.token.string` | #f1fa8c (노란) | `"hello"`, `'world'` |
-| comment | `.token.comment` | #6272a4 (회색) | `# comment`, `// comment` |
+| comment | `.token.comment` | #9baec8 (밝은 회청색) | `# comment`, `// comment` |
 | function | `.token.function` | #50fa7b (초록) | `print()`, `len()` |
 | number | `.token.number` | #bd93f9 (보라) | `42`, `3.14` |
 | operator | `.token.operator` | #ff79c6 (핑크) | `=`, `+`, `=>` |
