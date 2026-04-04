@@ -1,4 +1,4 @@
-import{j as e,M as l,r as d}from"./markdown-nDXzyGI7.js";import{b as u}from"./vendor-C9mfkM5v.js";import{u as m}from"./index-Dx1rXTIA.js";import{S as g}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const p={id:"overview",title:"Claude.ai 개요",titleEn:"Claude.ai Overview",icon:"fa-globe",sections:[{title:"Claude.ai란?",titleEn:"What is Claude.ai?",content:`Claude.ai는 Anthropic이 제공하는 공식 웹 인터페이스로, Claude AI 모델과 대화하고 다양한 작업을 수행할 수 있는 플랫폼입니다.
+import{j as e,M as p,r as h}from"./markdown-nDXzyGI7.js";import{b as f}from"./vendor-C9mfkM5v.js";import{u as v}from"./index-CePRMRKG.js";import{S as C}from"./SEOHead-DhJvCSIj.js";import{T as y,C as d}from"./TipBox-CtPpxSpa.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const S={id:"overview",title:"Claude.ai 개요",titleEn:"Claude.ai Overview",icon:"fa-globe",sections:[{title:"Claude.ai란?",titleEn:"What is Claude.ai?",content:`Claude.ai는 Anthropic이 제공하는 공식 웹 인터페이스로, Claude AI 모델과 대화하고 다양한 작업을 수행할 수 있는 플랫폼입니다.
 
 ### 주요 특징
 
@@ -66,7 +66,7 @@ import{j as e,M as l,r as d}from"./markdown-nDXzyGI7.js";import{b as u}from"./ve
 
 - **Be Specific**: Specific instructions produce better results than vague questions
 - **Provide Context**: Background information helps Claude give more accurate answers
-- **Iterate and Refine**: If the first response is not satisfactory, provide additional instructions to improve it`}]},h={id:"projects",title:"프로젝트",titleEn:"Projects",icon:"fa-folder-open",sections:[{title:"프로젝트란?",titleEn:"What are Projects?",content:`Projects는 Claude.ai에서 관련 대화, 파일, 지침을 하나의 공간에 모아 관리할 수 있는 기능입니다. Pro, Team, Enterprise 요금제에서 사용할 수 있습니다.
+- **Iterate and Refine**: If the first response is not satisfactory, provide additional instructions to improve it`}]},w={id:"projects",title:"프로젝트",titleEn:"Projects",icon:"fa-folder-open",sections:[{title:"프로젝트란?",titleEn:"What are Projects?",content:`Projects는 Claude.ai에서 관련 대화, 파일, 지침을 하나의 공간에 모아 관리할 수 있는 기능입니다. Pro, Team, Enterprise 요금제에서 사용할 수 있습니다.
 
 ### 프로젝트의 구성 요소
 
@@ -176,7 +176,7 @@ On Team plans and above, you can share projects with team members:
 1. **Clear Project Structure**: Separate projects by purpose for better management
 2. **Instruction Version Control**: Record history when making important instruction changes
 3. **Regular Cleanup**: Clean up old files and update instructions
-4. **Team Guidelines**: Establish team rules for project usage`}]},f={id:"artifacts",title:"아티팩트",titleEn:"Artifacts",icon:"fa-cube",sections:[{title:"아티팩트란?",titleEn:"What are Artifacts?",content:`Artifacts는 Claude.ai에서 코드, 문서, 다이어그램 등의 콘텐츠를 별도의 패널에서 생성하고 미리보기할 수 있는 기능입니다. 대화 흐름과 분리된 독립적인 콘텐츠를 만들어냅니다.
+4. **Team Guidelines**: Establish team rules for project usage`}]},b={id:"artifacts",title:"아티팩트",titleEn:"Artifacts",icon:"fa-cube",sections:[{title:"아티팩트란?",titleEn:"What are Artifacts?",content:`Artifacts는 Claude.ai에서 코드, 문서, 다이어그램 등의 콘텐츠를 별도의 패널에서 생성하고 미리보기할 수 있는 기능입니다. 대화 흐름과 분리된 독립적인 콘텐츠를 만들어냅니다.
 
 ### 아티팩트 유형
 
@@ -290,7 +290,7 @@ Use Chart.js for charts and add filter functionality."
 \`\`\`
 "Draw a user authentication flow as a Mermaid sequence diagram.
 Include login, registration, and password reset flows."
-\`\`\``}]},v={id:"team-features",title:"팀 기능",titleEn:"Team Features",icon:"fa-users",sections:[{title:"Team 요금제 개요",titleEn:"Team Plan Overview",content:`Claude Team은 조직 내 팀원들이 함께 Claude를 활용할 수 있도록 설계된 협업 중심의 요금제입니다.
+\`\`\``}]},j={id:"team-features",title:"팀 기능",titleEn:"Team Features",icon:"fa-users",sections:[{title:"Team 요금제 개요",titleEn:"Team Plan Overview",content:`Claude Team은 조직 내 팀원들이 함께 Claude를 활용할 수 있도록 설계된 협업 중심의 요금제입니다.
 
 ### Team 요금제 주요 기능
 
@@ -370,7 +370,7 @@ The Enterprise plan provides all Team features plus advanced capabilities for la
 2. Requirements analysis and demo
 3. Security review and contract
 4. Environment setup and SSO configuration
-5. Team onboarding and training`}]},C={id:"integrations",title:"통합 연동",titleEn:"Integrations",icon:"fa-plug",sections:[{title:"Google Drive 연동",titleEn:"Google Drive Integration",content:`Claude.ai는 Google Drive와 직접 연동하여 문서, 스프레드시트, 프레젠테이션 등을 대화에 활용할 수 있습니다.
+5. Team onboarding and training`}]},P={id:"integrations",title:"통합 연동",titleEn:"Integrations",icon:"fa-plug",sections:[{title:"Google Drive 연동",titleEn:"Google Drive Integration",content:`Claude.ai는 Google Drive와 직접 연동하여 문서, 스프레드시트, 프레젠테이션 등을 대화에 활용할 수 있습니다.
 
 ### 연동 설정 방법
 
@@ -464,7 +464,7 @@ Add Claude to your Slack workspace to use it directly within team communications
 - Trigger-based automatic task requests to Claude
 - Automate email classification, data processing, content generation
 
-> **Note**: Integration availability may vary by plan and region. Check the official Anthropic documentation for the latest information.`}]},y={id:"memory",title:"메모리 기능",titleEn:"Memory Feature",icon:"fa-brain",sections:[{title:"메모리란?",titleEn:"What is Memory?",content:`Memory는 Claude가 이전 대화에서 얻은 정보를 기억하여 이후 대화에서 활용할 수 있게 하는 기능입니다. 사용자의 선호도, 프로젝트 정보, 작업 스타일 등을 기억합니다.
+> **Note**: Integration availability may vary by plan and region. Check the official Anthropic documentation for the latest information.`}]},E={id:"memory",title:"메모리 기능",titleEn:"Memory Feature",icon:"fa-brain",sections:[{title:"메모리란?",titleEn:"What is Memory?",content:`Memory는 Claude가 이전 대화에서 얻은 정보를 기억하여 이후 대화에서 활용할 수 있게 하는 기능입니다. 사용자의 선호도, 프로젝트 정보, 작업 스타일 등을 기억합니다.
 
 ### 메모리의 작동 방식
 
@@ -544,4 +544,5 @@ Add Claude to your Slack workspace to use it directly within team communications
 | **Content** | Personal preferences, general info | Project-specific instructions |
 | **Editing** | Managed in settings page | Modified in project settings |
 
-> **Tip**: Use memory for general personal preferences and project settings for project-specific instructions.`}]},r=[p,h,f,v,C,y];function M(){const{language:c}=m(),a=c==="ko",[n,o]=u.useState(0),s=r[n];return e.jsxs("div",{className:"guide-page",children:[e.jsx(g,{title:a?"Claude Work 가이드":"Claude Work Guide",path:"/claude-work"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:a?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:r.map((t,i)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${i===n?"active":""}`,onClick:()=>o(i),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),a?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:a?s.title:s.titleEn})}),s.sections.map((t,i)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:a?t.title:t.titleEn}),e.jsx(l,{remarkPlugins:[d],children:a?t.content:t.contentEn})]},i)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:n===0,onClick:()=>o(n-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",a?"이전":"Previous"]}),e.jsxs("button",{disabled:n===r.length-1,onClick:()=>o(n+1),children:[a?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{M as default};
+> **Tip**: Use memory for general personal preferences and project settings for project-specific instructions.`}]},l=[S,w,b,j,P,E];function R(){const{language:u}=v(),a=u==="ko",[n,s]=f.useState(0),r=l[n],m={code({inline:t,className:i,children:o,...g}){const c=/language-(\w+)/.exec(i||"");return!t&&c?e.jsx(d,{code:String(o).replace(/\n$/,""),language:c[1]}):!t&&!c&&String(o).includes(`
+`)?e.jsx(d,{code:String(o).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...g,children:o})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(y,{type:"tip",children:t})}};return e.jsxs("div",{className:"guide-page",children:[e.jsx(C,{title:a?"Claude Work 가이드":"Claude Work Guide",path:"/claude-work"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:a?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:l.map((t,i)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${i===n?"active":""}`,onClick:()=>s(i),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),a?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:a?r.title:r.titleEn})}),r.sections.map((t,i)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:a?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(p,{remarkPlugins:[h],components:m,children:a?t.content:t.contentEn})})]},i)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:n===0,onClick:()=>s(n-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",a?"이전":"Previous"]}),e.jsxs("button",{disabled:n===l.length-1,onClick:()=>s(n+1),children:[a?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{R as default};

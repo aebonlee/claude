@@ -1,4 +1,4 @@
-import{j as e,M as y,r as v}from"./markdown-nDXzyGI7.js";import{b as C}from"./vendor-C9mfkM5v.js";import{u as E}from"./index-Dx1rXTIA.js";import{S as b}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";function h({code:s,language:o=""}){const[a,r]=C.useState(!1),l=async()=>{try{await navigator.clipboard.writeText(s),r(!0),setTimeout(()=>r(!1),2e3)}catch{const n=document.createElement("textarea");n.value=s,document.body.appendChild(n),n.select(),document.execCommand("copy"),document.body.removeChild(n),r(!0),setTimeout(()=>r(!1),2e3)}};return e.jsxs("div",{className:"code-block-wrapper",children:[e.jsxs("div",{className:"code-block-header",children:[e.jsx("span",{className:"code-block-lang",children:o}),e.jsxs("button",{className:`code-copy-btn ${a?"copied":""}`,onClick:l,children:[e.jsx("i",{className:`fa-solid ${a?"fa-check":"fa-copy"}`}),a?"Copied!":"Copy"]})]}),e.jsx("div",{className:"code-block-content",children:e.jsx("pre",{children:e.jsx("code",{children:s})})})]})}const S={tip:"fa-lightbulb",warning:"fa-triangle-exclamation",important:"fa-circle-info",danger:"fa-circle-xmark"},P={tip:"Tip",warning:"Warning",important:"Important",danger:"Danger"};function A({type:s="tip",title:o,children:a}){return e.jsxs("div",{className:`tip-box ${s}`,children:[e.jsx("span",{className:"tip-box-icon",children:e.jsx("i",{className:`fa-solid ${S[s]}`})}),e.jsxs("div",{className:"tip-box-content",children:[o&&e.jsx("strong",{children:o}),!o&&e.jsx("strong",{children:P[s]}),e.jsx("div",{children:a})]})]})}const k={id:"overview",title:"개요",titleEn:"Overview",icon:"fa-book",sections:[{title:"Claude Code란?",titleEn:"What is Claude Code?",content:`Claude Code는 Anthropic이 만든 **에이전틱 코딩 도구**로, 터미널에서 직접 실행됩니다. 코드베이스를 이해하고, 명령을 실행하며, 코드를 편집하고, 복잡한 소프트웨어 엔지니어링 작업을 자율적으로 수행할 수 있습니다.
+import{j as e,M as f,r as y}from"./markdown-nDXzyGI7.js";import{b as v}from"./vendor-C9mfkM5v.js";import{u as E}from"./index-CePRMRKG.js";import{S}from"./SEOHead-DhJvCSIj.js";import{T as b,C as p}from"./TipBox-CtPpxSpa.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const P={id:"overview",title:"개요",titleEn:"Overview",icon:"fa-book",sections:[{title:"Claude Code란?",titleEn:"What is Claude Code?",content:`Claude Code는 Anthropic이 만든 **에이전틱 코딩 도구**로, 터미널에서 직접 실행됩니다. 코드베이스를 이해하고, 명령을 실행하며, 코드를 편집하고, 복잡한 소프트웨어 엔지니어링 작업을 자율적으로 수행할 수 있습니다.
 
 Claude Code는 별도의 복잡한 설정 없이 프로젝트 디렉토리에서 바로 작동하며, 기존 워크플로우에 자연스럽게 통합됩니다.
 
@@ -172,7 +172,7 @@ claude --resume
 | \`--resume\` / \`-r\` | Select and resume a specific session |
 | \`--model\` | Specify model to use |
 | \`--verbose\` | Verbose log output |
-| \`--allowedTools\` | Specify allowed tools |`}]},x={id:"hooks",title:"Hooks 시스템",titleEn:"Hooks System",icon:"fa-plug",sections:[{title:"Hooks 개요",titleEn:"Hooks Overview",content:`Hooks는 Claude Code의 동작 과정에서 특정 이벤트가 발생할 때 **사용자 정의 셸 명령을 자동 실행**하는 시스템입니다. 코드 변환, 알림, 로깅, 커스텀 검증 등 다양한 자동화를 구현할 수 있습니다.
+| \`--allowedTools\` | Specify allowed tools |`}]},A={id:"hooks",title:"Hooks 시스템",titleEn:"Hooks System",icon:"fa-plug",sections:[{title:"Hooks 개요",titleEn:"Hooks Overview",content:`Hooks는 Claude Code의 동작 과정에서 특정 이벤트가 발생할 때 **사용자 정의 셸 명령을 자동 실행**하는 시스템입니다. 코드 변환, 알림, 로깅, 커스텀 검증 등 다양한 자동화를 구현할 수 있습니다.
 
 ### Hooks의 장점
 
@@ -480,7 +480,7 @@ Send Slack notifications when tasks complete:
     ]
   }
 }
-\`\`\``}]},w={id:"slash-commands",title:"슬래시 커맨드",titleEn:"Slash Commands",icon:"fa-terminal",sections:[{title:"슬래시 커맨드 개요",titleEn:"Slash Commands Overview",content:"슬래시 커맨드는 Claude Code 대화형 세션에서 `/` 접두사로 시작하는 특수 명령어입니다. 이 명령어들은 Claude에게 메시지를 보내는 대신, Claude Code 자체의 기능을 제어합니다.\n\n### 사용 방법\n\n대화형 모드에서 프롬프트 입력 시 `/`를 먼저 입력하면 사용 가능한 명령어 목록이 자동 완성으로 표시됩니다.\n\n```\n> /help      # 도움말 표시\n> /clear     # 대화 내역 초기화\n> /compact   # 대화 내역 압축\n```",contentEn:"Slash commands are special commands that start with the `/` prefix in Claude Code interactive sessions. Instead of sending messages to Claude, these commands control Claude Code's own functionality.\n\n### Usage\n\nWhen typing in interactive mode, entering `/` first will display available commands through auto-completion.\n\n```\n> /help      # Show help\n> /clear     # Clear conversation history\n> /compact   # Compress conversation history\n```"},{title:"세션 관리 커맨드",titleEn:"Session Management Commands",content:`### /help
+\`\`\``}]},k={id:"slash-commands",title:"슬래시 커맨드",titleEn:"Slash Commands",icon:"fa-terminal",sections:[{title:"슬래시 커맨드 개요",titleEn:"Slash Commands Overview",content:"슬래시 커맨드는 Claude Code 대화형 세션에서 `/` 접두사로 시작하는 특수 명령어입니다. 이 명령어들은 Claude에게 메시지를 보내는 대신, Claude Code 자체의 기능을 제어합니다.\n\n### 사용 방법\n\n대화형 모드에서 프롬프트 입력 시 `/`를 먼저 입력하면 사용 가능한 명령어 목록이 자동 완성으로 표시됩니다.\n\n```\n> /help      # 도움말 표시\n> /clear     # 대화 내역 초기화\n> /compact   # 대화 내역 압축\n```",contentEn:"Slash commands are special commands that start with the `/` prefix in Claude Code interactive sessions. Instead of sending messages to Claude, these commands control Claude Code's own functionality.\n\n### Usage\n\nWhen typing in interactive mode, entering `/` first will display available commands through auto-completion.\n\n```\n> /help      # Show help\n> /clear     # Clear conversation history\n> /compact   # Compress conversation history\n```"},{title:"세션 관리 커맨드",titleEn:"Session Management Commands",content:`### /help
 
 사용 가능한 모든 슬래시 커맨드와 단축키를 표시합니다.
 
@@ -704,7 +704,7 @@ Install Claude Code shell integration in the terminal.
 
 ### /vim
 
-Toggle Vim keybinding mode. Vim users can use Claude Code with familiar keybindings.`}]},I={id:"mcp-servers",title:"MCP 서버",titleEn:"MCP Servers",icon:"fa-server",sections:[{title:"MCP란?",titleEn:"What is MCP?",content:`**MCP (Model Context Protocol)**는 AI 모델이 외부 도구와 데이터 소스에 접근할 수 있게 해주는 개방형 프로토콜입니다. Claude Code는 MCP 클라이언트로서, MCP 서버에서 제공하는 도구들을 자연스럽게 사용할 수 있습니다.
+Toggle Vim keybinding mode. Vim users can use Claude Code with familiar keybindings.`}]},w={id:"mcp-servers",title:"MCP 서버",titleEn:"MCP Servers",icon:"fa-server",sections:[{title:"MCP란?",titleEn:"What is MCP?",content:`**MCP (Model Context Protocol)**는 AI 모델이 외부 도구와 데이터 소스에 접근할 수 있게 해주는 개방형 프로토콜입니다. Claude Code는 MCP 클라이언트로서, MCP 서버에서 제공하는 도구들을 자연스럽게 사용할 수 있습니다.
 
 ### MCP의 핵심 개념
 
@@ -1018,7 +1018,7 @@ Shows MCP server connection status and available tool list.
 - MCP servers run locally and can access system resources
 - Only use servers you trust
 - Manage sensitive information like API keys using environment variables
-- Don't put secrets directly in project settings files (\`.claude/settings.json\`)`}]},j={id:"settings",title:"설정",titleEn:"Settings",icon:"fa-gear",sections:[{title:"설정 구조",titleEn:"Settings Structure",content:`Claude Code는 계층적 설정 시스템을 사용합니다. 여러 레벨에서 설정을 정의할 수 있으며, 더 구체적인 설정이 일반 설정을 덮어씁니다.
+- Don't put secrets directly in project settings files (\`.claude/settings.json\`)`}]},x={id:"settings",title:"설정",titleEn:"Settings",icon:"fa-gear",sections:[{title:"설정 구조",titleEn:"Settings Structure",content:`Claude Code는 계층적 설정 시스템을 사용합니다. 여러 레벨에서 설정을 정의할 수 있으며, 더 구체적인 설정이 일반 설정을 덮어씁니다.
 
 ### 설정 파일 우선순위
 
@@ -1268,7 +1268,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "16384"
   }
 }
-\`\`\``}]},T={id:"ide-integrations",title:"IDE 통합",titleEn:"IDE Integrations",icon:"fa-puzzle-piece",sections:[{title:"VS Code 확장",titleEn:"VS Code Extension",content:`Claude Code는 VS Code와 깊이 통합되는 공식 확장을 제공합니다. 터미널에서의 Claude Code 경험을 IDE 내에서 그대로 사용할 수 있습니다.
+\`\`\``}]},I={id:"ide-integrations",title:"IDE 통합",titleEn:"IDE Integrations",icon:"fa-puzzle-piece",sections:[{title:"VS Code 확장",titleEn:"VS Code Extension",content:`Claude Code는 VS Code와 깊이 통합되는 공식 확장을 제공합니다. 터미널에서의 Claude Code 경험을 IDE 내에서 그대로 사용할 수 있습니다.
 
 ### 설치
 
@@ -1470,7 +1470,7 @@ Claude Code can be used directly in GitHub Codespaces:
 # In Codespace terminal
 npm install -g @anthropic-ai/claude-code
 claude
-\`\`\``}]},D={id:"cli-features",title:"CLI 기능",titleEn:"CLI Features",icon:"fa-rectangle-terminal",sections:[{title:"멀티턴 대화",titleEn:"Multi-turn Conversations",content:`Claude Code는 대화형 모드에서 멀티턴 대화를 지원합니다. 이전 대화 컨텍스트를 유지하면서 연속적인 작업을 수행할 수 있습니다.
+\`\`\``}]},T={id:"cli-features",title:"CLI 기능",titleEn:"CLI Features",icon:"fa-rectangle-terminal",sections:[{title:"멀티턴 대화",titleEn:"Multi-turn Conversations",content:`Claude Code는 대화형 모드에서 멀티턴 대화를 지원합니다. 이전 대화 컨텍스트를 유지하면서 연속적인 작업을 수행할 수 있습니다.
 
 ### 대화 관리
 
@@ -1784,7 +1784,7 @@ claude -p "Perform code review" --output-format stream-json
 
 # Auto-allow mode
 claude -p "Run tests and report results" --allowedTools "Bash(npm test)"
-\`\`\``}]},R={id:"workflows",title:"실전 워크플로우",titleEn:"Practical Workflows",icon:"fa-diagram-project",sections:[{title:"코드 리뷰 워크플로우",titleEn:"Code Review Workflow",content:`Claude Code를 사용하여 체계적인 코드 리뷰를 수행할 수 있습니다.
+\`\`\``}]},j={id:"workflows",title:"실전 워크플로우",titleEn:"Practical Workflows",icon:"fa-diagram-project",sections:[{title:"코드 리뷰 워크플로우",titleEn:"Code Review Workflow",content:`Claude Code를 사용하여 체계적인 코드 리뷰를 수행할 수 있습니다.
 
 ### 기본 코드 리뷰
 
@@ -2086,7 +2086,7 @@ cat crash-report.txt | claude -p "Tell me the cause of this crash and how to res
   run: |
     npm test 2>&1 | claude -p "Fix failing tests" \\
       --allowedTools "Write" "Edit" "Bash(npm test)"
-\`\`\``}]},U={id:"tips",title:"팁과 모범 사례",titleEn:"Tips & Best Practices",icon:"fa-star",sections:[{title:"CLAUDE.md 파일 활용",titleEn:"Using CLAUDE.md Files",content:`CLAUDE.md는 Claude Code가 프로젝트를 이해하는 데 사용하는 **메모리 파일**입니다. 프로젝트 컨벤션, 아키텍처 결정, 자주 사용하는 명령어 등을 기록해두면 Claude가 더 정확한 도움을 제공합니다.
+\`\`\``}]},R={id:"tips",title:"팁과 모범 사례",titleEn:"Tips & Best Practices",icon:"fa-star",sections:[{title:"CLAUDE.md 파일 활용",titleEn:"Using CLAUDE.md Files",content:`CLAUDE.md는 Claude Code가 프로젝트를 이해하는 데 사용하는 **메모리 파일**입니다. 프로젝트 컨벤션, 아키텍처 결정, 자주 사용하는 명령어 등을 기록해두면 Claude가 더 정확한 도움을 제공합니다.
 
 ### CLAUDE.md 생성
 
@@ -2484,5 +2484,5 @@ echo ".env" >> .gitignore
 }
 \`\`\`
 
-Only selectively allow external network access when necessary.`}]},i=[k,x,w,I,j,T,D,R,U];function H(){const{language:s}=E(),o=s==="ko",[a,r]=C.useState(i[0].id),l=i.find(t=>t.id===a)||i[0],n=i.findIndex(t=>t.id===a),d=n>0?i[n-1]:null,u=n<i.length-1?i[n+1]:null,g={code({inline:t,className:m,children:c,...f}){const p=/language-(\w+)/.exec(m||"");return!t&&p?e.jsx(h,{code:String(c).replace(/\n$/,""),language:p[1]}):!t&&!p&&String(c).includes(`
-`)?e.jsx(h,{code:String(c).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...f,children:c})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(A,{type:"tip",children:t})}};return e.jsxs(e.Fragment,{children:[e.jsx(b,{title:o?"Claude Code 가이드":"Claude Code Guide",description:o?"Claude Code CLI의 모든 기능을 배우세요. Hooks, MCP 서버, 슬래시 커맨드, IDE 통합 등을 다룹니다.":"Learn all features of Claude Code CLI. Covers Hooks, MCP Servers, Slash Commands, IDE integrations, and more.",path:"/claude-code"}),e.jsx("div",{className:"guide-page",children:e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:o?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:i.map(t=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${a===t.id?"active":""}`,onClick:()=>r(t.id),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),o?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:o?l.title:l.titleEn})}),l.sections.map((t,m)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:o?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(y,{remarkPlugins:[v],components:g,children:o?t.content:t.contentEn})})]},m)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:n===0,onClick:()=>r(d==null?void 0:d.id),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",o?"이전":"Previous"]}),e.jsxs("button",{disabled:n===i.length-1,onClick:()=>r(u==null?void 0:u.id),children:[o?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})})]})}export{H as default};
+Only selectively allow external network access when necessary.`}]},n=[P,A,k,w,x,I,T,j,R];function B(){const{language:h}=E(),o=h==="ko",[a,r]=v.useState(n[0].id),l=n.find(t=>t.id===a)||n[0],s=n.findIndex(t=>t.id===a),c=s>0?n[s-1]:null,d=s<n.length-1?n[s+1]:null,C={code({inline:t,className:u,children:i,...g}){const m=/language-(\w+)/.exec(u||"");return!t&&m?e.jsx(p,{code:String(i).replace(/\n$/,""),language:m[1]}):!t&&!m&&String(i).includes(`
+`)?e.jsx(p,{code:String(i).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...g,children:i})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(b,{type:"tip",children:t})}};return e.jsxs(e.Fragment,{children:[e.jsx(S,{title:o?"Claude Code 가이드":"Claude Code Guide",description:o?"Claude Code CLI의 모든 기능을 배우세요. Hooks, MCP 서버, 슬래시 커맨드, IDE 통합 등을 다룹니다.":"Learn all features of Claude Code CLI. Covers Hooks, MCP Servers, Slash Commands, IDE integrations, and more.",path:"/claude-code"}),e.jsx("div",{className:"guide-page",children:e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:o?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:n.map(t=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${a===t.id?"active":""}`,onClick:()=>r(t.id),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),o?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:o?l.title:l.titleEn})}),l.sections.map((t,u)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:o?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(f,{remarkPlugins:[y],components:C,children:o?t.content:t.contentEn})})]},u)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:s===0,onClick:()=>r(c==null?void 0:c.id),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",o?"이전":"Previous"]}),e.jsxs("button",{disabled:s===n.length-1,onClick:()=>r(d==null?void 0:d.id),children:[o?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})})]})}export{B as default};

@@ -1,4 +1,4 @@
-import{j as t,M as l,r as c}from"./markdown-nDXzyGI7.js";import{b as p}from"./vendor-C9mfkM5v.js";import{u as d}from"./index-Dx1rXTIA.js";import{S as g}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const m={id:"overview",title:"Agent SDK 개요",titleEn:"Agent SDK Overview",icon:"fa-robot",sections:[{title:"Claude Agent SDK란?",titleEn:"What is the Claude Agent SDK?",content:`Claude Agent SDK는 Anthropic이 제공하는 오픈소스 프레임워크로, Claude를 기반으로 자율적으로 동작하는 AI 에이전트를 구축할 수 있게 해줍니다. 에이전트는 목표를 이해하고, 도구를 사용하며, 스스로 판단하여 복잡한 작업을 수행합니다.
+import{j as t,M as m,r as f}from"./markdown-nDXzyGI7.js";import{b as _}from"./vendor-C9mfkM5v.js";import{u as h}from"./index-CePRMRKG.js";import{S as y}from"./SEOHead-DhJvCSIj.js";import{T as A,C as c}from"./TipBox-CtPpxSpa.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const w={id:"overview",title:"Agent SDK 개요",titleEn:"Agent SDK Overview",icon:"fa-robot",sections:[{title:"Claude Agent SDK란?",titleEn:"What is the Claude Agent SDK?",content:`Claude Agent SDK는 Anthropic이 제공하는 오픈소스 프레임워크로, Claude를 기반으로 자율적으로 동작하는 AI 에이전트를 구축할 수 있게 해줍니다. 에이전트는 목표를 이해하고, 도구를 사용하며, 스스로 판단하여 복잡한 작업을 수행합니다.
 
 ### 에이전트 vs 단순 API 호출
 
@@ -196,7 +196,7 @@ async def main():
     print(result.final_output)
 
 asyncio.run(main())
-\`\`\``}]},f={id:"architecture",title:"아키텍처",titleEn:"Architecture",icon:"fa-sitemap",sections:[{title:"에이전트 아키텍처",titleEn:"Agent Architecture",content:`Agent SDK의 핵심 아키텍처는 에이전트(Agent), 도구(Tool), 러너(Runner), 가드레일(Guardrail)의 네 가지 주요 구성 요소로 이루어져 있습니다.
+\`\`\``}]},x={id:"architecture",title:"아키텍처",titleEn:"Architecture",icon:"fa-sitemap",sections:[{title:"에이전트 아키텍처",titleEn:"Agent Architecture",content:`Agent SDK의 핵심 아키텍처는 에이전트(Agent), 도구(Tool), 러너(Runner), 가드레일(Guardrail)의 네 가지 주요 구성 요소로 이루어져 있습니다.
 
 ### 핵심 구성 요소
 
@@ -456,7 +456,7 @@ agent = Agent(
 result = Runner.run_sync(agent, "This product is excellent. The quality is outstanding and the price is reasonable.")
 analysis = result.final_output  # AnalysisResult type
 print(f"Sentiment: {analysis.sentiment}, Confidence: {analysis.confidence}")
-\`\`\``}]},_={id:"tools",title:"도구 정의",titleEn:"Tools Definition",icon:"fa-screwdriver-wrench",sections:[{title:"도구 유형",titleEn:"Tool Types",content:`Agent SDK에서는 세 가지 방식으로 도구를 정의할 수 있습니다: 함수 도구(Function Tool), 호스트 도구(Hosted Tool), 에이전트 위임(Handoff).
+\`\`\``}]},v={id:"tools",title:"도구 정의",titleEn:"Tools Definition",icon:"fa-screwdriver-wrench",sections:[{title:"도구 유형",titleEn:"Tool Types",content:`Agent SDK에서는 세 가지 방식으로 도구를 정의할 수 있습니다: 함수 도구(Function Tool), 호스트 도구(Hosted Tool), 에이전트 위임(Handoff).
 
 ### 1. 함수 도구 (Function Tool)
 
@@ -744,7 +744,7 @@ agent = Agent(
 
 context = ProjectContext()
 result = Runner.run_sync(agent, "Add a new API endpoint", context=context)
-\`\`\``}]},h={id:"orchestration",title:"오케스트레이션",titleEn:"Orchestration Patterns",icon:"fa-diagram-project",sections:[{title:"멀티 에이전트 패턴",titleEn:"Multi-Agent Patterns",content:`Agent SDK에서는 여러 에이전트를 조합하여 복잡한 워크플로우를 구성할 수 있습니다. 대표적인 오케스트레이션 패턴을 살펴보겠습니다.
+\`\`\``}]},R={id:"orchestration",title:"오케스트레이션",titleEn:"Orchestration Patterns",icon:"fa-diagram-project",sections:[{title:"멀티 에이전트 패턴",titleEn:"Multi-Agent Patterns",content:`Agent SDK에서는 여러 에이전트를 조합하여 복잡한 워크플로우를 구성할 수 있습니다. 대표적인 오케스트레이션 패턴을 살펴보겠습니다.
 
 ### 1. 순차 파이프라인 (Sequential Pipeline)
 
@@ -1032,7 +1032,7 @@ result = await Runner.run(
     "Perform task",
     max_turns=20  # Allow maximum 20 LLM calls
 )
-\`\`\``}]},y={id:"examples",title:"실전 예제",titleEn:"Practical Examples",icon:"fa-flask",sections:[{title:"코드 리뷰 에이전트",titleEn:"Code Review Agent",content:`코드를 분석하고 품질, 보안, 성능에 대한 피드백을 제공하는 에이전트입니다.
+\`\`\``}]},k={id:"examples",title:"실전 예제",titleEn:"Practical Examples",icon:"fa-flask",sections:[{title:"코드 리뷰 에이전트",titleEn:"Code Review Agent",content:`코드를 분석하고 품질, 보안, 성능에 대한 피드백을 제공하는 에이전트입니다.
 
 \`\`\`python
 from agents import Agent, Runner, function_tool
@@ -1186,4 +1186,5 @@ from agents import trace
 
 with trace("my_workflow"):
     result = Runner.run_sync(agent, "Perform task", max_turns=20)
-\`\`\``}]},i=[m,f,_,h,y];function b(){const{language:u}=d(),n=u==="ko",[r,a]=p.useState(0),s=i[r];return t.jsxs("div",{className:"guide-page",children:[t.jsx(g,{title:n?"Agent SDK 가이드":"Agent SDK Guide",path:"/agent-sdk"}),t.jsxs("div",{className:"guide-layout",children:[t.jsxs("aside",{className:"guide-sidebar",children:[t.jsx("div",{className:"guide-sidebar-title",children:n?"목차":"Contents"}),t.jsx("ul",{className:"guide-nav",children:i.map((e,o)=>t.jsx("li",{className:"guide-nav-item",children:t.jsxs("button",{className:`guide-nav-link ${o===r?"active":""}`,onClick:()=>a(o),children:[t.jsx("i",{className:`fa-solid ${e.icon} nav-icon`}),n?e.title:e.titleEn]})},e.id))})]}),t.jsxs("div",{className:"guide-content",children:[t.jsx("div",{className:"guide-content-header",children:t.jsx("h1",{children:n?s.title:s.titleEn})}),s.sections.map((e,o)=>t.jsxs("div",{className:"guide-section",children:[t.jsx("h2",{children:n?e.title:e.titleEn}),t.jsx(l,{remarkPlugins:[c],children:n?e.content:e.contentEn})]},o)),t.jsxs("div",{className:"guide-section-nav",children:[t.jsxs("button",{disabled:r===0,onClick:()=>a(r-1),children:[t.jsx("i",{className:"fa-solid fa-chevron-left"})," ",n?"이전":"Previous"]}),t.jsxs("button",{disabled:r===i.length-1,onClick:()=>a(r+1),children:[n?"다음":"Next"," ",t.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{b as default};
+\`\`\``}]},l=[w,x,v,R,k];function D(){const{language:p}=h(),n=p==="ko",[r,s]=_.useState(0),i=l[r],d={code({inline:e,className:o,children:a,...g}){const u=/language-(\w+)/.exec(o||"");return!e&&u?t.jsx(c,{code:String(a).replace(/\n$/,""),language:u[1]}):!e&&!u&&String(a).includes(`
+`)?t.jsx(c,{code:String(a).replace(/\n$/,""),language:""}):t.jsx("code",{className:"inline-code",...g,children:a})},table({children:e}){return t.jsx("div",{className:"table-responsive",children:t.jsx("table",{children:e})})},blockquote({children:e}){return t.jsx(A,{type:"tip",children:e})}};return t.jsxs("div",{className:"guide-page",children:[t.jsx(y,{title:n?"Agent SDK 가이드":"Agent SDK Guide",path:"/agent-sdk"}),t.jsxs("div",{className:"guide-layout",children:[t.jsxs("aside",{className:"guide-sidebar",children:[t.jsx("div",{className:"guide-sidebar-title",children:n?"목차":"Contents"}),t.jsx("ul",{className:"guide-nav",children:l.map((e,o)=>t.jsx("li",{className:"guide-nav-item",children:t.jsxs("button",{className:`guide-nav-link ${o===r?"active":""}`,onClick:()=>s(o),children:[t.jsx("i",{className:`fa-solid ${e.icon} nav-icon`}),n?e.title:e.titleEn]})},e.id))})]}),t.jsxs("div",{className:"guide-content",children:[t.jsx("div",{className:"guide-content-header",children:t.jsx("h1",{children:n?i.title:i.titleEn})}),i.sections.map((e,o)=>t.jsxs("div",{className:"guide-section",children:[t.jsx("h2",{children:n?e.title:e.titleEn}),t.jsx("div",{className:"markdown-body",children:t.jsx(m,{remarkPlugins:[f],components:d,children:n?e.content:e.contentEn})})]},o)),t.jsxs("div",{className:"guide-section-nav",children:[t.jsxs("button",{disabled:r===0,onClick:()=>s(r-1),children:[t.jsx("i",{className:"fa-solid fa-chevron-left"})," ",n?"이전":"Previous"]}),t.jsxs("button",{disabled:r===l.length-1,onClick:()=>s(r+1),children:[n?"다음":"Next"," ",t.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{D as default};

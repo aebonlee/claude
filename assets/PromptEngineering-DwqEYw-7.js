@@ -1,4 +1,4 @@
-import{j as e,M as c,r as p}from"./markdown-nDXzyGI7.js";import{b as u}from"./vendor-C9mfkM5v.js";import{u as d}from"./index-Dx1rXTIA.js";import{S as m}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const h={id:"basics",title:"프롬프트 기본 원칙",titleEn:"Prompt Fundamentals",icon:"fa-lightbulb",sections:[{title:"프롬프트 엔지니어링이란?",titleEn:"What is Prompt Engineering?",content:`프롬프트 엔지니어링은 AI 모델에게 원하는 결과를 얻기 위해 입력(프롬프트)을 체계적으로 설계하는 기술입니다. 잘 작성된 프롬프트는 Claude의 능력을 최대한 활용할 수 있게 합니다.
+import{j as e,M as h,r as g}from"./markdown-nDXzyGI7.js";import{b as f}from"./vendor-C9mfkM5v.js";import{u as y}from"./index-CePRMRKG.js";import{S as x}from"./SEOHead-DhJvCSIj.js";import{T as k,C as p}from"./TipBox-CtPpxSpa.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const b={id:"basics",title:"프롬프트 기본 원칙",titleEn:"Prompt Fundamentals",icon:"fa-lightbulb",sections:[{title:"프롬프트 엔지니어링이란?",titleEn:"What is Prompt Engineering?",content:`프롬프트 엔지니어링은 AI 모델에게 원하는 결과를 얻기 위해 입력(프롬프트)을 체계적으로 설계하는 기술입니다. 잘 작성된 프롬프트는 Claude의 능력을 최대한 활용할 수 있게 합니다.
 
 ### 프롬프트의 핵심 요소
 
@@ -152,7 +152,7 @@ Description: Elegantly designed smart watch with health monitoring and notificat
 
 Now write:
 Product: Noise Cancelling Headphones
-\`\`\``}]},g={id:"system-prompts",title:"시스템 프롬프트",titleEn:"System Prompts",icon:"fa-gear",sections:[{title:"시스템 프롬프트란?",titleEn:"What are System Prompts?",content:`시스템 프롬프트는 Claude에게 대화 전체에 걸쳐 적용되는 행동 지침, 역할, 제약 조건을 설정하는 특별한 프롬프트입니다. API 호출 시 \`system\` 파라미터로 전달됩니다.
+\`\`\``}]},v={id:"system-prompts",title:"시스템 프롬프트",titleEn:"System Prompts",icon:"fa-gear",sections:[{title:"시스템 프롬프트란?",titleEn:"What are System Prompts?",content:`시스템 프롬프트는 Claude에게 대화 전체에 걸쳐 적용되는 행동 지침, 역할, 제약 조건을 설정하는 특별한 프롬프트입니다. API 호출 시 \`system\` 파라미터로 전달됩니다.
 
 ### 시스템 프롬프트의 역할
 
@@ -324,7 +324,7 @@ message = client.messages.create(
         {"role": "user", "content": "How do I use the present perfect tense?"}
     ]
 )
-\`\`\``}]},f={id:"xml-tags",title:"XML 태그 활용",titleEn:"XML Tag Usage",icon:"fa-code",sections:[{title:"XML 태그란?",titleEn:"What are XML Tags?",content:`XML 태그는 Claude 프롬프트에서 서로 다른 유형의 정보를 구분하고 구조화하는 데 사용되는 강력한 기법입니다. Claude는 XML 태그를 인식하고 구조화된 입력을 더 잘 처리합니다.
+\`\`\``}]},C={id:"xml-tags",title:"XML 태그 활용",titleEn:"XML Tag Usage",icon:"fa-code",sections:[{title:"XML 태그란?",titleEn:"What are XML Tags?",content:`XML 태그는 Claude 프롬프트에서 서로 다른 유형의 정보를 구분하고 구조화하는 데 사용되는 강력한 기법입니다. Claude는 XML 태그를 인식하고 구조화된 입력을 더 잘 처리합니다.
 
 ### XML 태그를 사용하는 이유
 
@@ -528,7 +528,7 @@ For technical questions, include code examples and explain step by step.
 For general questions, respond concisely and in a friendly manner.
 </if_general>
 </instructions>
-\`\`\``}]},y={id:"extended-thinking",title:"확장 사고",titleEn:"Extended Thinking",icon:"fa-brain",sections:[{title:"Extended Thinking이란?",titleEn:"What is Extended Thinking?",content:`Extended Thinking은 Claude가 응답하기 전에 내부적으로 깊이 있는 사고 과정을 거치도록 하는 기능입니다. 복잡한 추론, 수학 문제, 다단계 분석 등에서 더 정확한 결과를 제공합니다.
+\`\`\``}]},T={id:"extended-thinking",title:"확장 사고",titleEn:"Extended Thinking",icon:"fa-brain",sections:[{title:"Extended Thinking이란?",titleEn:"What is Extended Thinking?",content:`Extended Thinking은 Claude가 응답하기 전에 내부적으로 깊이 있는 사고 과정을 거치도록 하는 기능입니다. 복잡한 추론, 수학 문제, 다단계 분석 등에서 더 정확한 결과를 제공합니다.
 
 ### 작동 원리
 
@@ -708,7 +708,7 @@ with client.messages.stream(
                 print(event.delta.thinking, end="")
             elif hasattr(event.delta, 'text'):
                 print(event.delta.text, end="")
-\`\`\``}]},k={id:"chain-of-thought",title:"사고의 연쇄",titleEn:"Chain of Thought",icon:"fa-link",sections:[{title:"Chain of Thought(CoT) 기법",titleEn:"Chain of Thought (CoT) Technique",content:`Chain of Thought(CoT)는 Claude에게 최종 답변에 도달하기 전에 단계별 추론 과정을 거치도록 유도하는 프롬프트 기법입니다. 이는 Extended Thinking과 달리 프롬프트 수준에서 적용할 수 있습니다.
+\`\`\``}]},w={id:"chain-of-thought",title:"사고의 연쇄",titleEn:"Chain of Thought",icon:"fa-link",sections:[{title:"Chain of Thought(CoT) 기법",titleEn:"Chain of Thought (CoT) Technique",content:`Chain of Thought(CoT)는 Claude에게 최종 답변에 도달하기 전에 단계별 추론 과정을 거치도록 유도하는 프롬프트 기법입니다. 이는 Extended Thinking과 달리 프롬프트 수준에서 적용할 수 있습니다.
 
 ### CoT의 원리
 
@@ -886,7 +886,7 @@ First step: [...]
 | **Visibility** | Reasoning included in response | Returned in separate thinking block |
 | **Control** | Fine-grained control via prompt | Controlled via token budget |
 | **Cost** | Included in output tokens | Uses separate thinking tokens |
-| **Best for** | When reasoning process should be shown | When accuracy is top priority |`}]},x={id:"tool-use",title:"도구 사용 프롬프트",titleEn:"Tool Use in Prompts",icon:"fa-wrench",sections:[{title:"Tool Use 개념",titleEn:"Tool Use Concepts",content:`Tool Use(함수 호출)는 Claude가 외부 도구나 API를 호출하여 실시간 정보를 가져오거나 작업을 수행할 수 있게 하는 기능입니다. 프롬프트 설계 시 도구의 정의와 사용 지침을 잘 작성하는 것이 중요합니다.
+| **Best for** | When reasoning process should be shown | When accuracy is top priority |`}]},E={id:"tool-use",title:"도구 사용 프롬프트",titleEn:"Tool Use in Prompts",icon:"fa-wrench",sections:[{title:"Tool Use 개념",titleEn:"Tool Use Concepts",content:`Tool Use(함수 호출)는 Claude가 외부 도구나 API를 호출하여 실시간 정보를 가져오거나 작업을 수행할 수 있게 하는 기능입니다. 프롬프트 설계 시 도구의 정의와 사용 지침을 잘 작성하는 것이 중요합니다.
 
 ### Tool Use 워크플로우
 
@@ -1080,7 +1080,7 @@ tools = [
 ]
 \`\`\`
 
-> **Tip**: The more detailed the tool description, the higher the chance Claude selects the right tool at the right time.`}]},b={id:"best-practices",title:"베스트 프랙티스",titleEn:"Best Practices",icon:"fa-star",sections:[{title:"프롬프트 최적화 원칙",titleEn:"Prompt Optimization Principles",content:`### 1. 명확하고 직접적으로 지시하기
+> **Tip**: The more detailed the tool description, the higher the chance Claude selects the right tool at the right time.`}]},P={id:"best-practices",title:"베스트 프랙티스",titleEn:"Best Practices",icon:"fa-star",sections:[{title:"프롬프트 최적화 원칙",titleEn:"Prompt Optimization Principles",content:`### 1. 명확하고 직접적으로 지시하기
 
 Claude는 명확한 지시를 선호합니다. 불필요한 예의 표현이나 우회적 표현 대신 직접적으로 요청하세요.
 
@@ -1286,4 +1286,5 @@ After completing your answer, verify the following:
 | Too much information | Provide only relevant information |
 | Unspecified format | Explicitly specify output format |
 | Lack of context | State background, audience, and purpose |
-| Everything in one prompt | Break complex tasks into stages |`}]},r=[h,g,f,y,k,x,b];function _(){const{language:l}=d(),n=l==="ko",[i,s]=u.useState(0),a=r[i];return e.jsxs("div",{className:"guide-page",children:[e.jsx(m,{title:n?"프롬프트 엔지니어링 가이드":"Prompt Engineering Guide",path:"/prompt-engineering"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:n?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:r.map((t,o)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${o===i?"active":""}`,onClick:()=>s(o),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),n?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:n?a.title:a.titleEn})}),a.sections.map((t,o)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:n?t.title:t.titleEn}),e.jsx(c,{remarkPlugins:[p],children:n?t.content:t.contentEn})]},o)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:i===0,onClick:()=>s(i-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",n?"이전":"Previous"]}),e.jsxs("button",{disabled:i===r.length-1,onClick:()=>s(i+1),children:[n?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{_ as default};
+| Everything in one prompt | Break complex tasks into stages |`}]},c=[b,v,C,T,w,E,P];function q(){const{language:u}=y(),n=u==="ko",[i,a]=f.useState(0),r=c[i],d={code({inline:t,className:o,children:s,...m}){const l=/language-(\w+)/.exec(o||"");return!t&&l?e.jsx(p,{code:String(s).replace(/\n$/,""),language:l[1]}):!t&&!l&&String(s).includes(`
+`)?e.jsx(p,{code:String(s).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...m,children:s})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(k,{type:"tip",children:t})}};return e.jsxs("div",{className:"guide-page",children:[e.jsx(x,{title:n?"프롬프트 엔지니어링 가이드":"Prompt Engineering Guide",path:"/prompt-engineering"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:n?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:c.map((t,o)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${o===i?"active":""}`,onClick:()=>a(o),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),n?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:n?r.title:r.titleEn})}),r.sections.map((t,o)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:n?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(h,{remarkPlugins:[g],components:d,children:n?t.content:t.contentEn})})]},o)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:i===0,onClick:()=>a(i-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",n?"이전":"Previous"]}),e.jsxs("button",{disabled:i===c.length-1,onClick:()=>a(i+1),children:[n?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{q as default};

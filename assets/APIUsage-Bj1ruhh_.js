@@ -1,4 +1,4 @@
-import{j as e,M as l,r as p}from"./markdown-nDXzyGI7.js";import{b as m}from"./vendor-C9mfkM5v.js";import{u}from"./index-Dx1rXTIA.js";import{S as d}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const g={id:"getting-started",title:"API 시작하기",titleEn:"Getting Started",icon:"fa-rocket",sections:[{title:"Anthropic API 소개",titleEn:"Introduction to the Anthropic API",content:`Anthropic API를 사용하면 Claude 모델을 자신의 애플리케이션에 직접 통합할 수 있습니다. 대화형 AI, 콘텐츠 생성, 코드 작성, 데이터 분석 등 다양한 기능을 프로그래밍 방식으로 활용할 수 있습니다.
+import{j as e,M as g,r as h}from"./markdown-nDXzyGI7.js";import{b as y}from"./vendor-C9mfkM5v.js";import{u as _}from"./index-CePRMRKG.js";import{S as x}from"./SEOHead-DhJvCSIj.js";import{T as f,C as p}from"./TipBox-CtPpxSpa.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const k={id:"getting-started",title:"API 시작하기",titleEn:"Getting Started",icon:"fa-rocket",sections:[{title:"Anthropic API 소개",titleEn:"Introduction to the Anthropic API",content:`Anthropic API를 사용하면 Claude 모델을 자신의 애플리케이션에 직접 통합할 수 있습니다. 대화형 AI, 콘텐츠 생성, 코드 작성, 데이터 분석 등 다양한 기능을 프로그래밍 방식으로 활용할 수 있습니다.
 
 ### API 키 발급
 
@@ -184,7 +184,7 @@ The API has limits on requests per minute (RPM) and tokens per minute (TPM). Lim
 | Tier 1 | 50 | 40,000 | 8,000 |
 | Tier 2 | 1,000 | 80,000 | 16,000 |
 | Tier 3 | 2,000 | 160,000 | 32,000 |
-| Tier 4 | 4,000 | 400,000 | 80,000 |`}]},h={id:"messages-api",title:"Messages API",titleEn:"Messages API",icon:"fa-comments",sections:[{title:"Messages API 기본",titleEn:"Messages API Basics",content:`Messages API는 Claude와 대화하기 위한 핵심 엔드포인트입니다. 멀티턴 대화, 시스템 프롬프트, 다양한 콘텐츠 유형을 지원합니다.
+| Tier 4 | 4,000 | 400,000 | 80,000 |`}]},A={id:"messages-api",title:"Messages API",titleEn:"Messages API",icon:"fa-comments",sections:[{title:"Messages API 기본",titleEn:"Messages API Basics",content:`Messages API는 Claude와 대화하기 위한 핵심 엔드포인트입니다. 멀티턴 대화, 시스템 프롬프트, 다양한 콘텐츠 유형을 지원합니다.
 
 ### 기본 요청 구조
 
@@ -406,7 +406,7 @@ def optimize_conversation(messages, max_messages=10):
         # Keep first message (context) and recent messages only
         return messages[:1] + messages[-(max_messages - 1):]
     return messages
-\`\`\``}]},y={id:"streaming",title:"스트리밍",titleEn:"Streaming",icon:"fa-stream",sections:[{title:"스트리밍 응답",titleEn:"Streaming Responses",content:`스트리밍을 사용하면 Claude의 응답을 생성되는 즉시 토큰 단위로 받아볼 수 있습니다. 긴 응답의 체감 응답 시간을 크게 줄여줍니다.
+\`\`\``}]},P={id:"streaming",title:"스트리밍",titleEn:"Streaming",icon:"fa-stream",sections:[{title:"스트리밍 응답",titleEn:"Streaming Responses",content:`스트리밍을 사용하면 Claude의 응답을 생성되는 즉시 토큰 단위로 받아볼 수 있습니다. 긴 응답의 체감 응답 시간을 크게 줄여줍니다.
 
 ### Python에서 스트리밍
 
@@ -684,7 +684,7 @@ while (true) {
     }
   }
 }
-\`\`\``}]},_={id:"tool-use-api",title:"Tool Use API",titleEn:"Tool Use API",icon:"fa-wrench",sections:[{title:"Tool Use 구현",titleEn:"Implementing Tool Use",content:`Tool Use를 사용하면 Claude가 사전 정의된 도구(함수)를 호출하여 외부 시스템과 상호작용할 수 있습니다.
+\`\`\``}]},b={id:"tool-use-api",title:"Tool Use API",titleEn:"Tool Use API",icon:"fa-wrench",sections:[{title:"Tool Use 구현",titleEn:"Implementing Tool Use",content:`Tool Use를 사용하면 Claude가 사전 정의된 도구(함수)를 호출하여 외부 시스템과 상호작용할 수 있습니다.
 
 ### 기본 구현
 
@@ -982,7 +982,7 @@ tool_results.append({
 })
 \`\`\`
 
-> **Tip**: Setting \`is_error: True\` helps Claude understand the error situation and guide the user appropriately.`}]},x={id:"vision",title:"비전 (이미지 입력)",titleEn:"Vision (Image Input)",icon:"fa-image",sections:[{title:"이미지 입력 기능",titleEn:"Image Input Feature",content:`Claude는 이미지를 분석하고 이해할 수 있는 멀티모달 능력을 갖추고 있습니다. API를 통해 이미지를 전송하면 내용 설명, OCR, 다이어그램 해석, 코드 스크린샷 분석 등 다양한 작업을 수행합니다.
+> **Tip**: Setting \`is_error: True\` helps Claude understand the error situation and guide the user appropriately.`}]},S={id:"vision",title:"비전 (이미지 입력)",titleEn:"Vision (Image Input)",icon:"fa-image",sections:[{title:"이미지 입력 기능",titleEn:"Image Input Feature",content:`Claude는 이미지를 분석하고 이해할 수 있는 멀티모달 능력을 갖추고 있습니다. API를 통해 이미지를 전송하면 내용 설명, OCR, 다이어그램 해석, 코드 스크린샷 분석 등 다양한 작업을 수행합니다.
 
 ### 지원되는 이미지 형식
 
@@ -1240,7 +1240,7 @@ message = client.messages.create(
 - Clearer text in images yields better results
 - Larger images consume more tokens
 - Very small text or low-resolution images may have reduced accuracy
-- A maximum of 20 images can be included in a single request`}]},f={id:"pricing",title:"API 요금",titleEn:"API Pricing",icon:"fa-credit-card",sections:[{title:"모델별 요금",titleEn:"Pricing by Model",content:`Anthropic API는 토큰 기반 종량제(pay-per-use)로 과금됩니다. 입력 토큰과 출력 토큰의 요금이 다르며, 모델에 따라 가격이 다릅니다.
+- A maximum of 20 images can be included in a single request`}]},v={id:"pricing",title:"API 요금",titleEn:"API Pricing",icon:"fa-credit-card",sections:[{title:"모델별 요금",titleEn:"Pricing by Model",content:`Anthropic API는 토큰 기반 종량제(pay-per-use)로 과금됩니다. 입력 토큰과 출력 토큰의 요금이 다르며, 모델에 따라 가격이 다릅니다.
 
 ### 현재 모델 가격 (MTok = 100만 토큰당)
 
@@ -1444,7 +1444,7 @@ batch = client.messages.batches.create(
 )
 \`\`\`
 
-> **Note**: Batch requests are processed within a maximum of 24 hours and are suitable for bulk tasks that don't require real-time responses.`}]},k={id:"sdks",title:"SDK (Python, TypeScript)",titleEn:"SDKs (Python, TypeScript)",icon:"fa-box",sections:[{title:"Python SDK",titleEn:"Python SDK",content:`Anthropic의 공식 Python SDK는 Claude API와의 통합을 간편하게 만들어줍니다. 타입 안전성, 자동 재시도, 스트리밍 등 다양한 기능을 제공합니다.
+> **Note**: Batch requests are processed within a maximum of 24 hours and are suitable for bulk tasks that don't require real-time responses.`}]},I={id:"sdks",title:"SDK (Python, TypeScript)",titleEn:"SDKs (Python, TypeScript)",icon:"fa-box",sections:[{title:"Python SDK",titleEn:"Python SDK",content:`Anthropic의 공식 Python SDK는 Claude API와의 통합을 간편하게 만들어줍니다. 타입 안전성, 자동 재시도, 스트리밍 등 다양한 기능을 제공합니다.
 
 ### 설치 및 설정
 
@@ -1788,4 +1788,5 @@ app.post('/api/chat', async (req, res) => {
 app.listen(3000, () => console.log('Server running on port 3000'));
 \`\`\`
 
-> **Note**: Both the Python and TypeScript SDKs support the same API features, so choose the SDK that matches your project's technology stack.`}]},i=[g,h,y,_,x,f,k];function C(){const{language:c}=u(),s=c==="ko",[n,a]=m.useState(0),r=i[n];return e.jsxs("div",{className:"guide-page",children:[e.jsx(d,{title:s?"API 활용 가이드":"API Usage Guide",path:"/api-usage"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:s?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:i.map((t,o)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${o===n?"active":""}`,onClick:()=>a(o),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),s?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:s?r.title:r.titleEn})}),r.sections.map((t,o)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:s?t.title:t.titleEn}),e.jsx(l,{remarkPlugins:[p],children:s?t.content:t.contentEn})]},o)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:n===0,onClick:()=>a(n-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",s?"이전":"Previous"]}),e.jsxs("button",{disabled:n===i.length-1,onClick:()=>a(n+1),children:[s?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{C as default};
+> **Note**: Both the Python and TypeScript SDKs support the same API features, so choose the SDK that matches your project's technology stack.`}]},l=[k,A,P,b,S,v,I];function D(){const{language:m}=_(),s=m==="ko",[n,r]=y.useState(0),i=l[n],u={code({inline:t,className:o,children:a,...d}){const c=/language-(\w+)/.exec(o||"");return!t&&c?e.jsx(p,{code:String(a).replace(/\n$/,""),language:c[1]}):!t&&!c&&String(a).includes(`
+`)?e.jsx(p,{code:String(a).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...d,children:a})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(f,{type:"tip",children:t})}};return e.jsxs("div",{className:"guide-page",children:[e.jsx(x,{title:s?"API 활용 가이드":"API Usage Guide",path:"/api-usage"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:s?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:l.map((t,o)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${o===n?"active":""}`,onClick:()=>r(o),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),s?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:s?i.title:i.titleEn})}),i.sections.map((t,o)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:s?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(g,{remarkPlugins:[h],components:u,children:s?t.content:t.contentEn})})]},o)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:n===0,onClick:()=>r(n-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",s?"이전":"Previous"]}),e.jsxs("button",{disabled:n===l.length-1,onClick:()=>r(n+1),children:[s?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{D as default};
