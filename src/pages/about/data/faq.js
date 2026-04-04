@@ -62,7 +62,7 @@ A React 19 + Vite 6 based SPA, using Supabase as the backend, deployed on GitHub
 | 카카오톡 | aebon |
 | 업무 시간 | 평일 09:00 ~ 18:00 |
 
-### 관련 사��트
+### 관련 사이트
 
 - [DreamIT Biz](https://www.dreamitbiz.com) — 메인 사이트
 - [Teaching AI](https://teaching.dreamitbiz.com) — AI 교육 플랫폼
