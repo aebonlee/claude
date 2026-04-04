@@ -54,7 +54,7 @@ claude
 > 에러 핸들링과 validation도 포함해줘.
 \`\`\`
 
-> **Tip**: Claude Code는 프로젝트의 전체 파일 구조를 파악하므로, 기존 코드 스타일에 맞춰 일관된 코드를 생성합니다.`,
+> Claude Code는 프로젝트의 전체 파일 구조를 파악하므로, 기존 코드 스타일에 맞춰 일관된 코드를 생성합니다.`,
       contentEn: `Learn how to systematically integrate co-work with Claude into your development process.
 
 ### Full-cycle Development Co-work
@@ -102,7 +102,7 @@ claude
 > Include error handling and validation.
 \`\`\`
 
-> **Tip**: Claude Code understands your entire project file structure, so it generates consistent code matching your existing code style.`
+> Claude Code understands your entire project file structure, so it generates consistent code matching your existing code style.`
     },
     {
       title: '비즈니스 워크플로우',

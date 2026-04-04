@@ -68,7 +68,7 @@ export default function Navbar() {
   const NAV_ITEMS = [
     { path: '/about', ko: 'About', en: 'About' },
     { path: '/claude-code', ko: 'Claude Code', en: 'Claude Code' },
-    { path: '/claude-cowork', ko: '코워크', en: 'Co-work' },
+    { path: '/claude-cowork', ko: 'Co-work', en: 'Co-work' },
     { path: '/prompt-engineering', ko: '프롬프트 가이드', en: 'Prompt Guide' },
     { path: '/api-usage', ko: 'API 가이드', en: 'API Guide' },
     { path: '/ai-news', ko: 'AI 뉴스', en: 'AI News' },

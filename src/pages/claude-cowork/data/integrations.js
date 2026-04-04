@@ -55,7 +55,7 @@ const integrations = {
 }
 \`\`\`
 
-> **Tip**: MCP를 활용하면 Claude가 직접 GitHub에서 코드를 읽고, Slack으로 결과를 공유하는 등 실제 업무 도구와 연결된 코워크가 가능합니다.`,
+> MCP를 활용하면 Claude가 직접 GitHub에서 코드를 읽고, Slack으로 결과를 공유하는 등 실제 업무 도구와 연결된 코워크가 가능합니다.`,
       contentEn: `**MCP (Model Context Protocol)** is a protocol that allows Claude to access external tools and data sources. This connects co-work with Claude to your actual work environment.
 
 ### MCP Overview
@@ -104,7 +104,7 @@ const integrations = {
 }
 \`\`\`
 
-> **Tip**: With MCP, Claude can directly read code from GitHub, share results via Slack, and more — enabling co-work connected to your actual work tools.`
+> With MCP, Claude can directly read code from GitHub, share results via Slack, and more — enabling co-work connected to your actual work tools.`
     },
     {
       title: 'Slack & Notion 연동 실전',

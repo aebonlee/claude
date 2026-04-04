@@ -49,7 +49,7 @@ const sharedProjects = {
 | 데이터 | 분석 대상 데이터 | CSV, JSON |
 | 이미지 | 디자인 참고 | 와이어프레임, 스크린샷 |
 
-> **Tip**: Custom Instructions에 프로젝트의 컨벤션과 규칙을 상세히 작성하면, 모든 대화에서 일관된 품질의 결과물을 얻을 수 있습니다.`,
+> Custom Instructions에 프로젝트의 컨벤션과 규칙을 상세히 작성하면, 모든 대화에서 일관된 품질의 결과물을 얻을 수 있습니다.`,
       contentEn: `With Claude.ai's **Projects** feature, your entire team can collaborate with Claude in the same context.
 
 ### Setting Up a Project
@@ -92,7 +92,7 @@ You are a senior full-stack developer.
 | Data | Analysis target data | CSV, JSON |
 | Images | Design reference | Wireframes, screenshots |
 
-> **Tip**: Writing detailed conventions and rules in Custom Instructions ensures consistent quality outputs across all conversations.`
+> Writing detailed conventions and rules in Custom Instructions ensures consistent quality outputs across all conversations.`
     },
     {
       title: '팀 워크스페이스',
