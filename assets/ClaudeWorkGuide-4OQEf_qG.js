@@ -1,4 +1,4 @@
-import{j as e,M as l,r as d}from"./markdown-nDXzyGI7.js";import{b as u}from"./vendor-C9mfkM5v.js";import{u as m}from"./index-BEEKUOUp.js";import{S as g}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const p={id:"overview",title:"Claude.ai 개요",titleEn:"Claude.ai Overview",icon:"fa-globe",sections:[{title:"Claude.ai란?",titleEn:"What is Claude.ai?",content:`Claude.ai는 Anthropic이 제공하는 공식 웹 인터페이스로, Claude AI 모델과 대화하고 다양한 작업을 수행할 수 있는 플랫폼입니다.
+import{j as e,M as l,r as d}from"./markdown-nDXzyGI7.js";import{b as u}from"./vendor-C9mfkM5v.js";import{u as m}from"./index-Bp5wa2Qe.js";import{S as g}from"./SEOHead-DhJvCSIj.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const p={id:"overview",title:"Claude.ai 개요",titleEn:"Claude.ai Overview",icon:"fa-globe",sections:[{title:"Claude.ai란?",titleEn:"What is Claude.ai?",content:`Claude.ai는 Anthropic이 제공하는 공식 웹 인터페이스로, Claude AI 모델과 대화하고 다양한 작업을 수행할 수 있는 플랫폼입니다.
 
 ### 주요 특징
 
