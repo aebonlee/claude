@@ -25,7 +25,7 @@ export default function ForgotPassword() {
       } else {
         setSuccess(true);
       }
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);

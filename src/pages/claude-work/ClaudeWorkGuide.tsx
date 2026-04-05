@@ -6,14 +6,15 @@ import SEOHead from '../../components/SEOHead';
 import CodeBlock from '../../components/CodeBlock';
 import TipBox from '../../components/TipBox';
 import overview from './data/overview';
-import architecture from './data/architecture';
-import tools from './data/tools';
-import orchestration from './data/orchestration';
-import examples from './data/examples';
+import projects from './data/projects';
+import artifacts from './data/artifacts';
+import teamFeatures from './data/team-features';
+import integrations from './data/integrations';
+import memory from './data/memory';
 
-const SECTIONS = [overview, architecture, tools, orchestration, examples];
+const SECTIONS = [overview, projects, artifacts, teamFeatures, integrations, memory];
 
-export default function AgentSDK() {
+export default function ClaudeWorkGuide() {
   const { language } = useLanguage();
   const isKo = language === 'ko';
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,7 +41,7 @@ export default function AgentSDK() {
 
   return (
     <div className="guide-page">
-      <SEOHead title={isKo ? 'Agent SDK 가이드' : 'Agent SDK Guide'} path="/agent-sdk" />
+      <SEOHead title={isKo ? 'Claude Work 가이드' : 'Claude Work Guide'} path="/claude-work" />
       <div className="guide-layout">
         <aside className="guide-sidebar">
           <div className="guide-sidebar-title">{isKo ? '목차' : 'Contents'}</div>
@@ -66,7 +67,7 @@ export default function AgentSDK() {
             <div key={i} className="guide-section">
               <h2>{isKo ? sec.title : sec.titleEn}</h2>
               <div className="markdown-body">
-                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents as any}>
                   {isKo ? sec.content : sec.contentEn}
                 </ReactMarkdown>
               </div>

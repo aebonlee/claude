@@ -22,7 +22,7 @@ export default function AdminDashboard() {
         ]);
         setStats(statsData);
         setRecentPosts(postsData);
-      } catch (err) {
+      } catch (err: any) {
         console.error('AdminDashboard fetch error:', err);
       } finally {
         setLoading(false);

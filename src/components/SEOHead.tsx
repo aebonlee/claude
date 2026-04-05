@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { SITE_CONFIG } from '../config/site';
 
-export default function SEOHead({ title, description, path = '' }) {
+export default function SEOHead({ title, description, path = '' }: { title?: string; description?: string; path?: string }) {
   useEffect(() => {
     const fullTitle = title ? `${title} - ${SITE_CONFIG.name}` : SITE_CONFIG.name;
     document.title = fullTitle;
 
-    const setMeta = (property, content) => {
+    const setMeta = (property: string, content: string) => {
       let el = document.querySelector(`meta[property="${property}"]`);
       if (!el) {
         el = document.createElement('meta');

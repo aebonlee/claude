@@ -32,7 +32,7 @@ export default function BoardDetail() {
           return;
         }
         setPost(data);
-      } catch (err) {
+      } catch (err: any) {
         setError(err.message);
       } finally {
         setLoading(false);
@@ -65,7 +65,7 @@ export default function BoardDetail() {
       }));
       setCommentText('');
       toast.success(isKo ? '댓글이 등록되었습니다.' : 'Comment posted.');
-    } catch (err) {
+    } catch (err: any) {
       toast.error(err.message || (isKo ? '댓글 등록에 실패했습니다.' : 'Failed to post comment.'));
     } finally {
       setSubmitting(false);
@@ -81,7 +81,7 @@ export default function BoardDetail() {
         comments: prev.comments.filter(c => c.id !== commentId),
       }));
       toast.success(isKo ? '댓글이 삭제되었습니다.' : 'Comment deleted.');
-    } catch (err) {
+    } catch (err: any) {
       toast.error(err.message);
     }
   };
@@ -92,7 +92,7 @@ export default function BoardDetail() {
       await deletePost(Number(id));
       toast.success(isKo ? '게시글이 삭제되었습니다.' : 'Post deleted.');
       navigate(`/community/${boardId}`);
-    } catch (err) {
+    } catch (err: any) {
       toast.error(err.message);
     }
   };

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx supabase migration repair:*)",
+      "Bash(git stash:*)",
+      "Bash(git fetch:*)",
+      "Bash(git reset:*)",
+      "Bash(git --version:*)"
+    ]
+  }
+}

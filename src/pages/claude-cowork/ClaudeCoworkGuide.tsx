@@ -6,15 +6,15 @@ import SEOHead from '../../components/SEOHead';
 import CodeBlock from '../../components/CodeBlock';
 import TipBox from '../../components/TipBox';
 import overview from './data/overview';
-import projects from './data/projects';
-import artifacts from './data/artifacts';
-import teamFeatures from './data/team-features';
+import sharedProjects from './data/shared-projects';
 import integrations from './data/integrations';
-import memory from './data/memory';
+import workflows from './data/workflows';
+import bestPractices from './data/best-practices';
+import enterprise from './data/enterprise';
 
-const SECTIONS = [overview, projects, artifacts, teamFeatures, integrations, memory];
+const SECTIONS = [overview, sharedProjects, integrations, workflows, bestPractices, enterprise];
 
-export default function ClaudeWorkGuide() {
+export default function ClaudeCoworkGuide() {
   const { language } = useLanguage();
   const isKo = language === 'ko';
   const [activeIndex, setActiveIndex] = useState(0);
@@ -41,7 +41,7 @@ export default function ClaudeWorkGuide() {
 
   return (
     <div className="guide-page">
-      <SEOHead title={isKo ? 'Claude Work 가이드' : 'Claude Work Guide'} path="/claude-work" />
+      <SEOHead title={isKo ? 'Claude 코워크 가이드' : 'Claude Co-work Guide'} path="/claude-cowork" />
       <div className="guide-layout">
         <aside className="guide-sidebar">
           <div className="guide-sidebar-title">{isKo ? '목차' : 'Contents'}</div>
@@ -67,7 +67,7 @@ export default function ClaudeWorkGuide() {
             <div key={i} className="guide-section">
               <h2>{isKo ? sec.title : sec.titleEn}</h2>
               <div className="markdown-body">
-                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents as any}>
                   {isKo ? sec.content : sec.contentEn}
                 </ReactMarkdown>
               </div>

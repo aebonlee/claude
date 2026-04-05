@@ -12,7 +12,7 @@ const LABELS = {
   danger: 'Danger',
 };
 
-export default function TipBox({ type = 'tip', title, children }) {
+export default function TipBox({ type = 'tip', title, children }: { type?: string; title?: any; children: any }) {
   return (
     <div className={`tip-box ${type}`}>
       <span className="tip-box-icon">

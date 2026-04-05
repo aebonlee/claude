@@ -1,23 +1,30 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import SEOHead from '../components/SEOHead';
-import { signInWithGoogle, signInWithKakao, signUpWithEmail } from '../utils/auth';
+import { signInWithGoogle, signInWithKakao, signInWithEmail } from '../utils/auth';
 
-export default function Register() {
+export default function Login() {
   const { t } = useLanguage();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const toast = useToast();
+  const [searchParams] = useSearchParams();
 
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // OAuth 콜백 에러 체크
+  useEffect(() => {
+    const errorDesc = searchParams.get('error_description');
+    if (errorDesc) {
+      toast.error(errorDesc);
+    }
+  }, [searchParams, toast]);
 
   // Redirect if already authenticated
   if (isAuthenticated) {
@@ -25,47 +32,21 @@ export default function Register() {
     return null;
   }
 
-  const handleRegister = async (e) => {
+  const handleEmailLogin = async (e) => {
     e.preventDefault();
     setError('');
-
-    if (password !== confirmPassword) {
-      const msg = t('auth.passwordMismatch') !== 'auth.passwordMismatch'
-        ? t('auth.passwordMismatch')
-        : 'Passwords do not match.';
-      setError(msg);
-      toast.error(msg);
-      return;
-    }
-
-    if (password.length < 6) {
-      const msg = t('auth.passwordTooShort') !== 'auth.passwordTooShort'
-        ? t('auth.passwordTooShort')
-        : 'Password must be at least 6 characters.';
-      setError(msg);
-      toast.error(msg);
-      return;
-    }
-
     setLoading(true);
 
     try {
-      const { error: authError } = await signUpWithEmail(email, password, {
-        full_name: name,
-        display_name: name,
-      });
+      const { error: authError } = await signInWithEmail(email, password);
       if (authError) {
         setError(authError.message);
         toast.error(authError.message);
       } else {
-        toast.success(
-          t('auth.registerSuccess') !== 'auth.registerSuccess'
-            ? t('auth.registerSuccess')
-            : '가입 완료! 이메일을 확인해주세요.'
-        );
-        navigate('/login');
+        toast.success(t('auth.loginSuccess') !== 'auth.loginSuccess' ? t('auth.loginSuccess') : '로그인 성공!');
+        navigate('/');
       }
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
     } finally {
@@ -81,7 +62,7 @@ export default function Register() {
         setError(authError.message);
         toast.error(authError.message);
       }
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
     }
@@ -95,7 +76,7 @@ export default function Register() {
         setError(authError.message);
         toast.error(authError.message);
       }
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
       toast.error(err.message);
     }
@@ -103,10 +84,10 @@ export default function Register() {
 
   return (
     <div className="auth-page">
-      <SEOHead title={t('auth.registerTitle')} path="/register" />
+      <SEOHead title={t('auth.loginTitle')} path="/login" />
 
       <div className="auth-card">
-        <h1 className="auth-title">{t('auth.registerTitle')}</h1>
+        <h1 className="auth-title">{t('auth.loginTitle')}</h1>
 
         {/* Social Login Buttons */}
         <div className="auth-social">
@@ -133,22 +114,9 @@ export default function Register() {
           <span>{t('auth.or')}</span>
         </div>
 
-        {/* Registration Form */}
-        <form className="auth-form" onSubmit={handleRegister}>
+        {/* Email/Password Form */}
+        <form className="auth-form" onSubmit={handleEmailLogin}>
           {error && <div className="auth-error">{error}</div>}
-
-          <div className="auth-field">
-            <label htmlFor="name">{t('auth.name')}</label>
-            <input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder={t('auth.name')}
-              required
-              autoComplete="name"
-            />
-          </div>
 
           <div className="auth-field">
             <label htmlFor="email">{t('auth.email')}</label>
@@ -172,23 +140,12 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder={t('auth.password')}
               required
-              minLength={6}
-              autoComplete="new-password"
+              autoComplete="current-password"
             />
           </div>
 
-          <div className="auth-field">
-            <label htmlFor="confirmPassword">{t('auth.confirmPassword')}</label>
-            <input
-              id="confirmPassword"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder={t('auth.confirmPassword')}
-              required
-              minLength={6}
-              autoComplete="new-password"
-            />
+          <div className="auth-forgot">
+            <Link to="/forgot-password">{t('auth.forgotPassword')}</Link>
           </div>
 
           <button
@@ -196,14 +153,14 @@ export default function Register() {
             className="btn btn-primary auth-submit"
             disabled={loading}
           >
-            {loading ? t('common.loading') : t('auth.registerBtn')}
+            {loading ? t('common.loading') : t('auth.loginBtn')}
           </button>
         </form>
 
-        {/* Login Link */}
+        {/* Register Link */}
         <div className="auth-footer">
-          <span>{t('auth.hasAccount')}</span>{' '}
-          <Link to="/login">{t('auth.loginTitle')}</Link>
+          <span>{t('auth.noAccount')}</span>{' '}
+          <Link to="/register">{t('auth.registerTitle')}</Link>
         </div>
       </div>
     </div>

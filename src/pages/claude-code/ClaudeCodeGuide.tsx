@@ -111,7 +111,7 @@ export default function ClaudeCodeGuide() {
                 <div className="markdown-body">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
-                    components={markdownComponents}
+                    components={markdownComponents as any}
                   >
                     {isKo ? section.content : section.contentEn}
                   </ReactMarkdown>

@@ -5,17 +5,15 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import SEOHead from '../../components/SEOHead';
 import CodeBlock from '../../components/CodeBlock';
 import TipBox from '../../components/TipBox';
-import basics from './data/basics';
-import systemPrompts from './data/system-prompts';
-import xmlTags from './data/xml-tags';
-import extendedThinking from './data/extended-thinking';
-import chainOfThought from './data/chain-of-thought';
-import toolUse from './data/tool-use';
-import bestPractices from './data/best-practices';
+import overview from './data/overview';
+import architecture from './data/architecture';
+import tools from './data/tools';
+import orchestration from './data/orchestration';
+import examples from './data/examples';
 
-const SECTIONS = [basics, systemPrompts, xmlTags, extendedThinking, chainOfThought, toolUse, bestPractices];
+const SECTIONS = [overview, architecture, tools, orchestration, examples];
 
-export default function PromptEngineering() {
+export default function AgentSDK() {
   const { language } = useLanguage();
   const isKo = language === 'ko';
   const [activeIndex, setActiveIndex] = useState(0);
@@ -42,7 +40,7 @@ export default function PromptEngineering() {
 
   return (
     <div className="guide-page">
-      <SEOHead title={isKo ? '프롬프트 엔지니어링 가이드' : 'Prompt Engineering Guide'} path="/prompt-engineering" />
+      <SEOHead title={isKo ? 'Agent SDK 가이드' : 'Agent SDK Guide'} path="/agent-sdk" />
       <div className="guide-layout">
         <aside className="guide-sidebar">
           <div className="guide-sidebar-title">{isKo ? '목차' : 'Contents'}</div>
@@ -68,7 +66,7 @@ export default function PromptEngineering() {
             <div key={i} className="guide-section">
               <h2>{isKo ? sec.title : sec.titleEn}</h2>
               <div className="markdown-body">
-                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents as any}>
                   {isKo ? sec.content : sec.contentEn}
                 </ReactMarkdown>
               </div>

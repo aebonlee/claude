@@ -37,7 +37,7 @@ export default function Board() {
     try {
       const data = await getPosts({ board: boardId, category: activeCategory, search });
       setPosts(data);
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);

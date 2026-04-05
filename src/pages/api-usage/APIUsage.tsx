@@ -68,7 +68,7 @@ export default function APIUsage() {
             <div key={i} className="guide-section">
               <h2>{isKo ? sec.title : sec.titleEn}</h2>
               <div className="markdown-body">
-                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents as any}>
                   {isKo ? sec.content : sec.contentEn}
                 </ReactMarkdown>
               </div>

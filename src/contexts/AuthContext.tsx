@@ -1,27 +1,32 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { supabase } from '../utils/supabase';
 import { isAdmin as isAdminEmail } from '../config/admin';
 
-const AuthContext = createContext();
+interface AuthContextType {
+  user: any;
+  loading: boolean;
+  isAuthenticated: boolean;
+  isAdmin: boolean;
+}
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+const AuthContext = createContext<AuthContextType | null>(null);
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [adminFlag, setAdminFlag] = useState(false);
 
-  const checkAdmin = async (currentUser) => {
+  const checkAdmin = async (currentUser: any) => {
     if (!currentUser) {
       setAdminFlag(false);
       return;
     }
 
-    // 1) 이메일 기반 관리자 체크 (config/admin.js)
     if (isAdminEmail(currentUser.email)) {
       setAdminFlag(true);
       return;
     }
 
-    // 2) profiles 테이블 role 체크
     try {
       const { data } = await supabase
         .from('profiles')
@@ -57,7 +62,7 @@ export function AuthProvider({ children }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const value = {
+  const value: AuthContextType = {
     user,
     loading,
     isAuthenticated: !!user,
