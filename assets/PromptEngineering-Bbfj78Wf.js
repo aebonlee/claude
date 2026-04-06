@@ -1,4 +1,4 @@
-import{j as e,M as h,r as g}from"./markdown-Bb6HBFF6.js";import{b as f}from"./vendor-Cbm2kc8j.js";import{u as y}from"./index-DqrBKmu7.js";import{S as x}from"./SEOHead-DfBpSINb.js";import{T as k,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const b={id:"basics",title:"프롬프트 기본 원칙",titleEn:"Prompt Fundamentals",icon:"fa-lightbulb",sections:[{title:"프롬프트 엔지니어링이란?",titleEn:"What is Prompt Engineering?",content:`프롬프트 엔지니어링은 AI 모델에게 원하는 결과를 얻기 위해 입력(프롬프트)을 체계적으로 설계하는 기술입니다. 잘 작성된 프롬프트는 Claude의 능력을 최대한 활용할 수 있게 합니다.
+import{j as e,M as h,r as g}from"./markdown-Bb6HBFF6.js";import{b as f}from"./vendor-Cbm2kc8j.js";import{u as y}from"./index-DFVxeVqx.js";import{S as x}from"./SEOHead-DfBpSINb.js";import{T as k,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const b={id:"basics",title:"프롬프트 기본 원칙",titleEn:"Prompt Fundamentals",icon:"fa-lightbulb",sections:[{title:"프롬프트 엔지니어링이란?",titleEn:"What is Prompt Engineering?",content:`프롬프트 엔지니어링은 AI 모델에게 원하는 결과를 얻기 위해 입력(프롬프트)을 체계적으로 설계하는 기술입니다. 잘 작성된 프롬프트는 Claude의 능력을 최대한 활용할 수 있게 합니다.
 
 ### 프롬프트의 핵심 요소
 
