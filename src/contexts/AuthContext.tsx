@@ -45,18 +45,40 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setAdminFlag(false);
   };
 
+  const trackDomain = async (authUser: any) => {
+    if (!authUser) return;
+    try {
+      const currentDomain = window.location.hostname;
+      const { data: profile } = await supabase
+        .from('user_profiles')
+        .select('signup_domain, visited_sites')
+        .eq('id', authUser.id)
+        .single();
+      if (!profile) return;
+      const updates: any = { last_sign_in_at: new Date().toISOString() };
+      if (!profile.signup_domain) updates.signup_domain = currentDomain;
+      const sites = Array.isArray(profile.visited_sites) ? profile.visited_sites : [];
+      if (!sites.includes(currentDomain)) {
+        updates.visited_sites = [...sites, currentDomain];
+      }
+      await supabase.from('user_profiles').update(updates).eq('id', authUser.id);
+    } catch { /* ignore */ }
+  };
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       const currentUser = session?.user ?? null;
       setUser(currentUser);
       checkAdmin(currentUser);
+      if (currentUser) trackDomain(currentUser);
       setLoading(false);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       const currentUser = session?.user ?? null;
       setUser(currentUser);
       checkAdmin(currentUser);
+      if (currentUser && event === 'SIGNED_IN') trackDomain(currentUser);
     });
 
     return () => subscription.unsubscribe();
