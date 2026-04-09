@@ -1,4 +1,4 @@
-import{j as e,M as g,r as h}from"./markdown-Bb6HBFF6.js";import{b as C}from"./vendor-Cbm2kc8j.js";import{u as f}from"./index-DQNYRqIn.js";import{S as b}from"./SEOHead-DfBpSINb.js";import{T as A,C as d}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const S={id:"introduction",title:"플랫폼 소개",titleEn:"Introduction",icon:"fa-circle-info",sections:[{title:"Claude Master란?",titleEn:"What is Claude Master?",content:`Claude Master는 한국어 사용자를 위한 **Claude AI 종합 학습 플랫폼**입니다. 공식 문서의 방대한 정보를 체계적으로 정리하고, 실전 예제와 함께 제공하여 누구나 Claude를 효과적으로 활용할 수 있도록 돕습니다.
+import{j as e,M as g,r as h}from"./markdown-Bb6HBFF6.js";import{b as C}from"./vendor-Cbm2kc8j.js";import{u as f}from"./index-Bo1Dxv0e.js";import{S as b}from"./SEOHead-DfBpSINb.js";import{T as A,C as d}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const S={id:"introduction",title:"플랫폼 소개",titleEn:"Introduction",icon:"fa-circle-info",sections:[{title:"Claude Master란?",titleEn:"What is Claude Master?",content:`Claude Master는 한국어 사용자를 위한 **Claude AI 종합 학습 플랫폼**입니다. 공식 문서의 방대한 정보를 체계적으로 정리하고, 실전 예제와 함께 제공하여 누구나 Claude를 효과적으로 활용할 수 있도록 돕습니다.
 
 ### 미션
 
