@@ -1,4 +1,4 @@
-import{j as e,M as f,r as y}from"./markdown-Bb6HBFF6.js";import{b as v}from"./vendor-Cbm2kc8j.js";import{u as E}from"./index-D3zbnSez.js";import{S}from"./SEOHead-DfBpSINb.js";import{T as b,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const P={id:"overview",title:"개요",titleEn:"Overview",icon:"fa-book",sections:[{title:"Claude Code란?",titleEn:"What is Claude Code?",content:`Claude Code는 Anthropic이 만든 **에이전틱 코딩 도구**로, 터미널에서 직접 실행됩니다. 코드베이스를 이해하고, 명령을 실행하며, 코드를 편집하고, 복잡한 소프트웨어 엔지니어링 작업을 자율적으로 수행할 수 있습니다.
+import{j as e,M as f,r as y}from"./markdown-Bb6HBFF6.js";import{b as v}from"./vendor-Cbm2kc8j.js";import{u as E}from"./index-CD6OJyyo.js";import{S}from"./SEOHead-DfBpSINb.js";import{T as b,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const P={id:"overview",title:"개요",titleEn:"Overview",icon:"fa-book",sections:[{title:"Claude Code란?",titleEn:"What is Claude Code?",content:`Claude Code는 Anthropic이 만든 **에이전틱 코딩 도구**로, 터미널에서 직접 실행됩니다. 코드베이스를 이해하고, 명령을 실행하며, 코드를 편집하고, 복잡한 소프트웨어 엔지니어링 작업을 자율적으로 수행할 수 있습니다.
 
 Claude Code는 별도의 복잡한 설정 없이 프로젝트 디렉토리에서 바로 작동하며, 기존 워크플로우에 자연스럽게 통합됩니다.
 
