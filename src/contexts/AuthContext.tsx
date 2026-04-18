@@ -93,15 +93,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (currentUser && event === 'SIGNED_IN') trackDomain(currentUser);
     });
 
-
-  // 10분 무동작 세션 타임아웃
-  useIdleTimeout({
-    enabled: !!user,
-    onTimeout: () => {
-      clearSharedSession();
-    },
-  });
-
     return () => subscription.unsubscribe();
   }, []);
 
@@ -111,6 +102,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     isAuthenticated: !!user,
     isAdmin: adminFlag,
   };
+
+
+  // 10분 무동작 세션 타임아웃
+  useIdleTimeout({
+  enabled: !!user,
+  onTimeout: () => {
+  clearSharedSession();
+  },
+  });
 
   return (
     <AuthContext.Provider value={value}>
