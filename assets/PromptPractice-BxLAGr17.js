@@ -1,4 +1,4 @@
-import{j as e}from"./markdown-Bb6HBFF6.js";import{b as o}from"./vendor-Cbm2kc8j.js";import{u}from"./index-BAXdJAJd.js";import{S as h}from"./SEOHead-DfBpSINb.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const g=[{title:"기본 질문",titleEn:"Basic Question",desc:"간단한 질문 형식의 프롬프트",descEn:"A simple question-style prompt",prompt:`다음 개념을 초등학생도 이해할 수 있도록 쉽게 설명해주세요:
+import{j as e}from"./markdown-Bb6HBFF6.js";import{b as o}from"./vendor-Cbm2kc8j.js";import{u}from"./index-Ba8CxTjK.js";import{S as h}from"./SEOHead-DfBpSINb.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const g=[{title:"기본 질문",titleEn:"Basic Question",desc:"간단한 질문 형식의 프롬프트",descEn:"A simple question-style prompt",prompt:`다음 개념을 초등학생도 이해할 수 있도록 쉽게 설명해주세요:
 
 [개념: 인공지능]`,promptEn:`Please explain the following concept in a way that an elementary school student can understand:
 
