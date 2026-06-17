@@ -83,13 +83,18 @@ claude config set preferredModel claude-opus-4-8
       titleEn: 'Permission Settings',
       content: `### 권한 모드
 
-Claude Code는 세 가지 권한 모드를 제공합니다:
+Claude Code는 다음 권한 모드를 제공합니다(\`--permission-mode\` 또는 세션 중 \`/permissions\`로 전환):
 
 | 모드 | 설명 | 사용 사례 |
 |------|------|----------|
-| **Default** | 각 도구 사용 시 확인 요청 | 일반적인 대화형 사용 |
-| **Allowlist** | 허용 목록의 도구만 자동 실행 | 반복적인 작업 자동화 |
-| **Yolo** | 모든 도구 자동 실행 (확인 없음) | CI/CD, 자동화 파이프라인 |
+| **default** | 각 도구 사용 시 확인 요청 | 일반적인 대화형 사용 |
+| **acceptEdits** | 파일 편집을 자동 승인 | 편집 반복이 많은 작업 |
+| **plan** | 실행 없이 계획만 수립(읽기 전용) | 변경 전 계획 검토 |
+| **auto** | 안전한 작업을 자동 진행 | 흐름이 빠른 작업 |
+| **dontAsk** | 확인을 최소화 | 신뢰된 반복 작업 |
+| **bypassPermissions** | 모든 권한 검사 우회 | CI/CD, 자동화 파이프라인(주의) |
+
+> 모드 전환: \`claude --permission-mode acceptEdits\`. \`bypassPermissions\`는 \`--dangerously-skip-permissions\`와 동일하게 모든 확인을 건너뛰므로 신뢰된 환경에서만 사용하세요. 아래 \`permissions\`의 allow/deny 목록은 모드와 별개로 "어떤 도구를 허용/차단할지"를 정의합니다.
 
 ### 권한 설정 예시
 
@@ -136,13 +141,18 @@ Claude Code는 세 가지 권한 모드를 제공합니다:
 - **d** (Don't allow) - 이 세션에서 항상 거부`,
       contentEn: `### Permission Modes
 
-Claude Code provides three permission modes:
+Claude Code provides these permission modes (switch with \`--permission-mode\` or \`/permissions\` mid-session):
 
 | Mode | Description | Use Case |
 |------|-------------|----------|
-| **Default** | Asks for confirmation for each tool use | General interactive use |
-| **Allowlist** | Auto-executes only tools on the allow list | Repetitive task automation |
-| **Yolo** | Auto-executes all tools (no confirmation) | CI/CD, automation pipelines |
+| **default** | Asks for confirmation for each tool use | General interactive use |
+| **acceptEdits** | Auto-approves file edits | Edit-heavy iteration |
+| **plan** | Plans only, no execution (read-only) | Reviewing a plan before changes |
+| **auto** | Auto-proceeds on safe actions | Fast-moving work |
+| **dontAsk** | Minimizes confirmations | Trusted repetitive work |
+| **bypassPermissions** | Bypasses all permission checks | CI/CD, automation pipelines (caution) |
+
+> Switch modes with \`claude --permission-mode acceptEdits\`. \`bypassPermissions\` is equivalent to \`--dangerously-skip-permissions\` and skips every confirmation — use it only in trusted environments. The \`permissions\` allow/deny lists below are separate from modes: they define *which* tools are allowed/blocked.
 
 ### Permission Configuration Example
 
