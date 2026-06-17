@@ -19,6 +19,7 @@ export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showTooltips, setShowTooltips] = useState(false);
   const [mobileCommExpanded, setMobileCommExpanded] = useState(false);
+  const [mobilePromptExpanded, setMobilePromptExpanded] = useState(false);
   const colorPickerRef = useRef(null);
   const userMenuRef = useRef(null);
 
@@ -33,6 +34,7 @@ export default function Navbar() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setMobileCommExpanded(false);
+    setMobilePromptExpanded(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -68,12 +70,20 @@ export default function Navbar() {
     navigate('/');
   }
 
+  const PROMPT_ITEMS = [
+    { path: '/prompt-engineering', ko: '프롬프트 가이드', en: 'Prompt Guide', icon: 'fa-book' },
+    { path: '/prompt-evaluation', ko: '프롬프트 평가 실습', en: 'Prompt Evaluation', icon: 'fa-clipboard-check' },
+    { path: '/prompt-practice', ko: '프롬프트 연습장', en: 'Prompt Playground', icon: 'fa-pen-to-square' },
+    { path: '/prompt-gallery', ko: '프롬프트 갤러리', en: 'Prompt Gallery', icon: 'fa-images' },
+  ];
+
   const NAV_ITEMS = [
     { path: '/about', ko: 'About', en: 'About' },
     { path: '/claude-code', ko: 'Claude Code', en: 'Claude Code' },
     { path: '/claude-cowork', ko: 'Co-work', en: 'Co-work' },
-    { path: '/prompt-engineering', ko: '프롬프트 가이드', en: 'Prompt Guide' },
+    { ko: '프롬프트', en: 'Prompts', children: PROMPT_ITEMS },
     { path: '/api-usage', ko: 'API 가이드', en: 'API Guide' },
+    { path: '/model-comparison', ko: '모델 비교', en: 'Models' },
     { path: '/ai-news', ko: 'AI 뉴스', en: 'AI News' },
     { path: '/community', ko: '커뮤니티', en: 'Community', hasDropdown: true },
   ];
@@ -88,31 +98,53 @@ export default function Navbar() {
           </Link>
 
           <ul className="nav-links">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.path} className={`nav-item${item.hasDropdown ? ' has-dropdown' : ''}`}>
-                <Link
-                  to={item.path}
-                  className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
-                >
-                  {isKo ? item.ko : item.en}
-                  {item.hasDropdown && <i className="fa-solid fa-chevron-down nav-dropdown-icon" />}
-                </Link>
-                {item.hasDropdown && (
-                  <div className="nav-dropdown">
-                    {BOARDS.map((board) => (
-                      <Link
-                        key={board.id}
-                        to={`/community/${board.id}`}
-                        className="nav-dropdown-item"
-                      >
-                        <i className={`fa-solid ${board.icon}`} style={{ color: board.color, width: '18px' }} />
-                        {isKo ? board.nameKo : board.nameEn}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </li>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              // 프롬프트 등 하위 메뉴를 가진 그룹
+              if (item.children) {
+                const groupActive = item.children.some((c) => location.pathname.startsWith(c.path));
+                return (
+                  <li key={item.ko} className="nav-item has-dropdown">
+                    <span className={`nav-link nav-link-group ${groupActive ? 'active' : ''}`}>
+                      {isKo ? item.ko : item.en}
+                      <i className="fa-solid fa-chevron-down nav-dropdown-icon" />
+                    </span>
+                    <div className="nav-dropdown">
+                      {item.children.map((child) => (
+                        <Link key={child.path} to={child.path} className="nav-dropdown-item">
+                          <i className={`fa-solid ${child.icon}`} style={{ width: '18px' }} />
+                          {isKo ? child.ko : child.en}
+                        </Link>
+                      ))}
+                    </div>
+                  </li>
+                );
+              }
+              return (
+                <li key={item.path} className={`nav-item${item.hasDropdown ? ' has-dropdown' : ''}`}>
+                  <Link
+                    to={item.path}
+                    className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
+                  >
+                    {isKo ? item.ko : item.en}
+                    {item.hasDropdown && <i className="fa-solid fa-chevron-down nav-dropdown-icon" />}
+                  </Link>
+                  {item.hasDropdown && (
+                    <div className="nav-dropdown">
+                      {BOARDS.map((board) => (
+                        <Link
+                          key={board.id}
+                          to={`/community/${board.id}`}
+                          className="nav-dropdown-item"
+                        >
+                          <i className={`fa-solid ${board.icon}`} style={{ color: board.color, width: '18px' }} />
+                          {isKo ? board.nameKo : board.nameEn}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           <div className="navbar-actions">
@@ -192,7 +224,29 @@ export default function Navbar() {
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <ul className="mobile-nav-links">
           {NAV_ITEMS.map((item) =>
-            item.hasDropdown ? (
+            item.children ? (
+              <li key={item.ko} className="mobile-nav-group">
+                <button
+                  className="mobile-nav-link mobile-nav-group-toggle"
+                  onClick={() => setMobilePromptExpanded(!mobilePromptExpanded)}
+                >
+                  {isKo ? item.ko : item.en}
+                  <i className={`fa-solid fa-chevron-down mobile-chevron${mobilePromptExpanded ? ' expanded' : ''}`} />
+                </button>
+                {mobilePromptExpanded && (
+                  <ul className="mobile-nav-sub">
+                    {item.children.map((child) => (
+                      <li key={child.path}>
+                        <Link to={child.path} className="mobile-nav-sub-link">
+                          <i className={`fa-solid ${child.icon}`} style={{ width: '18px' }} />
+                          {isKo ? child.ko : child.en}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ) : item.hasDropdown ? (
               <li key={item.path} className="mobile-nav-group">
                 <button
                   className="mobile-nav-link mobile-nav-group-toggle"

@@ -40,7 +40,7 @@ claude config
 claude config get permissions
 
 # 설정 값 변경
-claude config set preferredModel claude-opus-4-20250514
+claude config set preferredModel claude-opus-4-8
 \`\`\``,
       contentEn: `Claude Code uses a hierarchical settings system. You can define settings at multiple levels, where more specific settings override general ones.
 
@@ -75,7 +75,7 @@ claude config
 claude config get permissions
 
 # Change setting values
-claude config set preferredModel claude-opus-4-20250514
+claude config set preferredModel claude-opus-4-8
 \`\`\``,
     },
     {
@@ -226,7 +226,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 \`\`\`json
 {
   "env": {
-    "ANTHROPIC_MODEL": "claude-opus-4-20250514",
+    "ANTHROPIC_MODEL": "claude-opus-4-8",
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "16384"
   }
 }
@@ -266,7 +266,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 \`\`\`json
 {
   "env": {
-    "ANTHROPIC_MODEL": "claude-opus-4-20250514",
+    "ANTHROPIC_MODEL": "claude-opus-4-8",
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "16384"
   }
 }

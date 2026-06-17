@@ -20,21 +20,21 @@ from agents import Agent, Runner
 collector = Agent(
     name="data_collector",
     instructions="주어진 주제에 대한 데이터를 수집하고 정리합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 2단계: 분석
 analyzer = Agent(
     name="analyzer",
     instructions="수집된 데이터를 분석하고 인사이트를 도출합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 3단계: 보고서 작성
 reporter = Agent(
     name="reporter",
     instructions="분석 결과를 기반으로 보고서를 작성합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def sequential_pipeline(topic):
@@ -99,21 +99,21 @@ from agents import Agent, Runner
 collector = Agent(
     name="data_collector",
     instructions="Collect and organize data on the given topic.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Step 2: Analysis
 analyzer = Agent(
     name="analyzer",
     instructions="Analyze collected data and derive insights.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Step 3: Report Writing
 reporter = Agent(
     name="reporter",
     instructions="Write a report based on the analysis results.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def sequential_pipeline(topic):

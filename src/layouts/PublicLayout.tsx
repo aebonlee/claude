@@ -23,6 +23,7 @@ const Glossary = lazy(() => import('../pages/glossary/Glossary'));
 const Roadmap = lazy(() => import('../pages/roadmap/Roadmap'));
 const Resources = lazy(() => import('../pages/resources/Resources'));
 const PromptPractice = lazy(() => import('../pages/prompt-practice/PromptPractice'));
+const PromptEvaluation = lazy(() => import('../pages/prompt-evaluation/PromptEvaluation'));
 const PromptGallery = lazy(() => import('../pages/prompt-gallery/PromptGallery'));
 const AINews = lazy(() => import('../pages/ai-news/AINews'));
 const CommunityHub = lazy(() => import('../pages/community/CommunityHub'));
@@ -64,6 +65,7 @@ export default function PublicLayout() {
             <Route path="/roadmap" element={<Roadmap />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/prompt-practice" element={<PromptPractice />} />
+            <Route path="/prompt-evaluation" element={<PromptEvaluation />} />
             <Route path="/prompt-gallery" element={<PromptGallery />} />
             <Route path="/ai-news" element={<AINews />} />
             <Route path="/community" element={<CommunityHub />} />

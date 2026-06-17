@@ -18,7 +18,7 @@ client = anthropic.Anthropic()
 
 # 기본 스트리밍
 with client.messages.stream(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {"role": "user", "content": "재귀 알고리즘에 대해 자세히 설명해주세요."}
@@ -36,7 +36,7 @@ import Anthropic from '@anthropic-ai/sdk';
 const client = new Anthropic();
 
 const stream = client.messages.stream({
-  model: 'claude-sonnet-4-20250514',
+  model: 'claude-sonnet-4-6',
   max_tokens: 1024,
   messages: [
     { role: 'user', content: 'Explain recursive algorithms in detail.' }
@@ -72,7 +72,7 @@ client = anthropic.Anthropic()
 
 # Basic streaming
 with client.messages.stream(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {"role": "user", "content": "Explain recursive algorithms in detail."}
@@ -90,7 +90,7 @@ import Anthropic from '@anthropic-ai/sdk';
 const client = new Anthropic();
 
 const stream = client.messages.stream({
-  model: 'claude-sonnet-4-20250514',
+  model: 'claude-sonnet-4-6',
   max_tokens: 1024,
   messages: [
     { role: 'user', content: 'Explain recursive algorithms in detail.' }
@@ -131,7 +131,7 @@ client = anthropic.Anthropic()
 collected_text = []
 
 with client.messages.stream(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {"role": "user", "content": "Python 비동기 프로그래밍을 설명해주세요."}
@@ -165,7 +165,7 @@ client = anthropic.Anthropic()
 async def chat_stream(request: dict):
     async def generate():
         with client.messages.stream(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=1024,
             messages=request["messages"]
         ) as stream:
@@ -218,7 +218,7 @@ client = anthropic.Anthropic()
 collected_text = []
 
 with client.messages.stream(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {"role": "user", "content": "Explain Python async programming."}
@@ -252,7 +252,7 @@ client = anthropic.Anthropic()
 async def chat_stream(request: dict):
     async def generate():
         with client.messages.stream(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=1024,
             messages=request["messages"]
         ) as stream:

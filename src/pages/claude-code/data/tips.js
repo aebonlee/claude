@@ -220,11 +220,11 @@ claude --verbose
 ### 모델별 비용 비교
 
 \`\`\`
-claude-sonnet-4-20250514:
+claude-sonnet-4-6:
   - 입력: $3 / 백만 토큰
   - 출력: $15 / 백만 토큰
 
-claude-opus-4-20250514:
+claude-opus-4-8:
   - 입력: $15 / 백만 토큰
   - 출력: $75 / 백만 토큰
 \`\`\`
@@ -233,10 +233,10 @@ claude-opus-4-20250514:
 
 \`\`\`bash
 # 1. 분석은 Sonnet으로 (비용 절약)
-claude --model claude-sonnet-4-20250514 -p "이 코드의 구조를 설명해줘"
+claude --model claude-sonnet-4-6 -p "이 코드의 구조를 설명해줘"
 
 # 2. 복잡한 리팩토링은 Opus로 (품질 우선)
-claude --model claude-opus-4-20250514 -p "이 모듈을 마이크로서비스로 분리해줘"
+claude --model claude-opus-4-8 -p "이 모듈을 마이크로서비스로 분리해줘"
 \`\`\``,
       contentEn: `Learn how to effectively manage Claude Code's API costs.
 
@@ -263,11 +263,11 @@ claude --verbose
 ### Cost Comparison by Model
 
 \`\`\`
-claude-sonnet-4-20250514:
+claude-sonnet-4-6:
   - Input: $3 / million tokens
   - Output: $15 / million tokens
 
-claude-opus-4-20250514:
+claude-opus-4-8:
   - Input: $15 / million tokens
   - Output: $75 / million tokens
 \`\`\`
@@ -276,10 +276,10 @@ claude-opus-4-20250514:
 
 \`\`\`bash
 # 1. Use Sonnet for analysis (cost savings)
-claude --model claude-sonnet-4-20250514 -p "Explain the structure of this code"
+claude --model claude-sonnet-4-6 -p "Explain the structure of this code"
 
 # 2. Use Opus for complex refactoring (quality priority)
-claude --model claude-opus-4-20250514 -p "Split this module into microservices"
+claude --model claude-opus-4-8 -p "Split this module into microservices"
 \`\`\``,
     },
     {

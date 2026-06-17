@@ -37,7 +37,7 @@ async def main():
     client = anthropic.AsyncAnthropic()
 
     message = await client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         messages=[
             {"role": "user", "content": "비동기 프로그래밍의 장점은?"}
@@ -57,7 +57,7 @@ client = anthropic.Anthropic()
 
 try:
     message = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         messages=[{"role": "user", "content": "Hello"}]
     )
@@ -110,7 +110,7 @@ async def main():
     client = anthropic.AsyncAnthropic()
 
     message = await client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         messages=[
             {"role": "user", "content": "What are the advantages of async programming?"}
@@ -130,7 +130,7 @@ client = anthropic.Anthropic()
 
 try:
     message = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         messages=[{"role": "user", "content": "Hello"}]
     )
@@ -174,7 +174,7 @@ const client = new Anthropic();
 
 async function main() {
   const message = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-6',
     max_tokens: 1024,
     system: 'You are a helpful coding assistant.',
     messages: [
@@ -197,7 +197,7 @@ const client = new Anthropic();
 
 async function streamChat() {
   const stream = client.messages.stream({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-6',
     max_tokens: 1024,
     messages: [
       { role: 'user', content: 'Write a short story about a robot.' }
@@ -233,7 +233,7 @@ app.post('/api/chat', async (req, res) => {
     const { message, history = [] } = req.body;
 
     const response = await client.messages.create({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-sonnet-4-6',
       max_tokens: 1024,
       messages: [
         ...history,
@@ -275,7 +275,7 @@ const client = new Anthropic();
 
 async function main() {
   const message = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-6',
     max_tokens: 1024,
     system: 'You are a helpful coding assistant.',
     messages: [
@@ -298,7 +298,7 @@ const client = new Anthropic();
 
 async function streamChat() {
   const stream = client.messages.stream({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-6',
     max_tokens: 1024,
     messages: [
       { role: 'user', content: 'Write a short story about a robot.' }
@@ -334,7 +334,7 @@ app.post('/api/chat', async (req, res) => {
     const { message, history = [] } = req.body;
 
     const response = await client.messages.create({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-sonnet-4-6',
       max_tokens: 1024,
       messages: [
         ...history,

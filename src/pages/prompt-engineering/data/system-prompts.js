@@ -118,7 +118,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system="당신은 친절한 한국어 교사입니다. 항상 예시와 함께 설명하세요.",
     messages=[
@@ -179,7 +179,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system="You are a friendly English teacher. Always explain with examples.",
     messages=[

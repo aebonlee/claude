@@ -599,6 +599,7 @@
     font-size: 12px;
     font-weight: 600;
 }
+.model-badge.fable { background: #FCE7F3; color: #BE185D; }
 .model-badge.opus { background: #EDE9FE; color: #7C3AED; }
 .model-badge.sonnet { background: #DBEAFE; color: #2563EB; }
 .model-badge.haiku { background: #D1FAE5; color: #059669; }

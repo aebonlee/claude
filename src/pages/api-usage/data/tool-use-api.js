@@ -43,7 +43,7 @@ def get_stock_price(ticker):
 
 # 3. Claude에게 도구와 함께 질문
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     tools=tools,
     messages=[
@@ -66,7 +66,7 @@ if response.stop_reason == "tool_use":
 
     # 5. 도구 결과를 Claude에게 전달
     final_response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         tools=tools,
         messages=[
@@ -113,7 +113,7 @@ def get_stock_price(ticker):
 
 # 3. Ask Claude with tools
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     tools=tools,
     messages=[
@@ -136,7 +136,7 @@ if response.stop_reason == "tool_use":
 
     # 5. Send tool results back to Claude
     final_response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         tools=tools,
         messages=[
@@ -175,7 +175,7 @@ def run_agent(user_message, tools, max_iterations=10):
 
     for _ in range(max_iterations):
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=4096,
             tools=tools,
             messages=messages
@@ -256,7 +256,7 @@ def run_agent(user_message, tools, max_iterations=10):
 
     for _ in range(max_iterations):
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=4096,
             tools=tools,
             messages=messages

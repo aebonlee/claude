@@ -20,7 +20,7 @@ from agents import Agent
 agent = Agent(
     name="researcher",
     instructions="당신은 연구 보조원입니다. 주어진 주제에 대해 심층 분석을 수행합니다.",
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     tools=[search_tool, analyze_tool],
     handoffs=[summary_agent],  # 다른 에이전트에게 위임
 )
@@ -75,7 +75,7 @@ from agents import Agent
 agent = Agent(
     name="researcher",
     instructions="You are a research assistant. Perform in-depth analysis on given topics.",
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     tools=[search_tool, analyze_tool],
     handoffs=[summary_agent],  # Delegate to another agent
 )

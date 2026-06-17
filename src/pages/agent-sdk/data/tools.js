@@ -148,7 +148,7 @@ code_agent = Agent(
     instructions="""당신은 코드 전문가입니다.
     코드 작성, 리뷰, 디버깅을 담당합니다.
     Python, JavaScript, TypeScript에 전문성이 있습니다.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 writing_agent = Agent(
@@ -156,7 +156,7 @@ writing_agent = Agent(
     instructions="""당신은 문서 작성 전문가입니다.
     기술 문서, 블로그 포스트, 보고서 작성을 담당합니다.
     명확하고 구조화된 문서를 작성합니다.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 라우터 에이전트 (작업을 적절한 전문가에게 위임)
@@ -167,7 +167,7 @@ router_agent = Agent(
     - 문서 작성 요청 → writing_expert
     - 기타 → 직접 응답""",
     handoffs=[code_agent, writing_agent],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(router_agent, "Python으로 파일 읽기 함수를 작성해줘")
@@ -213,7 +213,7 @@ agent = Agent(
     instructions=lambda ctx: f"""프로젝트 '{ctx.context.project_name}'에서 작업 중입니다.
     사용 언어: {ctx.context.language}
     프레임워크: {ctx.context.framework}""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 context = ProjectContext()
@@ -232,7 +232,7 @@ code_agent = Agent(
     instructions="""You are a code expert.
     You handle code writing, reviews, and debugging.
     You specialize in Python, JavaScript, and TypeScript.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 writing_agent = Agent(
@@ -240,7 +240,7 @@ writing_agent = Agent(
     instructions="""You are a documentation expert.
     You handle technical docs, blog posts, and reports.
     You write clear and structured documents.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Router agent (delegates tasks to appropriate experts)
@@ -251,7 +251,7 @@ router_agent = Agent(
     - Document writing requests → writing_expert
     - Other → respond directly""",
     handoffs=[code_agent, writing_agent],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(router_agent, "Write a file reading function in Python")
@@ -297,7 +297,7 @@ agent = Agent(
     instructions=lambda ctx: f"""Working on project '{ctx.context.project_name}'.
     Language: {ctx.context.language}
     Framework: {ctx.context.framework}""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 context = ProjectContext()

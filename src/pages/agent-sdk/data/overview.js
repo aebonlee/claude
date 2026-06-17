@@ -78,7 +78,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="assistant",
     instructions="당신은 도움이 되는 AI 어시스턴트입니다. 사용자의 질문에 정확하고 친절하게 답변합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 에이전트 실행
@@ -116,7 +116,7 @@ agent = Agent(
     name="math_assistant",
     instructions="당신은 수학 계산을 도와주는 어시스턴트입니다. 계산이 필요하면 calculate 도구를 사용하세요.",
     tools=[calculate, get_current_time],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(agent, "345 * 678은 얼마인가요? 그리고 현재 시간도 알려주세요.")
@@ -132,7 +132,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="async_assistant",
     instructions="질문에 답변하세요.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def main():
@@ -150,7 +150,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="assistant",
     instructions="You are a helpful AI assistant. Answer user questions accurately and kindly.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Run the agent
@@ -188,7 +188,7 @@ agent = Agent(
     name="math_assistant",
     instructions="You are an assistant that helps with math calculations. Use the calculate tool when computation is needed.",
     tools=[calculate, get_current_time],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(agent, "What is 345 * 678? And what time is it now?")
@@ -204,7 +204,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="async_assistant",
     instructions="Answer questions.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def main():

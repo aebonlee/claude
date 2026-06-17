@@ -17,7 +17,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system="당신은 도움이 되는 AI 어시스턴트입니다.",
     messages=[
@@ -36,13 +36,15 @@ print(response.content[0].text)
 | 파라미터 | 타입 | 필수 | 설명 |
 |----------|------|------|------|
 | \`model\` | string | O | 사용할 모델 ID |
-| \`max_tokens\` | integer | O | 최대 출력 토큰 수 |
+| \`max_tokens\` | integer | O | 최대 출력 토큰 수(비스트리밍 ~16000, 스트리밍 ~64000 권장) |
 | \`messages\` | array | O | 대화 메시지 배열 |
 | \`system\` | string | X | 시스템 프롬프트 |
-| \`temperature\` | float | X | 응답 랜덤성 (0.0-1.0) |
-| \`top_p\` | float | X | 누적 확률 샘플링 |
+| \`thinking\` | object | X | 적응형 사고: \`{"type": "adaptive"}\` |
+| \`output_config\` | object | X | \`{"effort": "high"}\` 또는 구조화 출력 \`{"format": {...}}\` |
 | \`stop_sequences\` | array | X | 생성 중단 시퀀스 |
 | \`metadata\` | object | X | 요청 메타데이터 |
+
+> **주의:** \`temperature\`, \`top_p\`, \`top_k\` 샘플링 파라미터는 Opus 4.7 / 4.8 / Fable 5에서 **제거**되었습니다(보내면 400 오류). 응답 스타일은 프롬프트로 제어하세요. 또한 어시스턴트 메시지 prefill도 폐기되어, 출력 형식을 강제하려면 prefill 대신 구조화 출력 \`output_config={"format": {"type": "json_schema", "schema": {...}}}\`(또는 \`client.messages.parse()\`)을 사용합니다.
 
 ### 응답 구조
 
@@ -57,7 +59,7 @@ print(response.content[0].text)
       "text": "리스트 컴프리헨션은..."
     }
   ],
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-4-6",
   "stop_reason": "end_turn",
   "usage": {
     "input_tokens": 25,
@@ -75,7 +77,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system="You are a helpful AI assistant.",
     messages=[
@@ -94,13 +96,15 @@ print(response.content[0].text)
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | \`model\` | string | Yes | Model ID to use |
-| \`max_tokens\` | integer | Yes | Maximum output tokens |
+| \`max_tokens\` | integer | Yes | Maximum output tokens (~16000 non-streaming, ~64000 streaming) |
 | \`messages\` | array | Yes | Conversation messages array |
 | \`system\` | string | No | System prompt |
-| \`temperature\` | float | No | Response randomness (0.0-1.0) |
-| \`top_p\` | float | No | Nucleus sampling threshold |
+| \`thinking\` | object | No | Adaptive thinking: \`{"type": "adaptive"}\` |
+| \`output_config\` | object | No | \`{"effort": "high"}\` or structured output \`{"format": {...}}\` |
 | \`stop_sequences\` | array | No | Stop generation sequences |
 | \`metadata\` | object | No | Request metadata |
+
+> **Note:** The \`temperature\`, \`top_p\`, and \`top_k\` sampling parameters are **removed** on Opus 4.7 / 4.8 / Fable 5 (sending them returns a 400). Steer response style through prompting. Assistant-message prefills are also removed — to enforce an output shape, use structured outputs \`output_config={"format": {"type": "json_schema", "schema": {...}}}\` (or \`client.messages.parse()\`) instead of a prefill.
 
 ### Response Structure
 
@@ -115,7 +119,7 @@ print(response.content[0].text)
       "text": "List comprehension is..."
     }
   ],
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-4-6",
   "stop_reason": "end_turn",
   "usage": {
     "input_tokens": 25,
@@ -146,7 +150,7 @@ def chat(user_message):
     })
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         system="당신은 Python 프로그래밍 튜터입니다.",
         messages=conversation
@@ -201,7 +205,7 @@ def chat(user_message):
     })
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         system="You are a Python programming tutor.",
         messages=conversation

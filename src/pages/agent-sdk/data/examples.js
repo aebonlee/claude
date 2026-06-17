@@ -21,7 +21,7 @@ code_reviewer = Agent(
     name="code_reviewer",
     instructions="시니어 개발자 수준의 코드 리뷰어입니다.",
     tools=[read_file],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(code_reviewer, "코드를 리뷰해주세요.")
@@ -41,7 +41,7 @@ code_reviewer = Agent(
     name="code_reviewer",
     instructions="Senior-level code reviewer.",
     tools=[read_file],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(code_reviewer, "Review the code.")
@@ -64,7 +64,7 @@ researcher = Agent(
     name="researcher",
     instructions="전문 리서치 에이전트입니다.",
     tools=[web_search],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(researcher, "AI 에이전트 기술 동향 보고서를 작성해주세요.")
@@ -83,7 +83,7 @@ researcher = Agent(
     name="researcher",
     instructions="Professional research agent.",
     tools=[web_search],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(researcher, "Write a report on AI agent trends.")

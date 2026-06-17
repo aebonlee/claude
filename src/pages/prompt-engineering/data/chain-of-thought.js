@@ -7,7 +7,7 @@ const chainOfThought = {
     {
       title: 'Chain of Thought(CoT) 기법',
       titleEn: 'Chain of Thought (CoT) Technique',
-      content: `Chain of Thought(CoT)는 Claude에게 최종 답변에 도달하기 전에 단계별 추론 과정을 거치도록 유도하는 프롬프트 기법입니다. 이는 Extended Thinking과 달리 프롬프트 수준에서 적용할 수 있습니다.
+      content: `Chain of Thought(CoT)는 Claude에게 최종 답변에 도달하기 전에 단계별 추론 과정을 거치도록 유도하는 프롬프트 기법입니다. 이는 적응형 사고(Adaptive Thinking)와 달리 프롬프트 수준에서 적용할 수 있습니다.
 
 ### CoT의 원리
 
@@ -36,7 +36,7 @@ const chainOfThought = {
 A는 B보다 키가 크고, C는 A보다 키가 작지만 D보다 큽니다.
 B는 D보다 키가 큽니다. 키가 큰 순서대로 나열하세요.
 \`\`\``,
-      contentEn: `Chain of Thought (CoT) is a prompting technique that guides Claude through step-by-step reasoning before arriving at a final answer. Unlike Extended Thinking, this can be applied at the prompt level.
+      contentEn: `Chain of Thought (CoT) is a prompting technique that guides Claude through step-by-step reasoning before arriving at a final answer. Unlike Adaptive Thinking, this can be applied at the prompt level.
 
 ### CoT Principles
 
@@ -122,13 +122,13 @@ B is taller than D. List them in order from tallest to shortest.
 첫 번째 단계: [...]
 \`\`\`
 
-### CoT와 Extended Thinking의 차이
+### CoT와 적응형 사고(Adaptive Thinking)의 차이
 
-| 특성 | Chain of Thought | Extended Thinking |
+| 특성 | Chain of Thought | 적응형 사고(Adaptive Thinking) |
 |------|-----------------|-------------------|
-| **적용 방식** | 프롬프트에서 지시 | API 파라미터로 활성화 |
-| **가시성** | 응답에 추론 과정 포함 | 별도 thinking 블록으로 반환 |
-| **제어** | 프롬프트로 세밀한 제어 | 토큰 예산으로 제어 |
+| **적용 방식** | 프롬프트에서 지시 | API 파라미터로 활성화(thinking=adaptive) |
+| **가시성** | 응답에 추론 과정 포함 | 별도 thinking 블록으로 반환(요약 표시 가능) |
+| **제어** | 프롬프트로 세밀한 제어 | Effort 파라미터(low~max)로 제어 |
 | **비용** | 출력 토큰에 포함 | 별도 thinking 토큰 사용 |
 | **적합한 경우** | 추론 과정을 보여줘야 할 때 | 정확도가 최우선일 때 |`,
       contentEn: `### Self-Consistency
@@ -184,13 +184,13 @@ List the steps needed to achieve this goal in reverse order:
 First step: [...]
 \`\`\`
 
-### CoT vs Extended Thinking
+### CoT vs Adaptive Thinking
 
-| Aspect | Chain of Thought | Extended Thinking |
+| Aspect | Chain of Thought | Adaptive Thinking |
 |--------|-----------------|-------------------|
-| **Application** | Instructed in prompt | Activated via API parameter |
-| **Visibility** | Reasoning included in response | Returned in separate thinking block |
-| **Control** | Fine-grained control via prompt | Controlled via token budget |
+| **Application** | Instructed in prompt | Activated via API parameter (thinking=adaptive) |
+| **Visibility** | Reasoning included in response | Returned in separate thinking block (summary available) |
+| **Control** | Fine-grained control via prompt | Controlled via the Effort parameter (low–max) |
 | **Cost** | Included in output tokens | Uses separate thinking tokens |
 | **Best for** | When reasoning process should be shown | When accuracy is top priority |`
     }

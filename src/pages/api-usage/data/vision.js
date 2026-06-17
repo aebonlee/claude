@@ -31,7 +31,7 @@ with open("screenshot.png", "rb") as f:
     image_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {
@@ -61,7 +61,7 @@ print(message.content[0].text)
 
 \`\`\`python
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {
@@ -107,7 +107,7 @@ with open("screenshot.png", "rb") as f:
     image_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {
@@ -137,7 +137,7 @@ print(message.content[0].text)
 
 \`\`\`python
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {
@@ -169,7 +169,7 @@ message = client.messages.create(
 
 \`\`\`python
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {
@@ -224,7 +224,7 @@ You can send multiple images at once for comparative analysis:
 
 \`\`\`python
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     messages=[
         {

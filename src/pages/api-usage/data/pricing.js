@@ -11,21 +11,24 @@ const pricing = {
 
 ### 현재 모델 가격 (MTok = 100만 토큰당)
 
-| 모델 | 입력 가격 | 출력 가격 | 컨텍스트 |
-|------|-----------|-----------|----------|
-| **Claude Opus 4** | $15 / MTok | $75 / MTok | 200K |
-| **Claude Sonnet 4** | $3 / MTok | $15 / MTok | 200K |
-| **Claude Haiku 3.5** | $0.80 / MTok | $4 / MTok | 200K |
+| 모델 | 모델 ID | 입력 가격 | 출력 가격 | 컨텍스트 |
+|------|---------|-----------|-----------|----------|
+| **Claude Fable 5** | claude-fable-5 | $10 / MTok | $50 / MTok | 1M |
+| **Claude Opus 4.8** | claude-opus-4-8 | $5 / MTok | $25 / MTok | 1M |
+| **Claude Sonnet 4.6** | claude-sonnet-4-6 | $3 / MTok | $15 / MTok | 1M |
+| **Claude Haiku 4.5** | claude-haiku-4-5 | $1 / MTok | $5 / MTok | 200K |
+
+> Opus·Sonnet·Fable은 **1M(100만 토큰) 컨텍스트를 표준 가격**으로 제공합니다(장문 프리미엄 없음). Fable 5는 가장 강력한 프리미엄 모델로 최난도 추론·장기 자율 에이전트 작업에 적합합니다. 모델 ID에는 날짜 접미사를 붙이지 않습니다.
 
 ### 비용 계산 예시
 
-**일반적인 대화 (Sonnet 4 기준):**
+**일반적인 대화 (Sonnet 4.6 기준):**
 
 - 입력: ~500 토큰 (사용자 메시지 + 시스템 프롬프트)
 - 출력: ~1,000 토큰 (Claude 응답)
 - 비용: (500 * $3 / 1,000,000) + (1,000 * $15 / 1,000,000) = **$0.0165**
 
-**문서 분석 (Sonnet 4 기준):**
+**문서 분석 (Sonnet 4.6 기준):**
 
 - 입력: ~50,000 토큰 (긴 문서 + 지시사항)
 - 출력: ~2,000 토큰 (분석 결과)
@@ -35,28 +38,32 @@ const pricing = {
 
 자주 사용하는 시스템 프롬프트나 긴 컨텍스트를 캐싱하여 비용을 절감할 수 있습니다:
 
-- **캐시 쓰기**: 기본 입력 가격의 25% 추가
-- **캐시 읽기**: 기본 입력 가격의 10%로 할인
-- **5분 이내** 동일한 프리픽스 사용 시 자동 캐시 적용`,
+- **캐시 쓰기**: 기본 입력 가격의 1.25배(5분 TTL) 또는 2배(1시간 TTL)
+- **캐시 읽기**: 기본 입력 가격의 약 0.1배(10%)로 할인
+- \`cache_control: {"type": "ephemeral"}\`로 캐싱할 블록을 지정(기본 TTL 5분, \`"ttl": "1h"\`로 1시간)
+- 동일한 프리픽스를 반복 요청하면 두 번째 요청부터 캐시 읽기로 비용 절감`,
       contentEn: `The Anthropic API charges on a pay-per-use basis based on tokens. Input and output tokens are priced differently, and pricing varies by model.
 
 ### Current Model Pricing (MTok = per 1 million tokens)
 
-| Model | Input Price | Output Price | Context |
-|-------|------------|-------------|---------|
-| **Claude Opus 4** | $15 / MTok | $75 / MTok | 200K |
-| **Claude Sonnet 4** | $3 / MTok | $15 / MTok | 200K |
-| **Claude Haiku 3.5** | $0.80 / MTok | $4 / MTok | 200K |
+| Model | Model ID | Input Price | Output Price | Context |
+|-------|----------|------------|-------------|---------|
+| **Claude Fable 5** | claude-fable-5 | $10 / MTok | $50 / MTok | 1M |
+| **Claude Opus 4.8** | claude-opus-4-8 | $5 / MTok | $25 / MTok | 1M |
+| **Claude Sonnet 4.6** | claude-sonnet-4-6 | $3 / MTok | $15 / MTok | 1M |
+| **Claude Haiku 4.5** | claude-haiku-4-5 | $1 / MTok | $5 / MTok | 200K |
+
+> Opus, Sonnet, and Fable offer a **1M-token context window at standard pricing** (no long-context premium). Fable 5 is the most capable premium model, suited for the hardest reasoning and long-horizon autonomous agents. Do not append date suffixes to model IDs.
 
 ### Cost Calculation Examples
 
-**Typical Conversation (Sonnet 4):**
+**Typical Conversation (Sonnet 4.6):**
 
 - Input: ~500 tokens (user message + system prompt)
 - Output: ~1,000 tokens (Claude response)
 - Cost: (500 * $3 / 1,000,000) + (1,000 * $15 / 1,000,000) = **$0.0165**
 
-**Document Analysis (Sonnet 4):**
+**Document Analysis (Sonnet 4.6):**
 
 - Input: ~50,000 tokens (long document + instructions)
 - Output: ~2,000 tokens (analysis results)
@@ -66,9 +73,10 @@ const pricing = {
 
 You can reduce costs by caching frequently used system prompts or long contexts:
 
-- **Cache Write**: 25% additional on top of base input price
-- **Cache Read**: Discounted to 10% of base input price
-- **Automatic caching** when the same prefix is used within 5 minutes`
+- **Cache Write**: 1.25x base input price (5-min TTL) or 2x (1-hour TTL)
+- **Cache Read**: Discounted to ~0.1x (10%) of base input price
+- Mark the block to cache with \`cache_control: {"type": "ephemeral"}\` (default 5-min TTL, \`"ttl": "1h"\` for 1 hour)
+- Repeating the same prefix lets the second and later requests read from cache`
     },
     {
       title: '비용 최적화 전략',
@@ -88,7 +96,7 @@ You can reduce costs by caching frequently used system prompts or long contexts:
 \`\`\`python
 # max_tokens를 적절히 설정
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=500,  # 필요한 만큼만 설정
     messages=[...]
 )
@@ -102,7 +110,7 @@ system = """응답을 3문장 이내로 요약하세요.
 
 \`\`\`python
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system=[
         {
@@ -128,7 +136,7 @@ batch = client.messages.batches.create(
         {
             "custom_id": "request-1",
             "params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-6",
                 "max_tokens": 1024,
                 "messages": [{"role": "user", "content": "질문 1"}]
             }
@@ -136,7 +144,7 @@ batch = client.messages.batches.create(
         {
             "custom_id": "request-2",
             "params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-6",
                 "max_tokens": 1024,
                 "messages": [{"role": "user", "content": "질문 2"}]
             }
@@ -161,7 +169,7 @@ You don't need the largest model for every task:
 \`\`\`python
 # Set max_tokens appropriately
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=500,  # Set only as much as needed
     messages=[...]
 )
@@ -175,7 +183,7 @@ Omit unnecessary introductions or polite expressions."""
 
 \`\`\`python
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system=[
         {
@@ -201,7 +209,7 @@ batch = client.messages.batches.create(
         {
             "custom_id": "request-1",
             "params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-6",
                 "max_tokens": 1024,
                 "messages": [{"role": "user", "content": "Question 1"}]
             }
@@ -209,7 +217,7 @@ batch = client.messages.batches.create(
         {
             "custom_id": "request-2",
             "params": {
-                "model": "claude-sonnet-4-20250514",
+                "model": "claude-sonnet-4-6",
                 "max_tokens": 1024,
                 "messages": [{"role": "user", "content": "Question 2"}]
             }

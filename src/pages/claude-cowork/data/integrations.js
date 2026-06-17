@@ -46,7 +46,7 @@ const integrations = {
     },
     "slack": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-server-slack"],
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
       "env": {
         "SLACK_BOT_TOKEN": "xoxb-xxxxxxxxxxxx"
       }
@@ -95,7 +95,7 @@ const integrations = {
     },
     "slack": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-server-slack"],
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
       "env": {
         "SLACK_BOT_TOKEN": "xoxb-xxxxxxxxxxxx"
       }
