@@ -82,6 +82,7 @@ export default function Navbar() {
     { path: '/claude-code', ko: 'Claude Code', en: 'Claude Code' },
     { path: '/claude-cowork', ko: 'Co-work', en: 'Co-work' },
     { ko: '프롬프트', en: 'Prompts', children: PROMPT_ITEMS },
+    { path: '/prompt-evaluation', ko: '프롬프트 평가', en: 'Prompt Eval' },
     { path: '/api-usage', ko: 'API 가이드', en: 'API Guide' },
     { path: '/model-comparison', ko: '모델 비교', en: 'Models' },
     { path: '/ai-news', ko: 'AI 뉴스', en: 'AI News' },
