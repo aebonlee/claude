@@ -275,17 +275,19 @@ export default function PromptEvaluation() {
     setScored(true);
   };
 
-  const total = useMemo(() => scores.reduce<number>((sum, s) => sum + (s ?? 0), 0), [scores]);
+  const rawTotal = useMemo(() => scores.reduce<number>((sum, s) => sum + (s ?? 0), 0), [scores]);
   const answered = scores.filter((s) => s !== null).length;
-  const maxScore = criteria.length * 3;
+  const rawMax = criteria.length * 3; // 6기준 × 3점 = 18
+  // 100점 만점 환산
+  const score = Math.round((rawTotal / rawMax) * 100);
 
   const grade = useMemo(() => {
     if (answered === 0) return null;
-    if (total >= 16) return { letter: 'A', ko: '우수한 프롬프트', en: 'Excellent prompt', color: '#059669' };
-    if (total >= 12) return { letter: 'B', ko: '좋은 프롬프트', en: 'Good prompt', color: '#2563EB' };
-    if (total >= 7) return { letter: 'C', ko: '보통 — 보완 필요', en: 'Average — needs work', color: '#D97706' };
+    if (score >= 89) return { letter: 'A', ko: '우수한 프롬프트', en: 'Excellent prompt', color: '#059669' };
+    if (score >= 67) return { letter: 'B', ko: '좋은 프롬프트', en: 'Good prompt', color: '#2563EB' };
+    if (score >= 39) return { letter: 'C', ko: '보통 — 보완 필요', en: 'Average — needs work', color: '#D97706' };
     return { letter: 'D', ko: '초안 — 대폭 개선 필요', en: 'Draft — needs major work', color: '#DC2626' };
-  }, [total, answered]);
+  }, [score, answered]);
 
   // 점수가 낮은(<=1) 기준에 대한 개선 제안
   const weakPoints = criteria
@@ -355,8 +357,8 @@ export default function PromptEvaluation() {
           <div className="eval-score-panel">
             <h3>{isKo ? '평가 결과' : 'Result'}</h3>
             <div className="eval-score-big" style={{ color: grade ? grade.color : 'var(--text-light)' }}>
-              {total}
-              <span className="eval-score-max">/ {maxScore}</span>
+              {score}
+              <span className="eval-score-max">/ 100</span>
             </div>
             {grade ? (
               <>
@@ -373,7 +375,7 @@ export default function PromptEvaluation() {
             <div className="eval-progress">
               <div
                 className="eval-progress-bar"
-                style={{ width: `${(total / maxScore) * 100}%`, background: grade ? grade.color : 'var(--primary)' }}
+                style={{ width: `${score}%`, background: grade ? grade.color : 'var(--primary)' }}
               />
             </div>
           </div>
@@ -467,14 +469,14 @@ export default function PromptEvaluation() {
                 <div className="eval-example-col before">
                   <div className="eval-example-head">
                     <span className="eval-tag bad">Before</span>
-                    <span className="eval-example-score">{ex.beforeScore} / 18</span>
+                    <span className="eval-example-score">{Math.round((ex.beforeScore / 18) * 100)} / 100</span>
                   </div>
                   <pre>{isKo ? ex.before : ex.beforeEn}</pre>
                 </div>
                 <div className="eval-example-col after">
                   <div className="eval-example-head">
                     <span className="eval-tag good">After</span>
-                    <span className="eval-example-score">{ex.afterScore} / 18</span>
+                    <span className="eval-example-score">{Math.round((ex.afterScore / 18) * 100)} / 100</span>
                   </div>
                   <pre>{isKo ? ex.after : ex.afterEn}</pre>
                 </div>
@@ -500,8 +502,8 @@ export default function PromptEvaluation() {
         </div>
         <p className="eval-footnote">
           {isKo
-            ? '→ 위 과제를 개선한 뒤, 상단 입력창에 붙여넣고 "채점해보기"로 점수를 확인하세요. 12점 이상을 목표로!'
-            : '→ After improving each challenge, paste it into the box above and click "Score it". Aim for 12+!'}
+            ? '→ 위 과제를 개선한 뒤, 상단 입력창에 붙여넣고 "채점해보기"로 점수를 확인하세요. 67점 이상을 목표로!'
+            : '→ After improving each challenge, paste it into the box above and click "Score it". Aim for 67+!'}
         </p>
       </div>
     </div>
