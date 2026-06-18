@@ -1,4 +1,4 @@
-import{j as t,M as m,r as f}from"./markdown-Bb6HBFF6.js";import{b as _}from"./vendor-Cbm2kc8j.js";import{u as h}from"./index-DI5Q1NR8.js";import{S as y}from"./SEOHead-DfBpSINb.js";import{T as A,C as c}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const w={id:"overview",title:"Agent SDK 개요",titleEn:"Agent SDK Overview",icon:"fa-robot",sections:[{title:"Claude Agent SDK란?",titleEn:"What is the Claude Agent SDK?",content:`Claude Agent SDK는 Anthropic이 제공하는 오픈소스 프레임워크로, Claude를 기반으로 자율적으로 동작하는 AI 에이전트를 구축할 수 있게 해줍니다. 에이전트는 목표를 이해하고, 도구를 사용하며, 스스로 판단하여 복잡한 작업을 수행합니다.
+import{j as t,M as m,r as f}from"./markdown-Bb6HBFF6.js";import{b as _}from"./vendor-Cbm2kc8j.js";import{u as h}from"./index-CT3aUxkD.js";import{S as y}from"./SEOHead-DfBpSINb.js";import{T as A,C as c}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const w={id:"overview",title:"Agent SDK 개요",titleEn:"Agent SDK Overview",icon:"fa-robot",sections:[{title:"Claude Agent SDK란?",titleEn:"What is the Claude Agent SDK?",content:`Claude Agent SDK는 Anthropic이 제공하는 오픈소스 프레임워크로, Claude를 기반으로 자율적으로 동작하는 AI 에이전트를 구축할 수 있게 해줍니다. 에이전트는 목표를 이해하고, 도구를 사용하며, 스스로 판단하여 복잡한 작업을 수행합니다.
 
 ### 에이전트 vs 단순 API 호출
 
@@ -63,7 +63,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="assistant",
     instructions="당신은 도움이 되는 AI 어시스턴트입니다. 사용자의 질문에 정확하고 친절하게 답변합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 에이전트 실행
@@ -101,7 +101,7 @@ agent = Agent(
     name="math_assistant",
     instructions="당신은 수학 계산을 도와주는 어시스턴트입니다. 계산이 필요하면 calculate 도구를 사용하세요.",
     tools=[calculate, get_current_time],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(agent, "345 * 678은 얼마인가요? 그리고 현재 시간도 알려주세요.")
@@ -117,7 +117,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="async_assistant",
     instructions="질문에 답변하세요.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def main():
@@ -134,7 +134,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="assistant",
     instructions="You are a helpful AI assistant. Answer user questions accurately and kindly.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Run the agent
@@ -172,7 +172,7 @@ agent = Agent(
     name="math_assistant",
     instructions="You are an assistant that helps with math calculations. Use the calculate tool when computation is needed.",
     tools=[calculate, get_current_time],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(agent, "What is 345 * 678? And what time is it now?")
@@ -188,7 +188,7 @@ from agents import Agent, Runner
 agent = Agent(
     name="async_assistant",
     instructions="Answer questions.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def main():
@@ -209,7 +209,7 @@ from agents import Agent
 agent = Agent(
     name="researcher",
     instructions="당신은 연구 보조원입니다. 주어진 주제에 대해 심층 분석을 수행합니다.",
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     tools=[search_tool, analyze_tool],
     handoffs=[summary_agent],  # 다른 에이전트에게 위임
 )
@@ -263,7 +263,7 @@ from agents import Agent
 agent = Agent(
     name="researcher",
     instructions="You are a research assistant. Perform in-depth analysis on given topics.",
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     tools=[search_tool, analyze_tool],
     handoffs=[summary_agent],  # Delegate to another agent
 )
@@ -591,7 +591,7 @@ code_agent = Agent(
     instructions="""당신은 코드 전문가입니다.
     코드 작성, 리뷰, 디버깅을 담당합니다.
     Python, JavaScript, TypeScript에 전문성이 있습니다.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 writing_agent = Agent(
@@ -599,7 +599,7 @@ writing_agent = Agent(
     instructions="""당신은 문서 작성 전문가입니다.
     기술 문서, 블로그 포스트, 보고서 작성을 담당합니다.
     명확하고 구조화된 문서를 작성합니다.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 라우터 에이전트 (작업을 적절한 전문가에게 위임)
@@ -610,7 +610,7 @@ router_agent = Agent(
     - 문서 작성 요청 → writing_expert
     - 기타 → 직접 응답""",
     handoffs=[code_agent, writing_agent],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(router_agent, "Python으로 파일 읽기 함수를 작성해줘")
@@ -656,7 +656,7 @@ agent = Agent(
     instructions=lambda ctx: f"""프로젝트 '{ctx.context.project_name}'에서 작업 중입니다.
     사용 언어: {ctx.context.language}
     프레임워크: {ctx.context.framework}""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 context = ProjectContext()
@@ -674,7 +674,7 @@ code_agent = Agent(
     instructions="""You are a code expert.
     You handle code writing, reviews, and debugging.
     You specialize in Python, JavaScript, and TypeScript.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 writing_agent = Agent(
@@ -682,7 +682,7 @@ writing_agent = Agent(
     instructions="""You are a documentation expert.
     You handle technical docs, blog posts, and reports.
     You write clear and structured documents.""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Router agent (delegates tasks to appropriate experts)
@@ -693,7 +693,7 @@ router_agent = Agent(
     - Document writing requests → writing_expert
     - Other → respond directly""",
     handoffs=[code_agent, writing_agent],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(router_agent, "Write a file reading function in Python")
@@ -739,7 +739,7 @@ agent = Agent(
     instructions=lambda ctx: f"""Working on project '{ctx.context.project_name}'.
     Language: {ctx.context.language}
     Framework: {ctx.context.framework}""",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 context = ProjectContext()
@@ -757,21 +757,21 @@ from agents import Agent, Runner
 collector = Agent(
     name="data_collector",
     instructions="주어진 주제에 대한 데이터를 수집하고 정리합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 2단계: 분석
 analyzer = Agent(
     name="analyzer",
     instructions="수집된 데이터를 분석하고 인사이트를 도출합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # 3단계: 보고서 작성
 reporter = Agent(
     name="reporter",
     instructions="분석 결과를 기반으로 보고서를 작성합니다.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def sequential_pipeline(topic):
@@ -835,21 +835,21 @@ from agents import Agent, Runner
 collector = Agent(
     name="data_collector",
     instructions="Collect and organize data on the given topic.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Step 2: Analysis
 analyzer = Agent(
     name="analyzer",
     instructions="Analyze collected data and derive insights.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 # Step 3: Report Writing
 reporter = Agent(
     name="reporter",
     instructions="Write a report based on the analysis results.",
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 async def sequential_pipeline(topic):
@@ -1046,7 +1046,7 @@ code_reviewer = Agent(
     name="code_reviewer",
     instructions="시니어 개발자 수준의 코드 리뷰어입니다.",
     tools=[read_file],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(code_reviewer, "코드를 리뷰해주세요.")
@@ -1065,7 +1065,7 @@ code_reviewer = Agent(
     name="code_reviewer",
     instructions="Senior-level code reviewer.",
     tools=[read_file],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(code_reviewer, "Review the code.")
@@ -1083,7 +1083,7 @@ researcher = Agent(
     name="researcher",
     instructions="전문 리서치 에이전트입니다.",
     tools=[web_search],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(researcher, "AI 에이전트 기술 동향 보고서를 작성해주세요.")
@@ -1101,7 +1101,7 @@ researcher = Agent(
     name="researcher",
     instructions="Professional research agent.",
     tools=[web_search],
-    model="claude-sonnet-4-20250514"
+    model="claude-sonnet-4-6"
 )
 
 result = Runner.run_sync(researcher, "Write a report on AI agent trends.")

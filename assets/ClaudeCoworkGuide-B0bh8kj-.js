@@ -1,4 +1,4 @@
-import{j as e,M as g,r as C}from"./markdown-Bb6HBFF6.js";import{b as h}from"./vendor-Cbm2kc8j.js";import{u as v}from"./index-DI5Q1NR8.js";import{S as k}from"./SEOHead-DfBpSINb.js";import{T as w,C as d}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const f={id:"overview",title:"Claude 코워크 개요",titleEn:"Claude Co-work Overview",icon:"fa-handshake",sections:[{title:"코워크란?",titleEn:"What is Co-work?",content:`Claude 코워크(Co-work)는 Claude AI와 사람이 **함께 협업하여 작업을 수행**하는 워크플로우를 의미합니다. 단순히 질문-답변을 넘어, Claude가 팀의 일원처럼 프로젝트에 참여하여 실질적인 업무를 수행합니다.
+import{j as e,M as g,r as C}from"./markdown-Bb6HBFF6.js";import{b as h}from"./vendor-Cbm2kc8j.js";import{u as v}from"./index-CT3aUxkD.js";import{S as k}from"./SEOHead-DfBpSINb.js";import{T as w,C as d}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const f={id:"overview",title:"Claude 코워크 개요",titleEn:"Claude Co-work Overview",icon:"fa-handshake",sections:[{title:"코워크란?",titleEn:"What is Co-work?",content:`Claude 코워크(Co-work)는 Claude AI와 사람이 **함께 협업하여 작업을 수행**하는 워크플로우를 의미합니다. 단순히 질문-답변을 넘어, Claude가 팀의 일원처럼 프로젝트에 참여하여 실질적인 업무를 수행합니다.
 
 ### 코워크의 핵심 개념
 
@@ -255,7 +255,7 @@ The Claude Team plan ($25/user/month) enables team-level collaboration.
     },
     "slack": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-server-slack"],
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
       "env": {
         "SLACK_BOT_TOKEN": "xoxb-xxxxxxxxxxxx"
       }
@@ -303,7 +303,7 @@ The Claude Team plan ($25/user/month) enables team-level collaboration.
     },
     "slack": {
       "command": "npx",
-      "args": ["-y", "@anthropic/mcp-server-slack"],
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
       "env": {
         "SLACK_BOT_TOKEN": "xoxb-xxxxxxxxxxxx"
       }

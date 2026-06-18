@@ -1,4 +1,4 @@
-import{j as e,M as h,r as g}from"./markdown-Bb6HBFF6.js";import{b as f}from"./vendor-Cbm2kc8j.js";import{u as y}from"./index-DI5Q1NR8.js";import{S as x}from"./SEOHead-DfBpSINb.js";import{T as k,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const b={id:"basics",title:"프롬프트 기본 원칙",titleEn:"Prompt Fundamentals",icon:"fa-lightbulb",sections:[{title:"프롬프트 엔지니어링이란?",titleEn:"What is Prompt Engineering?",content:`프롬프트 엔지니어링은 AI 모델에게 원하는 결과를 얻기 위해 입력(프롬프트)을 체계적으로 설계하는 기술입니다. 잘 작성된 프롬프트는 Claude의 능력을 최대한 활용할 수 있게 합니다.
+import{j as e,M as h,r as g}from"./markdown-Bb6HBFF6.js";import{b as f}from"./vendor-Cbm2kc8j.js";import{u as y}from"./index-CT3aUxkD.js";import{S as k}from"./SEOHead-DfBpSINb.js";import{T as v,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const x={id:"basics",title:"프롬프트 기본 원칙",titleEn:"Prompt Fundamentals",icon:"fa-lightbulb",sections:[{title:"프롬프트 엔지니어링이란?",titleEn:"What is Prompt Engineering?",content:`프롬프트 엔지니어링은 AI 모델에게 원하는 결과를 얻기 위해 입력(프롬프트)을 체계적으로 설계하는 기술입니다. 잘 작성된 프롬프트는 Claude의 능력을 최대한 활용할 수 있게 합니다.
 
 ### 프롬프트의 핵심 요소
 
@@ -152,7 +152,7 @@ Description: Elegantly designed smart watch with health monitoring and notificat
 
 Now write:
 Product: Noise Cancelling Headphones
-\`\`\``}]},v={id:"system-prompts",title:"시스템 프롬프트",titleEn:"System Prompts",icon:"fa-gear",sections:[{title:"시스템 프롬프트란?",titleEn:"What are System Prompts?",content:`시스템 프롬프트는 Claude에게 대화 전체에 걸쳐 적용되는 행동 지침, 역할, 제약 조건을 설정하는 특별한 프롬프트입니다. API 호출 시 \`system\` 파라미터로 전달됩니다.
+\`\`\``}]},b={id:"system-prompts",title:"시스템 프롬프트",titleEn:"System Prompts",icon:"fa-gear",sections:[{title:"시스템 프롬프트란?",titleEn:"What are System Prompts?",content:`시스템 프롬프트는 Claude에게 대화 전체에 걸쳐 적용되는 행동 지침, 역할, 제약 조건을 설정하는 특별한 프롬프트입니다. API 호출 시 \`system\` 파라미터로 전달됩니다.
 
 ### 시스템 프롬프트의 역할
 
@@ -257,7 +257,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system="당신은 친절한 한국어 교사입니다. 항상 예시와 함께 설명하세요.",
     messages=[
@@ -317,7 +317,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 message = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-sonnet-4-6",
     max_tokens=1024,
     system="You are a friendly English teacher. Always explain with examples.",
     messages=[
@@ -528,22 +528,24 @@ For technical questions, include code examples and explain step by step.
 For general questions, respond concisely and in a friendly manner.
 </if_general>
 </instructions>
-\`\`\``}]},T={id:"extended-thinking",title:"확장 사고",titleEn:"Extended Thinking",icon:"fa-brain",sections:[{title:"Extended Thinking이란?",titleEn:"What is Extended Thinking?",content:`Extended Thinking은 Claude가 응답하기 전에 내부적으로 깊이 있는 사고 과정을 거치도록 하는 기능입니다. 복잡한 추론, 수학 문제, 다단계 분석 등에서 더 정확한 결과를 제공합니다.
+\`\`\``}]},w={id:"extended-thinking",title:"적응형 사고 & Effort",titleEn:"Adaptive Thinking & Effort",icon:"fa-brain",sections:[{title:"적응형 사고(Adaptive Thinking)란?",titleEn:"What is Adaptive Thinking?",content:`적응형 사고(Adaptive Thinking)는 Claude가 응답하기 전에 **언제, 얼마나 깊이 사고할지 스스로 결정**하도록 하는 최신 방식입니다. 복잡한 추론, 수학 문제, 다단계 분석에서 더 정확한 결과를 제공합니다.
+
+> **변경 안내:** 과거의 "확장적 사고(extended thinking)"는 \`budget_tokens\`로 사고량을 직접 지정했습니다. 이 방식은 폐기되었으며, Opus 4.7 / Opus 4.8 / Fable 5에서 \`budget_tokens\`를 보내면 **400 오류**가 발생합니다. 현재는 \`thinking={"type": "adaptive"}\` + **Effort 파라미터**를 사용합니다.
 
 ### 작동 원리
 
-1. Claude가 질문을 받으면 먼저 **사고 블록(thinking block)** 에서 내부 추론을 수행합니다
-2. 문제를 여러 각도에서 분석하고 다양한 접근법을 검토합니다
-3. 최종 답변을 구성하여 응답합니다
-4. 사용자는 사고 과정을 확인할 수 있습니다 (API에서 반환)
+1. Claude가 질문을 받으면 필요할 때 **사고 블록(thinking block)** 에서 내부 추론을 수행합니다
+2. 문제 난도에 맞춰 사고 깊이를 **자동 조절**합니다(고정 토큰 예산 불필요)
+3. 도구 호출 사이에도 자동으로 사고를 끼워 넣습니다(interleaved thinking)
+4. 최종 답변을 구성하여 응답합니다
 
-### Extended Thinking이 효과적인 경우
+### 적응형 사고가 효과적인 경우
 
 - **복잡한 수학/논리 문제**: 다단계 계산이나 증명이 필요한 문제
 - **코드 분석**: 복잡한 버그 추적이나 아키텍처 설계
 - **전략적 의사결정**: 여러 요소를 고려해야 하는 의사결정
 - **긴 문서 분석**: 대규모 텍스트의 종합적 분석
-- **모순 해결**: 상충하는 정보를 분석하고 해결하는 경우
+- **에이전트 작업**: 도구를 연쇄 호출하는 장기 작업
 
 ### API에서의 사용
 
@@ -553,12 +555,10 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-opus-4-8",
     max_tokens=16000,
-    thinking={
-        "type": "enabled",
-        "budget_tokens": 10000  # 사고에 할당할 최대 토큰
-    },
+    thinking={"type": "adaptive"},          # 적응형 사고 활성화
+    output_config={"effort": "high"},       # low | medium | high | xhigh | max
     messages=[{
         "role": "user",
         "content": "이 알고리즘의 시간 복잡도를 분석하고 최적화 방안을 제시해주세요."
@@ -571,22 +571,26 @@ for block in response.content:
         print("사고 과정:", block.thinking)
     elif block.type == "text":
         print("응답:", block.text)
-\`\`\``,contentEn:`Extended Thinking is a feature that allows Claude to go through an in-depth internal reasoning process before responding. It provides more accurate results for complex reasoning, math problems, multi-step analysis, and more.
+\`\`\`
+
+> 사고 요약을 화면에 보여주려면 \`thinking={"type": "adaptive", "display": "summarized"}\`로 설정하세요. 기본값은 \`"omitted"\`(요약 텍스트가 비어 있음)입니다.`,contentEn:`Adaptive Thinking is the current approach that lets Claude **decide on its own when and how deeply to think** before responding. It delivers more accurate results for complex reasoning, math problems, and multi-step analysis.
+
+> **What changed:** The older "extended thinking" set the amount of thinking directly with \`budget_tokens\`. That approach is deprecated, and sending \`budget_tokens\` on Opus 4.7 / Opus 4.8 / Fable 5 returns a **400 error**. Today you use \`thinking={"type": "adaptive"}\` plus the **Effort parameter**.
 
 ### How It Works
 
-1. When Claude receives a question, it first performs internal reasoning in a **thinking block**
-2. It analyzes the problem from multiple angles and reviews various approaches
-3. It composes and delivers the final answer
-4. Users can view the thinking process (returned via API)
+1. When Claude receives a question, it performs internal reasoning in a **thinking block** when useful
+2. It **automatically adjusts** thinking depth to the difficulty of the task (no fixed token budget)
+3. It also interleaves thinking between tool calls automatically
+4. It composes and delivers the final answer
 
-### When Extended Thinking is Effective
+### When Adaptive Thinking is Effective
 
 - **Complex Math/Logic Problems**: Problems requiring multi-step calculations or proofs
 - **Code Analysis**: Complex bug tracking or architecture design
 - **Strategic Decision Making**: Decisions requiring consideration of multiple factors
 - **Long Document Analysis**: Comprehensive analysis of large texts
-- **Contradiction Resolution**: Analyzing and resolving conflicting information
+- **Agentic Work**: Long-horizon tasks that chain multiple tool calls
 
 ### Usage in API
 
@@ -596,12 +600,10 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-sonnet-4-20250514",
+    model="claude-opus-4-8",
     max_tokens=16000,
-    thinking={
-        "type": "enabled",
-        "budget_tokens": 10000  # Max tokens allocated for thinking
-    },
+    thinking={"type": "adaptive"},          # enable adaptive thinking
+    output_config={"effort": "high"},       # low | medium | high | xhigh | max
     messages=[{
         "role": "user",
         "content": "Analyze the time complexity of this algorithm and suggest optimizations."
@@ -614,24 +616,27 @@ for block in response.content:
         print("Thinking:", block.thinking)
     elif block.type == "text":
         print("Response:", block.text)
-\`\`\``},{title:"Extended Thinking 활용 팁",titleEn:"Extended Thinking Tips",content:`### 토큰 예산 설정
+\`\`\`
 
-\`budget_tokens\`는 Claude가 사고에 사용할 수 있는 최대 토큰 수입니다:
+> To show a readable summary of the reasoning, set \`thinking={"type": "adaptive", "display": "summarized"}\`. The default is \`"omitted"\` (empty summary text).`},{title:"Effort 파라미터 & 활용 팁",titleEn:"Effort Parameter & Tips",content:`### Effort 파라미터로 사고 깊이 제어
 
-| 작업 유형 | 권장 예산 | 설명 |
-|-----------|-----------|------|
-| 간단한 추론 | 2,000-5,000 | 기본적인 논리 문제 |
-| 코드 분석 | 5,000-10,000 | 중간 복잡도의 코드 리뷰 |
-| 복잡한 문제 | 10,000-20,000 | 다단계 추론이 필요한 문제 |
-| 연구/분석 | 20,000+ | 종합적인 분석 작업 |
+고정 토큰 예산 대신, \`output_config\`의 \`effort\` 값으로 사고 깊이와 전체 토큰 사용량을 조절합니다(기본값 \`high\`):
+
+| Effort | 사용 상황 | 설명 |
+|--------|-----------|------|
+| \`low\` | 단순/지연 민감 작업 | 빠른 응답, 최소 사고 |
+| \`medium\` | 비용 절감이 필요한 일반 작업 | 균형 |
+| \`high\` | 대부분의 지능 민감 작업(기본값) | 품질과 비용의 좋은 균형 |
+| \`xhigh\` | 코딩·에이전트 작업 | Opus 4.7+에서 코딩/에이전트에 권장 |
+| \`max\` | 정확도가 비용보다 중요한 최난도 작업 | 최대 깊이(과도한 사고 주의) |
 
 ### 주의사항
 
-- Extended Thinking은 **streaming과 함께 사용**하는 것을 권장합니다
-- 사고 과정의 토큰은 **출력 토큰에 포함**됩니다
-- 사고 블록은 **수정하거나 조작할 수 없습니다** (API에서 반환만 가능)
-- \`temperature\` 파라미터는 Extended Thinking에서 **반드시 1로 설정**해야 합니다
-- **시스템 프롬프트와 함께 사용** 시 시스템 프롬프트가 사고 과정에도 영향을 미칩니다
+- \`budget_tokens\` 방식은 폐기되었습니다. Opus 4.7 / 4.8 / Fable 5에서 \`budget_tokens\`는 **400 오류** → 대신 \`effort\`를 사용하세요.
+- \`temperature\`, \`top_p\`, \`top_k\` 샘플링 파라미터도 Opus 4.7 / 4.8 / Fable 5에서 **제거**되었습니다(400). 동작은 프롬프트로 제어합니다.
+- 출력이 16K 토큰을 넘을 수 있으면 **스트리밍**을 사용하세요(타임아웃 방지). 스트리밍 시 권장 \`max_tokens\`는 약 64000입니다.
+- 사고 블록은 **수정·조작할 수 없습니다**. 같은 모델로 대화를 이어갈 때는 받은 그대로 다시 전달해야 합니다.
+- 사고 토큰도 비용에 포함됩니다. 사고 요약을 보여주려면 \`display: "summarized"\`를 명시하세요.
 
 ### 스트리밍에서의 사용
 
@@ -641,12 +646,10 @@ import anthropic
 client = anthropic.Anthropic()
 
 with client.messages.stream(
-    model="claude-sonnet-4-20250514",
-    max_tokens=16000,
-    thinking={
-        "type": "enabled",
-        "budget_tokens": 10000
-    },
+    model="claude-opus-4-8",
+    max_tokens=64000,
+    thinking={"type": "adaptive", "display": "summarized"},
+    output_config={"effort": "high"},
     messages=[{
         "role": "user",
         "content": "다음 시스템의 장애 원인을 분석해주세요."
@@ -654,31 +657,33 @@ with client.messages.stream(
 ) as stream:
     for event in stream:
         if event.type == "content_block_start":
-            if hasattr(event.content_block, 'type'):
-                print(f"블록 타입: {event.content_block.type}")
+            print(f"블록 타입: {event.content_block.type}")
         elif event.type == "content_block_delta":
-            if hasattr(event.delta, 'thinking'):
+            if event.delta.type == "thinking_delta":
                 print(event.delta.thinking, end="")
-            elif hasattr(event.delta, 'text'):
+            elif event.delta.type == "text_delta":
                 print(event.delta.text, end="")
-\`\`\``,contentEn:`### Token Budget Settings
 
-\`budget_tokens\` is the maximum number of tokens Claude can use for thinking:
+    final = stream.get_final_message()
+\`\`\``,contentEn:`### Control Thinking Depth with the Effort Parameter
 
-| Task Type | Recommended Budget | Description |
-|-----------|-------------------|-------------|
-| Simple Reasoning | 2,000-5,000 | Basic logic problems |
-| Code Analysis | 5,000-10,000 | Medium complexity code reviews |
-| Complex Problems | 10,000-20,000 | Multi-step reasoning problems |
-| Research/Analysis | 20,000+ | Comprehensive analysis tasks |
+Instead of a fixed token budget, use the \`effort\` value inside \`output_config\` to control thinking depth and overall token spend (default is \`high\`):
+
+| Effort | When to use | Description |
+|--------|-------------|-------------|
+| \`low\` | Simple / latency-sensitive tasks | Fast responses, minimal thinking |
+| \`medium\` | General tasks that need cost savings | Balanced |
+| \`high\` | Most intelligence-sensitive work (default) | Good balance of quality and cost |
+| \`xhigh\` | Coding & agentic tasks | Recommended for coding/agents on Opus 4.7+ |
+| \`max\` | Hardest tasks where accuracy beats cost | Maximum depth (watch for overthinking) |
 
 ### Important Notes
 
-- Extended Thinking is **recommended to use with streaming**
-- Thinking tokens are **included in output tokens**
-- Thinking blocks **cannot be modified or manipulated** (only returned via API)
-- The \`temperature\` parameter **must be set to 1** with Extended Thinking
-- When used **with system prompts**, system prompts also influence the thinking process
+- The \`budget_tokens\` approach is deprecated. On Opus 4.7 / 4.8 / Fable 5, \`budget_tokens\` returns a **400 error** — use \`effort\` instead.
+- The \`temperature\`, \`top_p\`, and \`top_k\` sampling parameters are also **removed** on Opus 4.7 / 4.8 / Fable 5 (400). Steer behavior through prompting.
+- If output may exceed 16K tokens, use **streaming** (to avoid timeouts). When streaming, a \`max_tokens\` of ~64000 is a good default.
+- Thinking blocks **cannot be modified or manipulated**. When continuing on the same model, pass them back exactly as received.
+- Thinking tokens count toward cost. To surface a reasoning summary, set \`display: "summarized"\` explicitly.
 
 ### Usage with Streaming
 
@@ -688,12 +693,10 @@ import anthropic
 client = anthropic.Anthropic()
 
 with client.messages.stream(
-    model="claude-sonnet-4-20250514",
-    max_tokens=16000,
-    thinking={
-        "type": "enabled",
-        "budget_tokens": 10000
-    },
+    model="claude-opus-4-8",
+    max_tokens=64000,
+    thinking={"type": "adaptive", "display": "summarized"},
+    output_config={"effort": "high"},
     messages=[{
         "role": "user",
         "content": "Analyze the root cause of the following system failure."
@@ -701,14 +704,15 @@ with client.messages.stream(
 ) as stream:
     for event in stream:
         if event.type == "content_block_start":
-            if hasattr(event.content_block, 'type'):
-                print(f"Block type: {event.content_block.type}")
+            print(f"Block type: {event.content_block.type}")
         elif event.type == "content_block_delta":
-            if hasattr(event.delta, 'thinking'):
+            if event.delta.type == "thinking_delta":
                 print(event.delta.thinking, end="")
-            elif hasattr(event.delta, 'text'):
+            elif event.delta.type == "text_delta":
                 print(event.delta.text, end="")
-\`\`\``}]},w={id:"chain-of-thought",title:"사고의 연쇄",titleEn:"Chain of Thought",icon:"fa-link",sections:[{title:"Chain of Thought(CoT) 기법",titleEn:"Chain of Thought (CoT) Technique",content:`Chain of Thought(CoT)는 Claude에게 최종 답변에 도달하기 전에 단계별 추론 과정을 거치도록 유도하는 프롬프트 기법입니다. 이는 Extended Thinking과 달리 프롬프트 수준에서 적용할 수 있습니다.
+
+    final = stream.get_final_message()
+\`\`\``}]},T={id:"chain-of-thought",title:"사고의 연쇄",titleEn:"Chain of Thought",icon:"fa-link",sections:[{title:"Chain of Thought(CoT) 기법",titleEn:"Chain of Thought (CoT) Technique",content:`Chain of Thought(CoT)는 Claude에게 최종 답변에 도달하기 전에 단계별 추론 과정을 거치도록 유도하는 프롬프트 기법입니다. 이는 적응형 사고(Adaptive Thinking)와 달리 프롬프트 수준에서 적용할 수 있습니다.
 
 ### CoT의 원리
 
@@ -736,7 +740,7 @@ with client.messages.stream(
 
 A는 B보다 키가 크고, C는 A보다 키가 작지만 D보다 큽니다.
 B는 D보다 키가 큽니다. 키가 큰 순서대로 나열하세요.
-\`\`\``,contentEn:`Chain of Thought (CoT) is a prompting technique that guides Claude through step-by-step reasoning before arriving at a final answer. Unlike Extended Thinking, this can be applied at the prompt level.
+\`\`\``,contentEn:`Chain of Thought (CoT) is a prompting technique that guides Claude through step-by-step reasoning before arriving at a final answer. Unlike Adaptive Thinking, this can be applied at the prompt level.
 
 ### CoT Principles
 
@@ -817,13 +821,13 @@ B is taller than D. List them in order from tallest to shortest.
 첫 번째 단계: [...]
 \`\`\`
 
-### CoT와 Extended Thinking의 차이
+### CoT와 적응형 사고(Adaptive Thinking)의 차이
 
-| 특성 | Chain of Thought | Extended Thinking |
+| 특성 | Chain of Thought | 적응형 사고(Adaptive Thinking) |
 |------|-----------------|-------------------|
-| **적용 방식** | 프롬프트에서 지시 | API 파라미터로 활성화 |
-| **가시성** | 응답에 추론 과정 포함 | 별도 thinking 블록으로 반환 |
-| **제어** | 프롬프트로 세밀한 제어 | 토큰 예산으로 제어 |
+| **적용 방식** | 프롬프트에서 지시 | API 파라미터로 활성화(thinking=adaptive) |
+| **가시성** | 응답에 추론 과정 포함 | 별도 thinking 블록으로 반환(요약 표시 가능) |
+| **제어** | 프롬프트로 세밀한 제어 | Effort 파라미터(low~max)로 제어 |
 | **비용** | 출력 토큰에 포함 | 별도 thinking 토큰 사용 |
 | **적합한 경우** | 추론 과정을 보여줘야 할 때 | 정확도가 최우선일 때 |`,contentEn:`### Self-Consistency
 
@@ -878,15 +882,15 @@ List the steps needed to achieve this goal in reverse order:
 First step: [...]
 \`\`\`
 
-### CoT vs Extended Thinking
+### CoT vs Adaptive Thinking
 
-| Aspect | Chain of Thought | Extended Thinking |
+| Aspect | Chain of Thought | Adaptive Thinking |
 |--------|-----------------|-------------------|
-| **Application** | Instructed in prompt | Activated via API parameter |
-| **Visibility** | Reasoning included in response | Returned in separate thinking block |
-| **Control** | Fine-grained control via prompt | Controlled via token budget |
+| **Application** | Instructed in prompt | Activated via API parameter (thinking=adaptive) |
+| **Visibility** | Reasoning included in response | Returned in separate thinking block (summary available) |
+| **Control** | Fine-grained control via prompt | Controlled via the Effort parameter (low–max) |
 | **Cost** | Included in output tokens | Uses separate thinking tokens |
-| **Best for** | When reasoning process should be shown | When accuracy is top priority |`}]},E={id:"tool-use",title:"도구 사용 프롬프트",titleEn:"Tool Use in Prompts",icon:"fa-wrench",sections:[{title:"Tool Use 개념",titleEn:"Tool Use Concepts",content:`Tool Use(함수 호출)는 Claude가 외부 도구나 API를 호출하여 실시간 정보를 가져오거나 작업을 수행할 수 있게 하는 기능입니다. 프롬프트 설계 시 도구의 정의와 사용 지침을 잘 작성하는 것이 중요합니다.
+| **Best for** | When reasoning process should be shown | When accuracy is top priority |`}]},_={id:"tool-use",title:"도구 사용 프롬프트",titleEn:"Tool Use in Prompts",icon:"fa-wrench",sections:[{title:"Tool Use 개념",titleEn:"Tool Use Concepts",content:`Tool Use(함수 호출)는 Claude가 외부 도구나 API를 호출하여 실시간 정보를 가져오거나 작업을 수행할 수 있게 하는 기능입니다. 프롬프트 설계 시 도구의 정의와 사용 지침을 잘 작성하는 것이 중요합니다.
 
 ### Tool Use 워크플로우
 
@@ -1080,7 +1084,7 @@ tools = [
 ]
 \`\`\`
 
-> **Tip**: The more detailed the tool description, the higher the chance Claude selects the right tool at the right time.`}]},P={id:"best-practices",title:"베스트 프랙티스",titleEn:"Best Practices",icon:"fa-star",sections:[{title:"프롬프트 최적화 원칙",titleEn:"Prompt Optimization Principles",content:`### 1. 명확하고 직접적으로 지시하기
+> **Tip**: The more detailed the tool description, the higher the chance Claude selects the right tool at the right time.`}]},E={id:"best-practices",title:"베스트 프랙티스",titleEn:"Best Practices",icon:"fa-star",sections:[{title:"프롬프트 최적화 원칙",titleEn:"Prompt Optimization Principles",content:`### 1. 명확하고 직접적으로 지시하기
 
 Claude는 명확한 지시를 선호합니다. 불필요한 예의 표현이나 우회적 표현 대신 직접적으로 요청하세요.
 
@@ -1286,5 +1290,5 @@ After completing your answer, verify the following:
 | Too much information | Provide only relevant information |
 | Unspecified format | Explicitly specify output format |
 | Lack of context | State background, audience, and purpose |
-| Everything in one prompt | Break complex tasks into stages |`}]},c=[b,v,C,T,w,E,P];function q(){const{language:u}=y(),n=u==="ko",[i,a]=f.useState(0),r=c[i],d={code({inline:t,className:o,children:s,...m}){const l=/language-(\w+)/.exec(o||"");return!t&&l?e.jsx(p,{code:String(s).replace(/\n$/,""),language:l[1]}):!t&&!l&&String(s).includes(`
-`)?e.jsx(p,{code:String(s).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...m,children:s})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(k,{type:"tip",children:t})}};return e.jsxs("div",{className:"guide-page",children:[e.jsx(x,{title:n?"프롬프트 엔지니어링 가이드":"Prompt Engineering Guide",path:"/prompt-engineering"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:n?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:c.map((t,o)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${o===i?"active":""}`,onClick:()=>a(o),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),n?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:n?r.title:r.titleEn})}),r.sections.map((t,o)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:n?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(h,{remarkPlugins:[g],components:d,children:n?t.content:t.contentEn})})]},o)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:i===0,onClick:()=>a(i-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",n?"이전":"Previous"]}),e.jsxs("button",{disabled:i===c.length-1,onClick:()=>a(i+1),children:[n?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{q as default};
+| Everything in one prompt | Break complex tasks into stages |`}]},c=[x,b,C,w,T,_,E];function R(){const{language:u}=y(),i=u==="ko",[n,s]=f.useState(0),r=c[n],d={code({inline:t,className:o,children:a,...m}){const l=/language-(\w+)/.exec(o||"");return!t&&l?e.jsx(p,{code:String(a).replace(/\n$/,""),language:l[1]}):!t&&!l&&String(a).includes(`
+`)?e.jsx(p,{code:String(a).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...m,children:a})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(v,{type:"tip",children:t})}};return e.jsxs("div",{className:"guide-page",children:[e.jsx(k,{title:i?"프롬프트 엔지니어링 가이드":"Prompt Engineering Guide",path:"/prompt-engineering"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:i?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:c.map((t,o)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${o===n?"active":""}`,onClick:()=>s(o),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),i?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:i?r.title:r.titleEn})}),r.sections.map((t,o)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:i?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(h,{remarkPlugins:[g],components:d,children:i?t.content:t.contentEn})})]},o)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:n===0,onClick:()=>s(n-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",i?"이전":"Previous"]}),e.jsxs("button",{disabled:n===c.length-1,onClick:()=>s(n+1),children:[i?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{R as default};

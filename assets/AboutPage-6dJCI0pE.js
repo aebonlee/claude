@@ -1,4 +1,4 @@
-import{j as e,M as g,r as h}from"./markdown-Bb6HBFF6.js";import{b as C}from"./vendor-Cbm2kc8j.js";import{u as f}from"./index-DI5Q1NR8.js";import{S as b}from"./SEOHead-DfBpSINb.js";import{T as A,C as d}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const S={id:"introduction",title:"플랫폼 소개",titleEn:"Introduction",icon:"fa-circle-info",sections:[{title:"Claude Master란?",titleEn:"What is Claude Master?",content:`Claude Master는 한국어 사용자를 위한 **Claude AI 종합 학습 플랫폼**입니다. 공식 문서의 방대한 정보를 체계적으로 정리하고, 실전 예제와 함께 제공하여 누구나 Claude를 효과적으로 활용할 수 있도록 돕습니다.
+import{j as e,M as g,r as h}from"./markdown-Bb6HBFF6.js";import{b as C}from"./vendor-Cbm2kc8j.js";import{u as b}from"./index-CT3aUxkD.js";import{S as f}from"./SEOHead-DfBpSINb.js";import{T as A,C as d}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const S={id:"introduction",title:"플랫폼 소개",titleEn:"Introduction",icon:"fa-circle-info",sections:[{title:"Claude Master란?",titleEn:"What is Claude Master?",content:`Claude Master는 한국어 사용자를 위한 **Claude AI 종합 학습 플랫폼**입니다. 공식 문서의 방대한 정보를 체계적으로 정리하고, 실전 예제와 함께 제공하여 누구나 Claude를 효과적으로 활용할 수 있도록 돕습니다.
 
 ### 미션
 
@@ -74,7 +74,7 @@ Claude AI 생태계의 한국어 학습 자료 부족을 해결하고자 프로�
 - **연락처**: aebon@dreamitbiz.com
 - **대표**: 이애본 (Ph.D)
 
-### Claude Opus 4 — AI 개발 파트너
+### Claude Opus 4.8 — AI 개발 파트너
 
 Anthropic의 최고 성능 모델. 코드 생성, 콘텐츠 작성, 아키텍처 설계를 담당했습니다.
 
@@ -105,7 +105,7 @@ Planned this project to address the lack of Korean learning materials for the Cl
 - **Contact**: aebon@dreamitbiz.com
 - **CEO**: Aebon Lee (Ph.D)
 
-### Claude Opus 4 — AI Dev Partner
+### Claude Opus 4.8 — AI Dev Partner
 
 Anthropic's most capable model. Handled code generation, content writing, and architecture design.
 
@@ -230,11 +230,18 @@ Continuous improvement reflecting new Claude features, API changes, and communit
 
 | 모델 | 특징 | 적합한 용도 | 상대 가격 |
 |------|------|------------|----------|
-| **Opus 4.6** | 최고 성능, 깊은 추론 | 복잡한 코딩, 연구, 전략 분석 | ★★★★★ |
-| **Sonnet 4.6** | 균형 잡힌 성능과 속도 | 일반 업무, 코딩, 문서 작성 | ★★★ |
+| **Fable 5** | 가장 강력, 최난도 추론·장기 에이전트 | 대규모 마이그레이션, 심층 연구, 자율 에이전트 | ★★★★★★ |
+| **Opus 4.8** | 최고 성능의 Opus, 고지능·에이전트 | 복잡한 코딩, 연구, 전략 분석 | ★★★★★ |
+| **Sonnet 4.6** | 속도와 지능의 최적 균형 | 일반 업무, 코딩, 문서 작성 | ★★★ |
 | **Haiku 4.5** | 가장 빠르고 저렴 | 간단한 질문, 분류, 요약 | ★ |
 
+> Opus·Sonnet·Fable은 **1M(100만 토큰) 컨텍스트**를 표준 가격으로 제공합니다. 모델 ID: claude-fable-5 / claude-opus-4-8 / claude-sonnet-4-6 / claude-haiku-4-5.
+
 ### 모델 선택 가이드
+
+**Fable 5를 선택해야 할 때:**
+- 가장 어려운 추론이나 장시간 자율 에이전트 작업
+- 대규모 코드 마이그레이션, 심층 연구 등 최고 난도 작업
 
 **Opus를 선택해야 할 때:**
 - 복잡한 멀티스텝 코딩 작업
@@ -257,11 +264,18 @@ Continuous improvement reflecting new Claude features, API changes, and communit
 
 | Model | Characteristics | Best For | Relative Price |
 |-------|----------------|----------|---------------|
-| **Opus 4.6** | Highest performance, deep reasoning | Complex coding, research, strategic analysis | ★★★★★ |
-| **Sonnet 4.6** | Balanced performance and speed | General tasks, coding, writing | ★★★ |
+| **Fable 5** | Most capable, hardest reasoning & long-horizon agents | Large migrations, deep research, autonomous agents | ★★★★★★ |
+| **Opus 4.8** | Top-performing Opus, high-intelligence & agentic | Complex coding, research, strategic analysis | ★★★★★ |
+| **Sonnet 4.6** | Best balance of speed and intelligence | General tasks, coding, writing | ★★★ |
 | **Haiku 4.5** | Fastest and most affordable | Simple questions, classification, summaries | ★ |
 
+> Opus, Sonnet, and Fable provide a **1M-token context window** at standard pricing. Model IDs: claude-fable-5 / claude-opus-4-8 / claude-sonnet-4-6 / claude-haiku-4-5.
+
 ### Model Selection Guide
+
+**Choose Fable 5 when:**
+- The hardest reasoning or long-horizon autonomous agent work
+- Large code migrations, deep research, and other top-difficulty tasks
 
 **Choose Opus when:**
 - Complex multi-step coding tasks
@@ -278,7 +292,7 @@ Continuous improvement reflecting new Claude features, API changes, and communit
 - High-volume processing needed
 - Real-time responses for chatbots
 
-> For detailed benchmarks and pricing comparisons, visit the [Model Comparison page](/model-comparison).`}]},P={id:"faq",title:"자주 묻는 질문",titleEn:"FAQ",icon:"fa-circle-question",sections:[{title:"일반 질문",titleEn:"General Questions",content:`### 이 플랫폼은 무료인가요?
+> For detailed benchmarks and pricing comparisons, visit the [Model Comparison page](/model-comparison).`}]},w={id:"faq",title:"자주 묻는 질문",titleEn:"FAQ",icon:"fa-circle-question",sections:[{title:"일반 질문",titleEn:"General Questions",content:`### 이 플랫폼은 무료인가요?
 
 네, **모든 학습 콘텐츠는 무료**로 제공됩니다. 회원가입 없이도 대부분의 가이드를 열람할 수 있습니다. 커뮤니티 게시판 글쓰기 등 일부 기능은 로그인이 필요합니다.
 
@@ -346,5 +360,5 @@ A React 19 + Vite 6 based SPA, using Supabase as the backend, deployed on GitHub
 - [DreamIT Biz](https://www.dreamitbiz.com) — Main site
 - [Teaching AI](https://teaching.dreamitbiz.com) — AI Education Platform
 - [OpenClaw](https://openclaw.dreamitbiz.com) — Open Source Project
-- [GitHub](https://github.com/aebonlee/claude) — Source Code`}]},c=[S,k,y,I,v,P];function G(){const{language:u}=f(),a=u==="ko",[o,s]=C.useState(0),r=c[o],m={code({inline:t,className:n,children:i,...p}){const l=/language-(\w+)/.exec(n||"");return!t&&l?e.jsx(d,{code:String(i).replace(/\n$/,""),language:l[1]}):!t&&!l&&String(i).includes(`
-`)?e.jsx(d,{code:String(i).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...p,children:i})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(A,{type:"tip",children:t})},a({href:t,children:n,...i}){return t&&t.startsWith("/")?e.jsx("a",{href:t,...i,children:n}):e.jsx("a",{href:t,target:"_blank",rel:"noopener noreferrer",...i,children:n})}};return e.jsxs("div",{className:"guide-page",children:[e.jsx(b,{title:"About",description:a?"Claude Master 플랫폼 소개":"About Claude Master platform",path:"/about"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:a?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:c.map((t,n)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${n===o?"active":""}`,onClick:()=>s(n),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),a?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:a?r.title:r.titleEn})}),r.sections.map((t,n)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:a?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(g,{remarkPlugins:[h],components:m,children:a?t.content:t.contentEn})})]},n)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:o===0,onClick:()=>s(o-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",a?"이전":"Previous"]}),e.jsxs("button",{disabled:o===c.length-1,onClick:()=>s(o+1),children:[a?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{G as default};
+- [GitHub](https://github.com/aebonlee/claude) — Source Code`}]},c=[S,k,y,I,v,w];function H(){const{language:u}=b(),a=u==="ko",[o,s]=C.useState(0),r=c[o],m={code({inline:t,className:n,children:i,...p}){const l=/language-(\w+)/.exec(n||"");return!t&&l?e.jsx(d,{code:String(i).replace(/\n$/,""),language:l[1]}):!t&&!l&&String(i).includes(`
+`)?e.jsx(d,{code:String(i).replace(/\n$/,""),language:""}):e.jsx("code",{className:"inline-code",...p,children:i})},table({children:t}){return e.jsx("div",{className:"table-responsive",children:e.jsx("table",{children:t})})},blockquote({children:t}){return e.jsx(A,{type:"tip",children:t})},a({href:t,children:n,...i}){return t&&t.startsWith("/")?e.jsx("a",{href:t,...i,children:n}):e.jsx("a",{href:t,target:"_blank",rel:"noopener noreferrer",...i,children:n})}};return e.jsxs("div",{className:"guide-page",children:[e.jsx(f,{title:"About",description:a?"Claude Master 플랫폼 소개":"About Claude Master platform",path:"/about"}),e.jsxs("div",{className:"guide-layout",children:[e.jsxs("aside",{className:"guide-sidebar",children:[e.jsx("div",{className:"guide-sidebar-title",children:a?"목차":"Contents"}),e.jsx("ul",{className:"guide-nav",children:c.map((t,n)=>e.jsx("li",{className:"guide-nav-item",children:e.jsxs("button",{className:`guide-nav-link ${n===o?"active":""}`,onClick:()=>s(n),children:[e.jsx("i",{className:`fa-solid ${t.icon} nav-icon`}),a?t.title:t.titleEn]})},t.id))})]}),e.jsxs("div",{className:"guide-content",children:[e.jsx("div",{className:"guide-content-header",children:e.jsx("h1",{children:a?r.title:r.titleEn})}),r.sections.map((t,n)=>e.jsxs("div",{className:"guide-section",children:[e.jsx("h2",{children:a?t.title:t.titleEn}),e.jsx("div",{className:"markdown-body",children:e.jsx(g,{remarkPlugins:[h],components:m,children:a?t.content:t.contentEn})})]},n)),e.jsxs("div",{className:"guide-section-nav",children:[e.jsxs("button",{disabled:o===0,onClick:()=>s(o-1),children:[e.jsx("i",{className:"fa-solid fa-chevron-left"})," ",a?"이전":"Previous"]}),e.jsxs("button",{disabled:o===c.length-1,onClick:()=>s(o+1),children:[a?"다음":"Next"," ",e.jsx("i",{className:"fa-solid fa-chevron-right"})]})]})]})]})]})}export{H as default};
