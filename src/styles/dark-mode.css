@@ -77,6 +77,11 @@ html[data-theme="dark"] .model-note-rec strong,
 html[data-theme="dark"] .model-note-strengths-title,
 html[data-theme="dark"] .model-note-strengths li strong { color: #fbbf24; }
 html[data-theme="dark"] .model-note-strengths li i { color: #f59e0b; }
+html[data-theme="dark"] .model-note-hitl {
+    color: #fde68a;
+    border-top-color: rgba(245, 158, 11, 0.45);
+}
+html[data-theme="dark"] .model-note-hitl i { color: #f59e0b; }
 
 /* Auth */
 html[data-theme="dark"] .auth-card {

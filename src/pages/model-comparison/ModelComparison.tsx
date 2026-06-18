@@ -136,6 +136,12 @@ export default function ModelComparison() {
                   </span>
                 </li>
               </ul>
+              <p className="model-note-hitl">
+                <i className="fa-solid fa-circle-exclamation" />
+                {isKo
+                  ? ' AI가 생성한 데이터와 결과물은 그대로 쓰지 말고, 반드시 사람이 검토·검증한 뒤 사용하세요. 최종 판단과 책임은 사람에게 있습니다 (Human in the Loop).'
+                  : ' Never use AI-generated data or outputs as-is — always have a human review and verify them first. The final judgment and responsibility rest with people (human in the loop).'}
+              </p>
             </div>
           </div>
         </div>
