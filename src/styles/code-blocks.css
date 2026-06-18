@@ -148,9 +148,20 @@
 .tip-box.danger .tip-box-icon { color: #EF4444; }
 
 /* ── Highlighter effect on bold text in guide content ── */
+/* 형광펜을 글자 크기에 맞춰 스냅(밑줄형 대신 글자만큼의 배경) */
 .guide-content strong {
-    background: linear-gradient(transparent 60%, rgba(251, 191, 36, 0.3) 60%);
+    background-color: rgba(251, 191, 36, 0.32);
+    padding: 0.02em 0.22em;
+    border-radius: 3px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
     font-weight: 700;
+}
+/* TipBox 라벨(Tip/Warning 등)에는 형광펜 미적용 */
+.tip-box-content > strong {
+    background: none;
+    padding: 0;
+    border-radius: 0;
 }
 
 /* ── Dark mode adjustments ── */
@@ -180,5 +191,8 @@
     color: #fca5a5;
 }
 [data-theme="dark"] .guide-content strong {
-    background: linear-gradient(transparent 60%, rgba(251, 191, 36, 0.2) 60%);
+    background-color: rgba(251, 191, 36, 0.22);
+}
+[data-theme="dark"] .tip-box-content > strong {
+    background: none;
 }
