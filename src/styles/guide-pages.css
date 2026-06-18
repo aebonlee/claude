@@ -83,7 +83,8 @@
 /* ── Content Area ── */
 .guide-content {
     padding: 40px 48px;
-    max-width: 900px;
+    /* 본문이 가이드 레이아웃(메뉴 폭) 컬럼을 가득 채우도록 캡 해제 */
+    max-width: none;
 }
 .guide-content-header {
     margin-bottom: 40px;
