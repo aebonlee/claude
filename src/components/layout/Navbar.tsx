@@ -259,7 +259,7 @@ export default function Navbar() {
                   <ul className="mobile-nav-sub">
                     <li>
                       <Link to="/community" className="mobile-nav-sub-link">
-                        <i className="fa-solid fa-grid-2" style={{ width: '18px' }} />
+                        <i className="fa-solid fa-table-cells-large" style={{ width: '18px' }} />
                         {isKo ? '전체 게시판' : 'All Boards'}
                       </Link>
                     </li>

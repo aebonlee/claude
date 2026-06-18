@@ -2,7 +2,7 @@ export default {
   id: 'cli-features',
   title: 'CLI 기능',
   titleEn: 'CLI Features',
-  icon: 'fa-rectangle-terminal',
+  icon: 'fa-terminal',
   sections: [
     {
       title: '멀티턴 대화',

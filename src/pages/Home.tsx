@@ -40,7 +40,7 @@ export default function Home() {
         <HeroBackground />
         <div className="hero-content">
           <div className="hero-badge">
-            <i className="fa-solid fa-sparkles" />
+            <i className="fa-solid fa-wand-magic-sparkles" />
             {t('hero.badge')}
           </div>
           <h1 className="hero-title">

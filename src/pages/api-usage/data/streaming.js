@@ -2,7 +2,7 @@ const streaming = {
   id: 'streaming',
   title: '스트리밍',
   titleEn: 'Streaming',
-  icon: 'fa-stream',
+  icon: 'fa-bars-staggered',
   sections: [
     {
       title: '스트리밍 응답',
