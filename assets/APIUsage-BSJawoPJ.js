@@ -1,4 +1,4 @@
-import{j as e,M as g,r as h}from"./markdown-Bb6HBFF6.js";import{b as y}from"./vendor-Cbm2kc8j.js";import{u as _}from"./index-z0rxpFpO.js";import{S as f}from"./SEOHead-DfBpSINb.js";import{T as x,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const k={id:"getting-started",title:"API 시작하기",titleEn:"Getting Started",icon:"fa-rocket",sections:[{title:"Anthropic API 소개",titleEn:"Introduction to the Anthropic API",content:`Anthropic API를 사용하면 Claude 모델을 자신의 애플리케이션에 직접 통합할 수 있습니다. 대화형 AI, 콘텐츠 생성, 코드 작성, 데이터 분석 등 다양한 기능을 프로그래밍 방식으로 활용할 수 있습니다.
+import{j as e,M as g,r as h}from"./markdown-Bb6HBFF6.js";import{b as y}from"./vendor-Cbm2kc8j.js";import{u as _}from"./index-CB6PAXgz.js";import{S as f}from"./SEOHead-DfBpSINb.js";import{T as x,C as p}from"./TipBox-CSlg_9ru.js";import"./supabase-BiHzSKx7.js";import"./pdf-ckwbz45p.js";const k={id:"getting-started",title:"API 시작하기",titleEn:"Getting Started",icon:"fa-rocket",sections:[{title:"Anthropic API 소개",titleEn:"Introduction to the Anthropic API",content:`Anthropic API를 사용하면 Claude 모델을 자신의 애플리케이션에 직접 통합할 수 있습니다. 대화형 AI, 콘텐츠 생성, 코드 작성, 데이터 분석 등 다양한 기능을 프로그래밍 방식으로 활용할 수 있습니다.
 
 ### API 키 발급
 
@@ -414,7 +414,7 @@ def optimize_conversation(messages, max_messages=10):
         # Keep first message (context) and recent messages only
         return messages[:1] + messages[-(max_messages - 1):]
     return messages
-\`\`\``}]},b={id:"streaming",title:"스트리밍",titleEn:"Streaming",icon:"fa-stream",sections:[{title:"스트리밍 응답",titleEn:"Streaming Responses",content:`스트리밍을 사용하면 Claude의 응답을 생성되는 즉시 토큰 단위로 받아볼 수 있습니다. 긴 응답의 체감 응답 시간을 크게 줄여줍니다.
+\`\`\``}]},b={id:"streaming",title:"스트리밍",titleEn:"Streaming",icon:"fa-bars-staggered",sections:[{title:"스트리밍 응답",titleEn:"Streaming Responses",content:`스트리밍을 사용하면 Claude의 응답을 생성되는 즉시 토큰 단위로 받아볼 수 있습니다. 긴 응답의 체감 응답 시간을 크게 줄여줍니다.
 
 ### Python에서 스트리밍
 
