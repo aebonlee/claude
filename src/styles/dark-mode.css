@@ -58,6 +58,14 @@ html[data-theme="dark"] .roadmap-item {
     background: #1E293B;
     border-color: #334155;
 }
+/* Fable 이용 불가 안내 박스 — 다크모드 가독성 */
+html[data-theme="dark"] .model-card-note {
+    background: #2a2410;
+    border-color: #b45309;
+}
+html[data-theme="dark"] .model-note-icon { color: #f59e0b; }
+html[data-theme="dark"] .model-note-title { color: #fbbf24; }
+html[data-theme="dark"] .model-note-text { color: #fcd34d; }
 
 /* Auth */
 html[data-theme="dark"] .auth-card {

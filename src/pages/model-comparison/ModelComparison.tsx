@@ -56,6 +56,21 @@ export default function ModelComparison() {
               </p>
             </div>
           ))}
+
+          {/* Fable 5 이용 불가 안내 (2칸 차지) */}
+          <div className="model-card model-card-note">
+            <div className="model-note-icon">
+              <i className="fa-solid fa-triangle-exclamation" />
+            </div>
+            <h3 className="model-note-title">
+              {isKo ? 'Claude Fable 5는 현재 이용 불가' : 'Claude Fable 5 is currently unavailable'}
+            </h3>
+            <p className="model-note-text">
+              {isKo
+                ? '미국 정부의 수출통제로 Fable 5·Mythos 5 접근이 중단되었습니다. 한국 등 해당 지역에서는 사용할 수 없으며, 가용 모델 중 가장 강력한 Opus 4.8을 권장합니다.'
+                : 'US export controls suspended access to Fable 5 & Mythos 5. It cannot be used in affected regions (e.g. Korea) — use Opus 4.8, the most capable available model, instead.'}
+            </p>
+          </div>
         </div>
 
         {/* Comparison Table */}

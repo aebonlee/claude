@@ -24,6 +24,36 @@
     border-color: var(--primary-blue);
     box-shadow: var(--shadow-md);
 }
+/* Fable 5 이용 불가 안내 — Haiku 옆 2칸 차지 */
+.model-card-note {
+    grid-column: span 2;
+    text-align: left;
+    background: #fffbeb;
+    border-color: #fcd34d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.model-card-note:hover {
+    transform: none;
+    box-shadow: none;
+}
+.model-note-icon {
+    font-size: 26px;
+    color: #d97706;
+    margin-bottom: 12px;
+}
+.model-note-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 8px;
+}
+.model-note-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #78350f;
+}
 .model-card-name {
     font-size: 24px;
     font-weight: 800;
