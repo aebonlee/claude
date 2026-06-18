@@ -65,7 +65,18 @@ html[data-theme="dark"] .model-card-note {
 }
 html[data-theme="dark"] .model-note-icon { color: #f59e0b; }
 html[data-theme="dark"] .model-note-title { color: #fbbf24; }
-html[data-theme="dark"] .model-note-text { color: #fcd34d; }
+html[data-theme="dark"] .model-note-text,
+html[data-theme="dark"] .model-note-rec,
+html[data-theme="dark"] .model-note-strengths li { color: #fde68a; }
+html[data-theme="dark"] .model-note-rec {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.35);
+}
+html[data-theme="dark"] .model-note-rec i { color: #4ade80; }
+html[data-theme="dark"] .model-note-rec strong,
+html[data-theme="dark"] .model-note-strengths-title,
+html[data-theme="dark"] .model-note-strengths li strong { color: #fbbf24; }
+html[data-theme="dark"] .model-note-strengths li i { color: #f59e0b; }
 
 /* Auth */
 html[data-theme="dark"] .auth-card {

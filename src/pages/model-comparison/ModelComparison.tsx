@@ -57,19 +57,82 @@ export default function ModelComparison() {
             </div>
           ))}
 
-          {/* Fable 5 이용 불가 안내 (2칸 차지) */}
+          {/* Fable 5 이용 불가 + Opus 권장 + Claude 강점 안내 (2칸 차지) */}
           <div className="model-card model-card-note">
-            <div className="model-note-icon">
-              <i className="fa-solid fa-triangle-exclamation" />
+            <div className="model-note-head">
+              <div className="model-note-icon">
+                <i className="fa-solid fa-triangle-exclamation" />
+              </div>
+              <div>
+                <h3 className="model-note-title">
+                  {isKo ? 'Claude Fable 5는 현재 이용 불가' : 'Claude Fable 5 is currently unavailable'}
+                </h3>
+                <p className="model-note-text">
+                  {isKo
+                    ? '미국 정부의 수출통제로 Fable 5·Mythos 5 접근이 중단되었습니다. 한국 등 해당 지역에서는 사용할 수 없습니다.'
+                    : 'US export controls suspended access to Fable 5 & Mythos 5. It cannot be used in affected regions such as Korea.'}
+                </p>
+              </div>
             </div>
-            <h3 className="model-note-title">
-              {isKo ? 'Claude Fable 5는 현재 이용 불가' : 'Claude Fable 5 is currently unavailable'}
-            </h3>
-            <p className="model-note-text">
-              {isKo
-                ? '미국 정부의 수출통제로 Fable 5·Mythos 5 접근이 중단되었습니다. 한국 등 해당 지역에서는 사용할 수 없으며, 가용 모델 중 가장 강력한 Opus 4.8을 권장합니다.'
-                : 'US export controls suspended access to Fable 5 & Mythos 5. It cannot be used in affected regions (e.g. Korea) — use Opus 4.8, the most capable available model, instead.'}
-            </p>
+
+            <div className="model-note-rec">
+              <i className="fa-solid fa-circle-check" />
+              <span>
+                {isKo ? (
+                  <>
+                    <strong>대신 Opus 4.8을 사용하세요.</strong> 가용 모델 중 가장 강력하며, 복잡한 코딩·에이전트·장문 분석에서 최고 성능을 냅니다. 1M 컨텍스트를 표준 가격으로 제공해 Fable 5의 대부분 작업을 그대로 대체할 수 있습니다.
+                  </>
+                ) : (
+                  <>
+                    <strong>Use Opus 4.8 instead.</strong> It is the most capable available model — top performance on complex coding, agents, and long-form analysis, with a 1M context window at standard pricing that covers most Fable 5 workloads.
+                  </>
+                )}
+              </span>
+            </div>
+
+            <div className="model-note-strengths">
+              <div className="model-note-strengths-title">
+                {isKo ? 'Claude로 이만큼 할 수 있습니다' : 'What you can do with Claude'}
+              </div>
+              <ul>
+                <li>
+                  <i className="fa-solid fa-code" />
+                  <span>
+                    <strong>{isKo ? '코딩' : 'Coding'}</strong>
+                    {isKo
+                      ? ' — 에이전틱 코딩 도구 Claude Code로 작성·수정·디버깅·테스트·리뷰까지 자동화'
+                      : ' — agentic coding with Claude Code: writes, edits, debugs, tests, and reviews for you'}
+                  </span>
+                </li>
+                <li>
+                  <i className="fa-solid fa-palette" />
+                  <span>
+                    <strong>{isKo ? '디자인' : 'Design'}</strong>
+                    {isKo
+                      ? ' — 뛰어난 프론트엔드·UI 감각으로 보기 좋은 화면과 컴포넌트를 바로 생성'
+                      : ' — strong front-end/UI taste; generates polished screens and components instantly'}
+                  </span>
+                </li>
+                <li>
+                  <i className="fa-solid fa-bolt" />
+                  <span>
+                    <strong>{isKo ? '바이브 코딩' : 'Vibe coding'}</strong>
+                    {isKo
+                      ? ' — 자연어로 설명만 하면 동작하는 앱·기능을 빠르게 구현'
+                      : ' — describe it in plain language and get a working app or feature, fast'}
+                  </span>
+                </li>
+                <li>
+                  <i className="fa-solid fa-wand-magic-sparkles" />
+                  <span>
+                    <strong>{isKo ? '실무 자동화' : 'Real-world automation'}</strong>
+                    {isKo
+                      ? ' — 긴 컨텍스트 + 도구·MCP 연동으로 문서·데이터·업무를 자동 처리'
+                      : ' — long context plus tools/MCP to automate documents, data, and tasks'}
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

@@ -24,7 +24,7 @@
     border-color: var(--primary-blue);
     box-shadow: var(--shadow-md);
 }
-/* Fable 5 이용 불가 안내 — Haiku 옆 2칸 차지 */
+/* Fable 5 이용 불가 + Opus 권장 + Claude 강점 — Haiku 옆 2칸 차지 */
 .model-card-note {
     grid-column: span 2;
     text-align: left;
@@ -32,27 +32,87 @@
     border-color: #fcd34d;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 16px;
 }
 .model-card-note:hover {
     transform: none;
     box-shadow: none;
 }
+.model-note-head {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
 .model-note-icon {
-    font-size: 26px;
+    flex: 0 0 auto;
+    font-size: 24px;
     color: #d97706;
-    margin-bottom: 12px;
+    line-height: 1.2;
 }
 .model-note-title {
     font-size: 18px;
     font-weight: 800;
     color: #92400e;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 .model-note-text {
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.6;
     color: #78350f;
+}
+.model-note-rec {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #78350f;
+    background: rgba(217, 119, 6, 0.09);
+    border: 1px solid rgba(217, 119, 6, 0.25);
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+.model-note-rec i {
+    color: #16a34a;
+    margin-top: 2px;
+}
+.model-note-rec strong {
+    color: #92400e;
+}
+.model-note-strengths-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+.model-note-strengths ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.model-note-strengths li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #78350f;
+}
+.model-note-strengths li i {
+    flex: 0 0 auto;
+    width: 18px;
+    text-align: center;
+    color: #d97706;
+    margin-top: 2px;
+}
+.model-note-strengths li strong {
+    color: #92400e;
 }
 .model-card-name {
     font-size: 24px;
