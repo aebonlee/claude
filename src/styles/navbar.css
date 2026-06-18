@@ -47,7 +47,7 @@
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     list-style: none;
     flex-wrap: nowrap;
     white-space: nowrap;
@@ -59,8 +59,8 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 10px 16px;
-    font-size: 15px;
+    padding: 10px 12px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--text-secondary);
     text-decoration: none;
