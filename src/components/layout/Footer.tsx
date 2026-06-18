@@ -7,6 +7,17 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
+        <div className="footer-hitl">
+          <i className="fa-solid fa-user-check" />
+          <span>
+            {language === 'ko' ? (
+              <>AI가 생성한 데이터·결과물은 그대로 사용하지 말고, 반드시 사람이 검토·검증한 뒤 활용하세요. 최종 판단과 책임은 사람에게 있습니다 <strong>(Human in the Loop)</strong>.</>
+            ) : (
+              <>Never use AI-generated data or outputs as-is — always have a human review and verify them first. The final judgment and responsibility rest with people <strong>(human in the loop)</strong>.</>
+            )}
+          </span>
+        </div>
+
         <div className="footer-content">
           <div className="footer-brand">
             <div className="footer-logo">

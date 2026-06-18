@@ -7,6 +7,30 @@
     color: #94A3B8;
     padding: 60px 0 0;
 }
+/* Human-in-the-loop 공통 안내 (전 페이지) */
+.footer-hitl {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #1E293B;
+    border: 1px solid #334155;
+    border-left: 3px solid var(--accent-amber-light);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #CBD5E1;
+}
+.footer-hitl i {
+    flex: 0 0 auto;
+    color: var(--accent-amber-light);
+    font-size: 16px;
+    margin-top: 2px;
+}
+.footer-hitl strong {
+    color: #FFFFFF;
+}
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
