@@ -80,11 +80,15 @@ export default function ModelComparison() {
               <span>
                 {isKo ? (
                   <>
-                    <strong>대신 Opus 4.8을 사용하세요.</strong> 가용 모델 중 가장 강력하며, 복잡한 코딩·에이전트·장문 분석에서 최고 성능을 냅니다. 1M 컨텍스트를 표준 가격으로 제공해 Fable 5의 대부분 작업을 그대로 대체할 수 있습니다.
+                    <strong>대신 Opus 4.8을 사용하세요.</strong><br />
+                    가용 모델 중 가장 강력하며, 복잡한 코딩·에이전트·장문 분석에서 최고 성능을 냅니다.<br />
+                    1M 컨텍스트를 표준 가격으로 제공해 Fable 5의 대부분 작업을 그대로 대체할 수 있습니다.
                   </>
                 ) : (
                   <>
-                    <strong>Use Opus 4.8 instead.</strong> It is the most capable available model — top performance on complex coding, agents, and long-form analysis, with a 1M context window at standard pricing that covers most Fable 5 workloads.
+                    <strong>Use Opus 4.8 instead.</strong><br />
+                    It is the most capable available model — top performance on complex coding, agents, and long-form analysis.<br />
+                    Its 1M context window at standard pricing covers most Fable 5 workloads.
                   </>
                 )}
               </span>
