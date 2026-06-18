@@ -72,7 +72,6 @@ export default function Navbar() {
 
   const PROMPT_ITEMS = [
     { path: '/prompt-engineering', ko: '프롬프트 가이드', en: 'Prompt Guide', icon: 'fa-book' },
-    { path: '/prompt-evaluation', ko: '프롬프트 평가 실습', en: 'Prompt Evaluation', icon: 'fa-clipboard-check' },
     { path: '/prompt-practice', ko: '프롬프트 연습장', en: 'Prompt Playground', icon: 'fa-pen-to-square' },
     { path: '/prompt-gallery', ko: '프롬프트 갤러리', en: 'Prompt Gallery', icon: 'fa-images' },
   ];
